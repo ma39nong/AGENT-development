@@ -45,6 +45,7 @@ python3 scripts/check_model.py --model-dir /absolute/path/to/Qwen3-VL-4B-Instruc
 - [云API首批5条录像初标与后续路线（多图历史试跑）](docs/api_teacher_pilot_20261121.md)
 - [原始完整视频直传实测（当前优先路线）](docs/direct_video_api_20261121.md)
 - [Flash完整视频3次重复对照](docs/direct_video_flash_20261121.md)
+- [用户粗阶段原提示词复测](docs/user_coarse_prompt_retest_20261121.md)
 
 近期优先工作：沿用现有五阶段、四种Prompt和subtask，先用现有云API提取少量完整训练录像的计数候选，再复核纠错、消除跨分块重复，准备LoRA样本。不要求用户预先手工标完整细动作链。在线切换仍须因果回放验证。
 
