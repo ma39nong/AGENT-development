@@ -1,0 +1,83 @@
+{
+  "recording_count": 5,
+  "request_count": 23,
+  "api_s": {
+    "median": 8.647013840964064,
+    "min": 4.717013547895476,
+    "max": 21.022724382812157
+  },
+  "training_ready": false,
+  "control_eligible": false,
+  "limits": "Candidate counts are not true fruit counts. Phase mismatches and proximity only flag review; no silent repair or deduplication. Offline API timing is not online response latency.",
+  "prompt_versions": [
+    "c195769b0b3a34e36dc9957a20d0a6d35843a846d3b08e63bf659db479a7f5fd"
+  ],
+  "recordings": {
+    "b0f7213da83547b99aac45f6438b511e": {
+      "split": "train",
+      "chunks": 5,
+      "unique_success_count": null,
+      "review_status": "machine_unreviewed",
+      "requested_ranges_cover_recording": true,
+      "duration_s": 125.93333333333334,
+      "quarantined_chunk_count": 1
+    },
+    "4b1ae0e618d14710becb6e46ce34a8eb": {
+      "split": "train",
+      "chunks": 5,
+      "unique_success_count": null,
+      "review_status": "machine_unreviewed",
+      "requested_ranges_cover_recording": true,
+      "duration_s": 111.76666666666667,
+      "quarantined_chunk_count": 0
+    },
+    "90b3a5f50d814d09b4fcad9bb58723f9": {
+      "split": "train",
+      "chunks": 4,
+      "unique_success_count": null,
+      "review_status": "machine_unreviewed",
+      "requested_ranges_cover_recording": true,
+      "duration_s": 98.6,
+      "quarantined_chunk_count": 0
+    },
+    "beb9cb8932084ba98da999f24ab03259": {
+      "split": "train",
+      "chunks": 5,
+      "unique_success_count": null,
+      "review_status": "machine_unreviewed",
+      "requested_ranges_cover_recording": true,
+      "duration_s": 118.23333333333333,
+      "quarantined_chunk_count": 0
+    },
+    "c03971e9639d4d95b28565262aee20cc": {
+      "split": "train",
+      "chunks": 4,
+      "unique_success_count": null,
+      "review_status": "machine_unreviewed",
+      "requested_ranges_cover_recording": true,
+      "duration_s": 93.93333333333334,
+      "quarantined_chunk_count": 0
+    }
+  },
+  "raw_candidate_rows": 55,
+  "raw_candidate_results": {
+    "delivered": 40,
+    "held": 5,
+    "dropped_outside": 6,
+    "unknown": 4
+  },
+  "review_warnings": {
+    "detached_s_outside_demonstrated_harvest": 2,
+    "possible_cross_chunk_duplicate": 8,
+    "delivered_s_outside_demonstrated_harvest": 4
+  },
+  "quarantined_candidate_rows": 4,
+  "partial_visual_audit": {
+    "source_recording_id": "b0f7213da83547b99aac45f6438b511e",
+    "found_premature_delivery": true,
+    "example_reported_delivery_s": 24,
+    "visual_finding": "At 24s left fingers still hold fruit above tray; at 27s hand is empty. Exact release requires denser review.",
+    "all_recordings_fully_reviewed": false
+  },
+  "prior_prompt_diagnostic_requests": 4
+}

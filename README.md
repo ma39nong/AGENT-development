@@ -41,6 +41,15 @@ python3 scripts/check_model.py --model-dir /absolute/path/to/Qwen3-VL-4B-Instruc
 - [本地模型基线配置](configs/qwen3_vl_4b_baseline.json)
 - [LoRA 数据与标注约定](data/README.md)
 - [现有204条数据接入核查](docs/data_intake_20261121.md)
-- [单颗事件与决策补充标注](data/event_annotation_requirements.md)
+- [自动计数候选与复核范围](data/event_annotation_requirements.md)
+- [云API首批5条录像初标与后续路线](docs/api_teacher_pilot_20261121.md)
 
-近期优先工作：扩大人工核查集、标注成功事件与证据、明确待处理状态和技能建议真值，再准备LoRA试训。条件计划先在离线执行模拟器验证，通过后才进行旁路和受限自动执行。
+近期优先工作：沿用现有五阶段、四种Prompt和subtask，先用现有云API提取少量完整训练录像的计数候选，再复核纠错、消除跨分块重复，准备LoRA样本。不要求用户预先手工标完整细动作链。在线切换仍须因果回放验证。
+
+离线候选生成入口（关闭思考，不接机器人）：
+
+```bash
+.venv/bin/python scripts/annotate_video_api.py --review runs/data-intake-204-v2/review-SOURCE_ID.json --output runs/api-teacher-pilot/SOURCE_ID
+```
+
+脚本只接受train清单，SHA核对三路源视频，默认2fps、30秒分块、3秒重叠，三路等比缩放拼接。输出始终为待复核候选，无自动累计去重或训练导出。使用现有密钥文件，密钥不进入输出或Git。
