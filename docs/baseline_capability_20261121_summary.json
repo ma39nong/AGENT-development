@@ -1,0 +1,1439 @@
+{
+  "reference": {
+    "source_recording_id": "b0f7213da83547b99aac45f6438b511e",
+    "split": "train",
+    "status": "provisional_developer_visual_reference_not_independent_test_truth",
+    "supplied_to_models": false,
+    "coarse_boundaries_s": [
+      11.4,
+      46.9,
+      61.266666666666666,
+      121.0
+    ],
+    "full_successful_counts": [
+      3,
+      4
+    ],
+    "boundary_screen_tolerance_s": 2.0,
+    "counts_at_cutoffs": {
+      "27": 1,
+      "37": 2,
+      "47": 3,
+      "62": 3,
+      "77": 4,
+      "86": 5
+    },
+    "next_observed_detached_s": {
+      "37": 40.0,
+      "77": 81.0
+    },
+    "source_frame_rate": 30,
+    "timestamp_precision": "Approximate developer review. Two decimal formatting is not centisecond accuracy.",
+    "limitations": "Existing video is three successful deliveries before adjustment, not two. It cannot demonstrate a newly chosen two-plus-two or four-without-adjustment execution. Next-observed-detachment timestamps are conservative visual points, not measured irreversible action deadlines."
+  },
+  "full_local": [
+    {
+      "job": "full-cam0",
+      "total_s": 9.879794612992555,
+      "error": null,
+      "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-full/full-cam0.json",
+      "raw_output": "{\n  \"sequence_supported\": true,\n  \"segments\": [\n    {\n      \"phase_index\": 1,\n      \"label\": \"pickup\",\n      \"start_seconds\": 0,\n      \"end_seconds\": 45\n    },\n    {\n      \"phase_index\": 2,\n      \"label\": \"harvest\",\n      \"start_seconds\": 45,\n      \"end_seconds\": 100\n    },\n    {\n      \"phase_index\": 3,\n      \"label\": \"adjust\",\n      \"start_seconds\": 100,\n      \"end_seconds\": 115\n    },\n    {\n      \"phase_index\": 4,\n      \"label\": \"harvest\",\n      \"start_seconds\": 115,\n      \"end_seconds\": 120\n    },\n    {\n      \"phase_index\": 5,\n      \"label\": \"return\",\n      \"start_seconds\": 120,\n      \"end_seconds\": 126\n    }\n  ],\n  \"handoffs\": [\n    {\n      \"from_phase\": 1,\n      \"to_phase\": 2,\n      \"seconds\": 45,\n      \"observation\": \"右手持串到中间后停稳，左手从静止开始朝番茄串移动\",\n      \"needs_review\": false,\n      \"reason\": \"\"\n    },\n    {\n      \"from_phase\": 2,\n      \"to_phase\": 3,\n      \"seconds\": 100,\n      \"observation\": \"左手完成第一轮采摘后释放，右手开始调整番茄串位置\",\n      \"needs_review\": false,\n      \"reason\": \"\"\n    },\n    {\n      \"from_phase\": 3,\n      \"to_phase\": 4,\n      \"seconds\": 115,\n      \"observation\": \"右手完成调整后停稳，左手从左盘上方静止位置开始离盘向番茄串回程\",\n      \"needs_review\": false,\n      \"reason\": \"\"\n    },\n    {\n      \"from_phase\": 4,\n      \"to_phase\": 5,\n      \"seconds\": 120,\n      \"observation\": \"左手完成第二轮采摘后释放，右手开始持物向右盘回程\",\n      \"needs_review\": false,\n      \"reason\": \"\"\n    }\n  ],\n  \"harvest_summary\": {\n    \"first_harvest\": {\n      \"successful_count\": 3,\n      \"delivery_seconds\": [\n        45,\n        50,\n        55\n      ]\n    },\n    \"second_harvest\": {\n      \"successful_count\": 2,\n      \"delivery_seconds\": [\n        115,\n        120\n      ]\n    }\n  },\n  \"review_notes\": []\n}",
+      "sequence_supported": true,
+      "boundaries_s": [
+        45,
+        100,
+        115,
+        120
+      ],
+      "successful_counts": [
+        3,
+        2
+      ],
+      "boundary_delta_from_existing_annotation_s": [
+        33.6,
+        53.1,
+        53.733333333333334,
+        -1.0
+      ]
+    },
+    {
+      "job": "full-cam2",
+      "total_s": 4.404834137065336,
+      "error": null,
+      "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-full/full-cam2.json",
+      "raw_output": "{\n  \"sequence_supported\": false,\n  \"segments\": [],\n  \"handoffs\": [],\n  \"harvest_summary\": {\n    \"first_harvest\": {\n      \"successful_count\": null,\n      \"delivery_seconds\": []\n    },\n    \"second_harvest\": {\n      \"successful_count\": null,\n      \"delivery_seconds\": []\n    }\n  },\n  \"review_notes\": [\n    \"视频中未清晰观察到左手从静止开始移动到番茄串的起点（B1），也未观察到左手完成第一轮采摘后右手开始调整的起点（B2），以及左手从左盘上方静止位置开始回程的起点（B3）和右手开始向右盘回程的起点（B4）。关键动作的起始点无法确认，因此无法划分阶段。\"\n  ]\n}",
+      "sequence_supported": false,
+      "boundaries_s": [],
+      "successful_counts": [
+        null,
+        null
+      ],
+      "boundary_delta_from_existing_annotation_s": []
+    }
+  ],
+  "streaming": {
+    "local": {
+      "recent_only": {
+        "queries": 6,
+        "known_correct_totals": 0,
+        "unknown_totals": 6,
+        "structural_rejections": 0,
+        "total_s_median": 1.6632412384497002,
+        "rows": [
+          {
+            "cutoff_s": 27,
+            "expected_count_at_cutoff": 1,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 2.3692641579546034,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "机器人尚未成功投放任何番茄，且当前动作是采摘而非投放。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "机器人尚未成功投放任何番茄，且当前动作是采摘而非投放。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_only-027.json",
+            "count_matches_reference": false
+          },
+          {
+            "cutoff_s": 37,
+            "expected_count_at_cutoff": 2,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.5428610700182617,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "当前未确认任何果实已成功投放，且未完成调整，无法判断是否满足目标4的条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "当前未确认任何果实已成功投放，且未完成调整，无法判断是否满足two_then_two任务的条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_only-037.json",
+            "count_matches_reference": false,
+            "replay_earliest_response_source_time_s": 38.54286107001826,
+            "next_observed_detached_s": 40.0,
+            "response_after_next_observed_detachment": false
+          },
+          {
+            "cutoff_s": 47,
+            "expected_count_at_cutoff": 3,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.634959161048755,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "当前未观察到任何果实被成功投放，且执行器未完成调整，无法确认是否符合目标4的触发条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "当前未观察到任何果实被成功投放，且执行器未完成调整，无法确认是否符合two_then_two任务的触发条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_only-047.json",
+            "count_matches_reference": false
+          },
+          {
+            "cutoff_s": 62,
+            "expected_count_at_cutoff": 3,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.810354569926858,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到果实被摘下并放入盘中，且未确认调整完成状态，无法判断是否满足目标4条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且未确认调整完成状态，无法判断是否满足two_then_two任务条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_only-062.json",
+            "count_matches_reference": false
+          },
+          {
+            "cutoff_s": 77,
+            "expected_count_at_cutoff": 4,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.6915233158506453,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且当前动作未满足目标4的触发条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且当前动作未满足two_then_two的触发条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_only-077.json",
+            "count_matches_reference": false,
+            "replay_earliest_response_source_time_s": 78.69152331585065,
+            "next_observed_detached_s": 81.0,
+            "response_after_next_observed_detachment": false
+          },
+          {
+            "cutoff_s": 86,
+            "expected_count_at_cutoff": 5,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.562867813045159,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且当前执行器未释放果实，无法确认是否满足目标4的条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且当前执行器未释放果实，无法确认是否满足two_then_two任务的条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_only-086.json",
+            "count_matches_reference": false
+          }
+        ]
+      },
+      "recent_memory": {
+        "queries": 6,
+        "known_correct_totals": 0,
+        "unknown_totals": 6,
+        "structural_rejections": 0,
+        "total_s_median": 1.6872583666117862,
+        "rows": [
+          {
+            "cutoff_s": 27,
+            "expected_count_at_cutoff": 1,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 2.3950161021202803,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "机器人尚未成功投放任何番茄，且当前持果状态未明确，无法确认是否满足目标4的触发条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "机器人尚未成功投放任何番茄，且当前持果状态未明确，无法确认是否满足two_then_two任务的触发条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_memory-027.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 37,
+            "expected_count_at_cutoff": 2,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.539018007926643,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "当前未确认任何果实已成功投放，且未完成调整，无法判断是否满足目标4的条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "当前未确认任何果实已成功投放，且未完成调整，无法判断是否满足two_then_two任务的条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_memory-037.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "replay_earliest_response_source_time_s": 38.53901800792664,
+            "next_observed_detached_s": 40.0,
+            "response_after_next_observed_detachment": false
+          },
+          {
+            "cutoff_s": 47,
+            "expected_count_at_cutoff": 3,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.578564759111032,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "当前未确认任何果实已成功投放，且执行器未完成调整，无法判断是否满足目标4的条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "当前未确认任何果实已成功投放，且执行器未完成调整，无法判断是否满足two_then_two任务的条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_memory-047.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction",
+                "adjustment_not_acknowledged_complete"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 62,
+            "expected_count_at_cutoff": 3,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.8337880698964,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到果实被摘下并放入盘中，且未确认调整完成状态，无法判断是否满足目标4条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且未确认调整完成状态，无法判断是否满足two_then_two任务条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_memory-062.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 77,
+            "expected_count_at_cutoff": 4,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.7929692950565368,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且当前动作未明确符合目标4的调整或投放条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且当前动作未明确符合two_then_two任务的投放顺序或调整条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_memory-077.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "replay_earliest_response_source_time_s": 78.79296929505654,
+            "next_observed_detached_s": 81.0,
+            "response_after_next_observed_detachment": false
+          },
+          {
+            "cutoff_s": 86,
+            "expected_count_at_cutoff": 5,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 1.5815474381670356,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且当前执行器未完成调整，无法确认是否满足目标4的条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放，且当前执行器未完成调整，无法确认是否满足two_then_two任务的条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/recent_memory-086.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          }
+        ]
+      },
+      "prefix": {
+        "queries": 6,
+        "known_correct_totals": 0,
+        "unknown_totals": 6,
+        "structural_rejections": 0,
+        "total_s_median": 3.1092979526147246,
+        "rows": [
+          {
+            "cutoff_s": 27,
+            "expected_count_at_cutoff": 1,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 2.459619983099401,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放到盘中，且机器人当前仍持有番茄串，未满足目标4的触发条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何果实被成功投放到盘中，且机器人当前仍持有番茄串，未满足two_then_two任务的触发条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/prefix-027.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 37,
+            "expected_count_at_cutoff": 2,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 2.9370500438380986,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到盘中，且机器人仍持有番茄串，未满足目标4的触发条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到盘中，且机器人仍持有番茄串，未满足two_then_two的触发条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/prefix-037.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "replay_earliest_response_source_time_s": 39.9370500438381,
+            "next_observed_detached_s": 40.0,
+            "response_after_next_observed_detachment": false
+          },
+          {
+            "cutoff_s": 47,
+            "expected_count_at_cutoff": 3,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 3.193133599124849,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到果盘中，且当前未完成调整，无法确认是否满足目标4的条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到果盘中，且当前未完成调整，无法确认是否满足two_then_two任务的条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/prefix-047.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction",
+                "adjustment_not_acknowledged_complete"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 62,
+            "expected_count_at_cutoff": 3,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 3.324030891060829,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到果盘中，且当前未持有番茄，无法确认是否满足目标4的条件。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到果盘中，且当前未持有番茄，无法确认是否满足two_then_two任务的条件。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/prefix-062.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 77,
+            "expected_count_at_cutoff": 4,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 3.0404930962249637,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到盘中，且当前未完成采摘或调整动作。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到盘中，且当前未完成采摘或调整动作。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/prefix-077.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "replay_earliest_response_source_time_s": 80.04049309622496,
+            "next_observed_detached_s": 81.0,
+            "response_after_next_observed_detachment": false
+          },
+          {
+            "cutoff_s": 86,
+            "expected_count_at_cutoff": 5,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 3.1781028090044856,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到果盘中，且当前未完成采摘或调整动作。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "未观察到任何番茄被成功投放到果盘中，且当前未完成采摘或调整动作。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/local-stream/prefix-086.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          }
+        ]
+      }
+    },
+    "max_api": {
+      "recent_only": {
+        "queries": 6,
+        "known_correct_totals": 0,
+        "unknown_totals": 6,
+        "structural_rejections": 0,
+        "total_s_median": 3.728364200447686,
+        "rows": [
+          {
+            "cutoff_s": 27,
+            "expected_count_at_cutoff": 1,
+            "reported_total": null,
+            "events": [
+              26.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 3.7502311018761247,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently in harvest phase with one confirmed delivery; need to continue harvesting to reach the target of four before considering adjustment or return."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "Only one tomato has been successfully delivered so far; the task requires two successful deliveries before triggering an adjustment, so we must continue harvesting."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_only-027.json",
+            "count_matches_reference": false
+          },
+          {
+            "cutoff_s": 37,
+            "expected_count_at_cutoff": 2,
+            "reported_total": null,
+            "events": [
+              35.8
+            ],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 3.2256785549689084,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently in the harvest phase with only one confirmed delivery in this segment; total count is unknown in recent_only mode, so cannot verify if the target of four has been reached to trigger adjustment or return."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "Only one successful delivery is confirmed in this new segment; without prior history, it is uncertain if the first batch of two is complete, so no adjustment request can be made yet."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_only-037.json",
+            "count_matches_reference": false,
+            "replay_earliest_response_source_time_s": 40.22567855496891,
+            "next_observed_detached_s": 40.0,
+            "response_after_next_observed_detachment": true
+          },
+          {
+            "cutoff_s": 47,
+            "expected_count_at_cutoff": 3,
+            "reported_total": null,
+            "events": [
+              44.5
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 4.253948115045205,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently observing a harvest action (placing a tomato into the tray at ~44.5s); need to confirm total successful deliveries before deciding if 4 have been reached or if adjustment is needed."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "One delivery observed in this segment; without prior history, cannot confirm if the first two deliveries are complete to trigger the required adjustment phase."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_only-047.json",
+            "count_matches_reference": false
+          },
+          {
+            "cutoff_s": 62,
+            "expected_count_at_cutoff": 3,
+            "reported_total": null,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 3.6726456079632044,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "本段视频画面静止，未观察到任何摘果或投放动作，无法确认新增成功投放，暂不请求新Prompt。"
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "本段无可见操作，无法确认是否已完成前两颗投放或达到调整触发条件，保持等待。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_only-062.json",
+            "count_matches_reference": false
+          },
+          {
+            "cutoff_s": 77,
+            "expected_count_at_cutoff": 4,
+            "reported_total": null,
+            "events": [
+              76.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 3.738520009908825,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently in the middle of the harvest phase with one confirmed delivery; need to continue harvesting until 4 tomatoes are collected before requesting adjustment or return."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "Only one tomato has been successfully delivered so far; the task requires two successful deliveries before triggering an adjustment, so we must wait for the second delivery."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_only-077.json",
+            "count_matches_reference": false,
+            "replay_earliest_response_source_time_s": 80.73852000990883,
+            "next_observed_detached_s": 81.0,
+            "response_after_next_observed_detachment": false
+          },
+          {
+            "cutoff_s": 86,
+            "expected_count_at_cutoff": 5,
+            "reported_total": null,
+            "events": [
+              85.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 3.718208390986547,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently in the middle of the harvest phase with only one confirmed delivery in this segment; waiting to accumulate more successful placements before considering an adjustment or return."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "Only one successful delivery is confirmed in this recent fragment; need to reach two confirmed deliveries before triggering the first adjustment request."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_only-086.json",
+            "count_matches_reference": false
+          }
+        ]
+      },
+      "recent_memory": {
+        "queries": 6,
+        "known_correct_totals": 4,
+        "unknown_totals": 2,
+        "structural_rejections": 0,
+        "total_s_median": 5.106263961526565,
+        "rows": [
+          {
+            "cutoff_s": 27,
+            "expected_count_at_cutoff": 1,
+            "reported_total": 1,
+            "events": [
+              26.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 3.8992396220564842,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently holding and placing the first tomato; need to complete this harvest cycle before assessing if adjustment is needed for the remaining count."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "Only one tomato has been successfully delivered so far; the task requires two successful deliveries before triggering an adjustment, so we must continue harvesting."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_memory-027.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 37,
+            "expected_count_at_cutoff": 2,
+            "reported_total": 2,
+            "events": [
+              36.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 4.62416787003167,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "目前已确认成功投放2颗（历史1颗+本段1颗），尚未达到4颗的目标数量，且执行器仍在进行harvest动作，需等待后续采摘完成。"
+              },
+              "two_then_two": {
+                "request": "adjust",
+                "reason": "截至本片段结束（37.00s），已成功投放第2颗番茄（36.00s），满足'先成功投放两颗'的触发条件，且执行器尚未完成调整（executor_adjustment_completed: false），应请求adjust Prompt以进行中间调整。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_memory-037.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "replay_earliest_response_source_time_s": 41.62416787003167,
+            "next_observed_detached_s": 40.0,
+            "response_after_next_observed_detachment": true
+          },
+          {
+            "cutoff_s": 47,
+            "expected_count_at_cutoff": 3,
+            "reported_total": 3,
+            "events": [
+              44.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 5.828557567903772,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently at 3 confirmed deliveries; the robot is actively harvesting the 4th tomato (held in hand at end of clip), so no new prompt is needed until this delivery is confirmed or the count reaches 4 to trigger an adjustment/return."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "The first two deliveries are historically confirmed (26.0s, 36.0s). The executor is currently running 'adjust' (though not marked completed) and simultaneously performing a harvest action that results in a 3rd delivery (44.0s). Since the 'two then two' logic requires an adjustment after the first two before the next two, and the system is already in an adjust/harvest mixed state with 3 total, we wait for the current operation to settle and verify if the adjustment phase was properly respected or if we need to force a return/adjust after the 4th."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_memory-047.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "first_batch_count_violates_instruction",
+                "adjustment_not_acknowledged_complete"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 62,
+            "expected_count_at_cutoff": 3,
+            "reported_total": 3,
+            "events": [],
+            "uncertain": true,
+            "structural_valid": true,
+            "total_s": 4.433681471040472,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Historical records indicate 3 successful deliveries, but the current video segment (47s-62s) shows the robot arm remaining completely static with no visible harvesting or placement actions; unable to confirm the 4th delivery or current hand state to trigger the return phase."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "Historical records show 3 deliveries, satisfying the first 'two' condition, but the current segment displays no motion to confirm the completion of the second pair or the required adjustment; cannot verify task progression without observable action."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_memory-062.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 77,
+            "expected_count_at_cutoff": 4,
+            "reported_total": null,
+            "events": [
+              74.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 5.588360053021461,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Historical candidates suggest 3 prior deliveries and 1 new delivery is observed in this clip (totaling 4), but the robot arm is still holding a tomato at the end of the clip (77s) without releasing it into the tray, meaning the 4th successful drop is not fully confirmed and the hand is not empty to trigger return."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "Although historical data implies the first two drops occurred previously and a new drop happened at 74.00s, the robot is still holding a fruit at the cutoff time (77s), so the second batch of two is not yet complete and the hand is occupied, preventing a return request."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_memory-077.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "replay_earliest_response_source_time_s": 82.58836005302146,
+            "next_observed_detached_s": 81.0,
+            "response_after_next_observed_detachment": true
+          },
+          {
+            "cutoff_s": 86,
+            "expected_count_at_cutoff": 5,
+            "reported_total": null,
+            "events": [
+              85.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 6.20589779689908,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Historical candidates indicate 4 prior deliveries (26s, 36s, 44s, 74s), and this segment confirms a 5th delivery at 85.00s, exceeding the target of 4; however, since the executor is currently running 'harvest' and adjustment is marked completed, we wait for the current action to finish or for a return signal rather than interrupting with a new request immediately."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "The task requires two sets of two deliveries with an adjustment in between. Historical data shows deliveries at 26s, 36s (first pair), then 44s, 74s (second pair). The current delivery at 85.00s is a third pair or extra, violating the strict 'two then two' structure if no return happened after 74s. Since the executor is actively harvesting and adjustment is flagged complete, we wait to observe if a return occurs or if the sequence concludes before requesting further actions."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/recent_memory-086.json",
+            "count_matches_reference": false,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "target_already_exceeded"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "perception_or_history_uncertain",
+                "target_already_exceeded",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          }
+        ]
+      },
+      "prefix": {
+        "queries": 6,
+        "known_correct_totals": 6,
+        "unknown_totals": 0,
+        "structural_rejections": 0,
+        "total_s_median": 8.176379875512794,
+        "rows": [
+          {
+            "cutoff_s": 27,
+            "expected_count_at_cutoff": 1,
+            "reported_total": 1,
+            "events": [
+              26.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 3.5713528329506516,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently in the harvesting phase with only 1 confirmed delivery; need to continue harvesting until 4 tomatoes are placed before requesting adjustment or return."
+              },
+              "two_then_two": {
+                "request": "wait",
+                "reason": "Only 1 tomato has been successfully delivered so far; the task requires 2 successful deliveries before the first adjustment can be requested."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/prefix-027.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 37,
+            "expected_count_at_cutoff": 2,
+            "reported_total": 2,
+            "events": [
+              26.0,
+              36.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 6.368883050978184,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently in the harvesting phase with 2 confirmed deliveries; need to continue harvesting to reach the target of 4 before considering adjustment or return."
+              },
+              "two_then_two": {
+                "request": "adjust",
+                "reason": "Two successful deliveries have been confirmed (at 26.0s and 36.0s), satisfying the first part of the 'two then two' task requirement to trigger an adjustment."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/prefix-037.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "replay_earliest_response_source_time_s": 43.368883050978184,
+            "next_observed_detached_s": 40.0,
+            "response_after_next_observed_detachment": true
+          },
+          {
+            "cutoff_s": 47,
+            "expected_count_at_cutoff": 3,
+            "reported_total": 3,
+            "events": [
+              26.0,
+              36.0,
+              45.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 5.7878451170399785,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "目前已确认成功投放3颗，尚未达到4颗的目标数量，且左手在视频末尾仍持有一颗番茄未释放，需等待该颗投放完成或确认失败后再决定下一步。"
+              },
+              "two_then_two": {
+                "request": "adjust",
+                "reason": "已成功投放3颗，超过了第一阶段'先成功投放两颗'的要求，触发条件已满足，应请求调整Prompt以进入下一阶段（尽管执行器当前已在执行adjust但未完成，且实际采摘顺序未遵循预设的两颗后调整逻辑，此处按规则触发请求）。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/prefix-047.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "first_batch_count_violates_instruction",
+                "adjustment_not_acknowledged_complete"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 62,
+            "expected_count_at_cutoff": 3,
+            "reported_total": 3,
+            "events": [
+              26.0,
+              36.0,
+              45.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 16.483929629903287,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "wait",
+                "reason": "Currently 3 tomatoes have been successfully delivered to the tray; the target is 4, so we wait for the next harvest action to complete the fourth delivery before requesting return."
+              },
+              "two_then_two": {
+                "request": "adjust",
+                "reason": "Three tomatoes have been successfully delivered (at 26.0s, 36.0s, and 45.0s), which exceeds the first batch requirement of two. The task requires an adjustment after the first two successful deliveries before proceeding to the next two. Since the executor indicates adjustment is completed but the sequence has already violated the strict '2 then adjust then 2' flow by delivering a third, we flag the state. However, strictly following the logic: 2 delivered -> adjust needed. Now 3 delivered. The condition 'first two successful' was met at 36.0s. An adjustment should have happened then. Since it didn't, and now we are at 3, the specific 'two_then_two' structure is compromised. But looking at the current state, we have 3. The prompt asks to request based on trigger conditions. Trigger for adjust in two_then_two is 'after 2 successful'. That moment passed. If we assume the system allows late adjustment or if the 'adjustment_completed' flag from executor implies the internal state thinks it's done, we must evaluate. The executor says `executor_adjustment_completed: true`. This suggests the robot *thinks* it adjusted or the phase allows it. But visually, no distinct adjust pause occurred between 2nd and 3rd. Wait, the instruction says 'Do not assume adjustment completed just because executor says so' is not explicitly there, but 'Adjustment completion status comes from executor description, do not assume yourself'. Okay, executor says `true`. So adjustment is considered done. Then we need 2 more. We have 1 more (the 3rd). So we need 1 more to reach the second batch of 2. So we should wait for the 4th delivery. Thus, request is wait."
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/prefix-062.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          },
+          {
+            "cutoff_s": 77,
+            "expected_count_at_cutoff": 4,
+            "reported_total": 4,
+            "events": [
+              26.0,
+              36.0,
+              45.0,
+              76.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 10.649012889014557,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "return",
+                "reason": "已成功投放四颗番茄至果盘，满足摘四颗的任务目标，且执行器调整已完成，应请求放回动作。"
+              },
+              "two_then_two": {
+                "request": "return",
+                "reason": "前两颗已于26.0s和36.0s成功投放，后两颗于45.0s和76.0s成功投放，满足先二后二的触发条件，且调整已完成，应请求放回。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/prefix-077.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": true,
+              "issues": [],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "replay_earliest_response_source_time_s": 87.64901288901456,
+            "next_observed_detached_s": 81.0,
+            "response_after_next_observed_detachment": true
+          },
+          {
+            "cutoff_s": 86,
+            "expected_count_at_cutoff": 5,
+            "reported_total": 5,
+            "events": [
+              26.0,
+              36.0,
+              45.0,
+              76.0,
+              85.0
+            ],
+            "uncertain": false,
+            "structural_valid": true,
+            "total_s": 9.983876700047404,
+            "error": null,
+            "tasks": {
+              "target4": {
+                "request": "return",
+                "reason": "已成功投放5颗番茄，超过目标数量4颗，且当前左手已空，应执行放回动作结束任务。"
+              },
+              "two_then_two": {
+                "request": "return",
+                "reason": "已成功投放5颗番茄，满足先投放两颗、调整后（假设已完成）再投放两颗的要求（实际已超额），且当前左手已空，应执行放回动作。"
+              }
+            },
+            "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/max-stream-v2/prefix-086.json",
+            "count_matches_reference": true,
+            "target4_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "target_already_exceeded"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            },
+            "two_then_two_logical_guard": {
+              "logical_conditions_satisfied": false,
+              "issues": [
+                "target_already_exceeded",
+                "first_batch_count_violates_instruction"
+              ],
+              "visual_truth_verified": false,
+              "control_eligible": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  "robot_control_enabled": false,
+  "training_started": false,
+  "limits": "One development recording, not independent accuracy or real closed-loop execution. All event truths and transition times remain provisional developer references.",
+  "timeline_context_check": {
+    "answer": {
+      "phase": "harvest",
+      "delivery_seconds": [
+        26.0,
+        36.0,
+        45.0,
+        76.0
+      ],
+      "confirmed_total": 4,
+      "uncertain": false,
+      "target4": {
+        "request": "return",
+        "reason": "已成功投放四颗番茄至果盘，满足摘四颗的目标数量，且执行器已完成调整并恢复采摘，当前应结束任务并放回。"
+      },
+      "two_then_two": {
+        "request": "return",
+        "reason": "前两颗已在26s和36s成功投放，中间经历了调整（46.9s确认），后两颗在45s和76s成功投放，满足先二后二的触发条件，任务完成应请求放回。"
+      }
+    },
+    "total_s": 5.637192410882562,
+    "raw_result": "/home/user/AGENT-development/runs/baseline-capability-v1/timeline-context-check.json",
+    "two_then_two_logical_guard": {
+      "logical_conditions_satisfied": false,
+      "issues": [
+        "first_batch_count_violates_instruction"
+      ],
+      "visual_truth_verified": false,
+      "control_eligible": false
+    }
+  },
+  "screening_checks": {
+    "local": {
+      "all_prefix_counts_match_reference": false,
+      "required_requests_present": false,
+      "required_requests_before_next_observed_detachment": false,
+      "strict_order_not_falsely_declared_complete": true,
+      "full_video_coarse_stage_and_count": false
+    },
+    "max_api": {
+      "all_prefix_counts_match_reference": true,
+      "required_requests_present": true,
+      "required_requests_before_next_observed_detachment": false,
+      "strict_order_not_falsely_declared_complete": false
+    }
+  },
+  "screening_passed_by_backend": {
+    "local": false,
+    "max_api": false
+  },
+  "overall_screening_passed": false,
+  "diagnostic_incomplete_run_records": 7
+}

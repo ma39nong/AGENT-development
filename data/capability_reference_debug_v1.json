@@ -1,0 +1,14 @@
+{
+  "source_recording_id": "b0f7213da83547b99aac45f6438b511e",
+  "split": "train",
+  "status": "provisional_developer_visual_reference_not_independent_test_truth",
+  "supplied_to_models": false,
+  "coarse_boundaries_s": [11.4, 46.9, 61.266666666666666, 121.0],
+  "full_successful_counts": [3, 4],
+  "boundary_screen_tolerance_s": 2.0,
+  "counts_at_cutoffs": {"27": 1, "37": 2, "47": 3, "62": 3, "77": 4, "86": 5},
+  "next_observed_detached_s": {"37": 40.0, "77": 81.0},
+  "source_frame_rate": 30,
+  "timestamp_precision": "Approximate developer review. Two decimal formatting is not centisecond accuracy.",
+  "limitations": "Existing video is three successful deliveries before adjustment, not two. It cannot demonstrate a newly chosen two-plus-two or four-without-adjustment execution. Next-observed-detachment timestamps are conservative visual points, not measured irreversible action deadlines."
+}
