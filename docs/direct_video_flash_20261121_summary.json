@@ -1,0 +1,99 @@
+{
+  "source_recording_id": "b0f7213da83547b99aac45f6438b511e",
+  "recordings": 1,
+  "flash_requests": 3,
+  "same_video_sha_and_prompt_as_max": true,
+  "enable_thinking": false,
+  "client_frame_extraction": false,
+  "client_resize": false,
+  "client_chunking": false,
+  "sampling_parameters": "temperature/top_p omitted, provider defaults; not a deterministic decoding test",
+  "visual_reference": {
+    "detached": 8,
+    "delivered": 7,
+    "status": "prior_developer_contact_sheet_review_not_independent_ground_truth"
+  },
+  "flash": [
+    {
+      "repeat": 1,
+      "model": "qwen3.8-flash",
+      "http_status": 200,
+      "total_s": 11.719673780957237,
+      "reported_detached": 6,
+      "reported_delivered": 6,
+      "answer": "视频开始，机械手在番茄串上采摘并放入收集盘。\n\n1.  **第一颗**：\n    *   大约在00:20从串上摘下。\n    *   大约在00:35放入收集盘（成功投放）。\n2.  **第二颗**：\n    *   大约在00:40从串上摘下。\n    *   大约在00:44放入收集盘（成功投放）。\n3.  **第三颗**：\n    *   大约在01:11从串上摘下。\n    *   大约在01:16放入收集盘（成功投放）。\n4.  **第四颗**：\n    *   大约在01:29从串上摘下。\n    *   大约在01:36放入收集盘（成功投放）。\n5.  **第五颗**：\n    *   大约在01:41从串上摘下。\n    *   大约在01:47放入收集盘（成功投放）。\n6.  **第六颗**：\n    *   大约在01:51从串上摘下。\n    *   大约在01:58放入收集盘（成功投放）。\n\n**统计结果：**\n*   摘下总数：6颗\n*   成功投放总数：6次",
+      "usage": {
+        "prompt_tokens": 39066,
+        "total_tokens": 39364,
+        "completion_tokens": 298,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "video_tokens": 38950,
+          "text_tokens": 116
+        },
+        "completion_tokens_details": {
+          "text_tokens": 298
+        }
+      },
+      "metadata": "/home/user/AGENT-development/runs/direct-video-flash-v1/left-wrist/metadata.json",
+      "raw_result": "/home/user/AGENT-development/runs/direct-video-flash-v1/left-wrist/result.json"
+    },
+    {
+      "repeat": 2,
+      "model": "qwen3.8-flash",
+      "http_status": 200,
+      "total_s": 8.853133803000674,
+      "reported_detached": 5,
+      "reported_delivered": 5,
+      "answer": "根据视频画面，对番茄的采摘和投放过程按时间顺序分析如下：\n\n**第1颗：**\n*   **摘下时间：** 约在 `00:20` 从藤蔓上摘离。\n*   **放入时间：** 约在 `00:26` 放入左上方的收集盘中（成功留在盘内）。\n\n**第2颗：**\n*   **摘下时间：** 约在 `00:31` 从藤蔓上摘离。\n*   **放入时间：** 约在 `00:45` 放入右上方的收集盘中（成功留在盘内）。\n\n**第3颗：**\n*   **摘下时间：** 约在 `01:08` 从藤蔓上摘离。\n*   **放入时间：** 约在 `01:16` 放入左上方收集盘时掉落到了桌面上，随后在 `01:25` 再次将其放入该收集盘中（最终成功留在盘内）。\n\n**第4颗：**\n*   **摘下时间：** 约在 `01:31` 从藤蔓上摘离。\n*   **放入时间：** 约在 `01:37` 放入右上方收集盘时掉落到了桌面上，随后在 `01:46` 再次将其放入该收集盘中（最终成功留在盘内）。\n\n**第5颗：**\n*   **摘下时间：** 约在 `01:52` 从藤蔓上摘离。\n*   **放入时间：** 约在 `02:00` 放入左上方收集盘中（成功留在盘内）。\n\n---\n\n**统计结果：**\n*   **摘下总数：** 5颗\n*   **成功投放总数：** 5颗",
+      "usage": {
+        "prompt_tokens": 39066,
+        "total_tokens": 39451,
+        "completion_tokens": 385,
+        "prompt_tokens_details": {
+          "cached_tokens": 38912,
+          "video_tokens": 38950,
+          "text_tokens": 116
+        },
+        "completion_tokens_details": {
+          "text_tokens": 385
+        }
+      },
+      "metadata": "/home/user/AGENT-development/runs/direct-video-flash-v1/left-wrist-repeat-2/metadata.json",
+      "raw_result": "/home/user/AGENT-development/runs/direct-video-flash-v1/left-wrist-repeat-2/result.json"
+    },
+    {
+      "repeat": 3,
+      "model": "qwen3.8-flash",
+      "http_status": 200,
+      "total_s": 3.1080804760567844,
+      "reported_detached": null,
+      "reported_delivered": null,
+      "answer": "视频画面中并没有出现番茄被采摘放入收集盘的动作，无法回答。",
+      "usage": {
+        "prompt_tokens": 39066,
+        "total_tokens": 39083,
+        "completion_tokens": 17,
+        "prompt_tokens_details": {
+          "cached_tokens": 38912,
+          "video_tokens": 38950,
+          "text_tokens": 116
+        },
+        "completion_tokens_details": {
+          "text_tokens": 17
+        }
+      },
+      "metadata": "/home/user/AGENT-development/runs/direct-video-flash-v1/left-wrist-repeat-3/metadata.json",
+      "raw_result": "/home/user/AGENT-development/runs/direct-video-flash-v1/left-wrist-repeat-3/result.json"
+    }
+  ],
+  "max_reference": {
+    "requests": 1,
+    "total_s": 17.264281908981502,
+    "reported_detached": 8,
+    "reported_delivered": 7,
+    "raw_result": "/home/user/AGENT-development/runs/direct-video-api-v2/left-wrist/result.json"
+  },
+  "training_ready": false,
+  "limits": "One recording, 3 Flash repeats and 1 earlier Max answer. No general accuracy or tail-latency estimate. Later Flash repeats hit provider prompt cache and outputs have different lengths."
+}
