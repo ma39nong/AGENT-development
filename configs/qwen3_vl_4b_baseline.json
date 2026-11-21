@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "mode": "offline_baseline",
+  "model": {
+    "repo_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "local_dir_env": "QWEN_MODEL_DIR",
+    "variant": "Instruct",
+    "thinking": false,
+    "trust_remote_code": false
+  },
+  "inputs": {
+    "views": ["head", "left_wrist", "right_wrist", "head_crop"],
+    "head_crop_source": "head",
+    "require_source_timestamps": true,
+    "require_crop_provenance": true,
+    "allow_future_observations": false
+  },
+  "task": {
+    "goal_from_request": true,
+    "success_metric": "confirmed_delivery",
+    "fixed_round_quotas": null,
+    "max_unresolved_attempts": 1
+  },
+  "execution": {
+    "robot_control_enabled": false,
+    "automatic_skill_switch_enabled": false
+  },
+  "training": {
+    "enabled": false,
+    "method": "lora",
+    "initial_scope": "language_side_with_frozen_vision",
+    "hyperparameters_status": "select_after_baseline_and_memory_measurement"
+  }
+}
