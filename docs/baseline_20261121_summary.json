@@ -1,0 +1,660 @@
+{
+  "date": "2026-11-21",
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "mode": "offline_debug",
+  "training_performed": false,
+  "robot_started": false,
+  "coexecution_with_pi05_tested": false,
+  "source_recordings": 2,
+  "windows": 4,
+  "limits": [
+    "Previously examined debug windows; no independent test-set accuracy.",
+    "Greedy repeats reuse the same windows, not independent trials.",
+    "Task target 5/confirmed 4 is synthetic context, not an actual robot run.",
+    "head_crop is fixed diagnostic cropping of current head pixels, not detector or Fovea output.",
+    "Latency begins with already extracted image files; excludes event visibility, camera decode/extraction, live scheduling and motion handoff.",
+    "Schema/time checks do not prove the cited pixels show the event.",
+    "No causal conclusion about number of views: image tokens and total pixel budget differ."
+  ],
+  "groups": {
+    "local-4b-four-view-256k-v1": {
+      "n": 8,
+      "include_crop": true,
+      "max_pixels_per_image": 262144,
+      "median_request_s": 2.1886383614037186,
+      "min_request_s": 1.2079616449773312,
+      "max_request_s": 2.377858032938093,
+      "model_load_s": 1.5075868659187108,
+      "peak_allocated_gib": 11.44410753250122,
+      "peak_reserved_gib": 12.48828125,
+      "complete_and_structural": 6,
+      "window_label_and_structure_match": 4,
+      "abstain": 0,
+      "raw_false_positive": 0,
+      "positive_visual_evidence_accepted_after_debug_audit": 0,
+      "next_skill_correctness_assessed": false,
+      "prompt_sha256": "3f6a7853ed5431a64607b90a4e1c9724e90fb389605796d512101941ebb812b3",
+      "runner_sha256": "1fb8dce6bdfb215879658eda4c65fd82a9dbbc54fc2ef7c0c3ea279675d4f59c",
+      "records": [
+        {
+          "case": "success_a",
+          "repeat": 0,
+          "d": 0,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 2.377858032938093
+        },
+        {
+          "case": "success_b",
+          "repeat": 0,
+          "d": 1,
+          "label": 1,
+          "complete_and_structural": false,
+          "validation": {
+            "valid": false,
+            "error": "Evidence timestamps not strictly increasing",
+            "executable": false
+          },
+          "seconds": 2.1727519328705966,
+          "cited_evidence": {
+            "h": {
+              "i": 2,
+              "time_s": 60.0,
+              "view": "left_wrist"
+            },
+            "r": {
+              "i": 4,
+              "time_s": 60.5,
+              "view": "head"
+            },
+            "e": {
+              "i": 6,
+              "time_s": 60.5,
+              "view": "left_wrist"
+            }
+          },
+          "manual_debug_evidence_audit": "failed: cited release precedes observed delivery; success_a release citation still holds fruit; success_b citations are before delivery"
+        },
+        {
+          "case": "held_not_released",
+          "repeat": 0,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.2621975971851498
+        },
+        {
+          "case": "empty_approach",
+          "repeat": 0,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 2.2045247899368405
+        },
+        {
+          "case": "success_a",
+          "repeat": 1,
+          "d": 0,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 2.246104044141248
+        },
+        {
+          "case": "success_b",
+          "repeat": 1,
+          "d": 1,
+          "label": 1,
+          "complete_and_structural": false,
+          "validation": {
+            "valid": false,
+            "error": "Evidence timestamps not strictly increasing",
+            "executable": false
+          },
+          "seconds": 2.2296257640700787,
+          "cited_evidence": {
+            "h": {
+              "i": 2,
+              "time_s": 60.0,
+              "view": "left_wrist"
+            },
+            "r": {
+              "i": 4,
+              "time_s": 60.5,
+              "view": "head"
+            },
+            "e": {
+              "i": 6,
+              "time_s": 60.5,
+              "view": "left_wrist"
+            }
+          },
+          "manual_debug_evidence_audit": "failed: cited release precedes observed delivery; success_a release citation still holds fruit; success_b citations are before delivery"
+        },
+        {
+          "case": "held_not_released",
+          "repeat": 1,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.2079616449773312
+        },
+        {
+          "case": "empty_approach",
+          "repeat": 1,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 2.1342023259494454
+        }
+      ]
+    },
+    "local-4b-four-view-v1": {
+      "n": 8,
+      "include_crop": true,
+      "max_pixels_per_image": 65536,
+      "median_request_s": 0.9428947659907863,
+      "min_request_s": 0.6154595811385661,
+      "max_request_s": 1.304784679086879,
+      "model_load_s": 1.5370095130056143,
+      "peak_allocated_gib": 9.53026294708252,
+      "peak_reserved_gib": 10.037109375,
+      "complete_and_structural": 8,
+      "window_label_and_structure_match": 2,
+      "abstain": 4,
+      "raw_false_positive": 0,
+      "positive_visual_evidence_accepted_after_debug_audit": 0,
+      "next_skill_correctness_assessed": false,
+      "prompt_sha256": "3f6a7853ed5431a64607b90a4e1c9724e90fb389605796d512101941ebb812b3",
+      "runner_sha256": null,
+      "records": [
+        {
+          "case": "success_a",
+          "repeat": 0,
+          "d": -1,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": -1,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.304784679086879
+        },
+        {
+          "case": "success_b",
+          "repeat": 0,
+          "d": 0,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 0.91747717699036
+        },
+        {
+          "case": "held_not_released",
+          "repeat": 0,
+          "d": -1,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": -1,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 0.6185726299881935
+        },
+        {
+          "case": "empty_approach",
+          "repeat": 0,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 0.9180645120795816
+        },
+        {
+          "case": "success_a",
+          "repeat": 1,
+          "d": -1,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": -1,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 0.9925977310631424
+        },
+        {
+          "case": "success_b",
+          "repeat": 1,
+          "d": 0,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.0040049790404737
+        },
+        {
+          "case": "held_not_released",
+          "repeat": 1,
+          "d": -1,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": -1,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 0.6154595811385661
+        },
+        {
+          "case": "empty_approach",
+          "repeat": 1,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 0.9677250199019909
+        }
+      ]
+    },
+    "local-4b-three-view-256k-v1": {
+      "n": 8,
+      "include_crop": false,
+      "max_pixels_per_image": 262144,
+      "median_request_s": 1.9476579369511455,
+      "min_request_s": 1.0375747650396079,
+      "max_request_s": 2.0880717779509723,
+      "model_load_s": 1.5285712671466172,
+      "peak_allocated_gib": 11.022809982299805,
+      "peak_reserved_gib": 11.75,
+      "complete_and_structural": 8,
+      "window_label_and_structure_match": 8,
+      "abstain": 0,
+      "raw_false_positive": 0,
+      "positive_visual_evidence_accepted_after_debug_audit": 0,
+      "next_skill_correctness_assessed": false,
+      "prompt_sha256": "3f6a7853ed5431a64607b90a4e1c9724e90fb389605796d512101941ebb812b3",
+      "runner_sha256": "1fb8dce6bdfb215879658eda4c65fd82a9dbbc54fc2ef7c0c3ea279675d4f59c",
+      "records": [
+        {
+          "case": "success_a",
+          "repeat": 0,
+          "d": 1,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 1,
+              "h": 0,
+              "r": 6,
+              "e": 8,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 2.0880717779509723,
+          "cited_evidence": {
+            "h": {
+              "i": 0,
+              "time_s": 16.0,
+              "view": "head"
+            },
+            "r": {
+              "i": 6,
+              "time_s": 16.5,
+              "view": "left_wrist"
+            },
+            "e": {
+              "i": 8,
+              "time_s": 17.0,
+              "view": "head"
+            }
+          },
+          "manual_debug_evidence_audit": "failed: cited release precedes observed delivery; success_a release citation still holds fruit; success_b citations are before delivery"
+        },
+        {
+          "case": "success_b",
+          "repeat": 0,
+          "d": 1,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 1,
+              "h": 3,
+              "r": 8,
+              "e": 12,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.9123179819434881,
+          "cited_evidence": {
+            "h": {
+              "i": 3,
+              "time_s": 60.0,
+              "view": "right_wrist"
+            },
+            "r": {
+              "i": 8,
+              "time_s": 61.0,
+              "view": "head"
+            },
+            "e": {
+              "i": 12,
+              "time_s": 61.5,
+              "view": "head"
+            }
+          },
+          "manual_debug_evidence_audit": "failed: cited release precedes observed delivery; success_a release citation still holds fruit; success_b citations are before delivery"
+        },
+        {
+          "case": "held_not_released",
+          "repeat": 0,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.0375747650396079
+        },
+        {
+          "case": "empty_approach",
+          "repeat": 0,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.849773502908647
+        },
+        {
+          "case": "success_a",
+          "repeat": 1,
+          "d": 1,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 1,
+              "h": 0,
+              "r": 6,
+              "e": 8,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.982997891958803,
+          "cited_evidence": {
+            "h": {
+              "i": 0,
+              "time_s": 16.0,
+              "view": "head"
+            },
+            "r": {
+              "i": 6,
+              "time_s": 16.5,
+              "view": "left_wrist"
+            },
+            "e": {
+              "i": 8,
+              "time_s": 17.0,
+              "view": "head"
+            }
+          },
+          "manual_debug_evidence_audit": "failed: cited release precedes observed delivery; success_a release citation still holds fruit; success_b citations are before delivery"
+        },
+        {
+          "case": "success_b",
+          "repeat": 1,
+          "d": 1,
+          "label": 1,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 1,
+              "h": 3,
+              "r": 8,
+              "e": 12,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 2.02595131797716,
+          "cited_evidence": {
+            "h": {
+              "i": 3,
+              "time_s": 60.0,
+              "view": "right_wrist"
+            },
+            "r": {
+              "i": 8,
+              "time_s": 61.0,
+              "view": "head"
+            },
+            "e": {
+              "i": 12,
+              "time_s": 61.5,
+              "view": "head"
+            }
+          },
+          "manual_debug_evidence_audit": "failed: cited release precedes observed delivery; success_a release citation still holds fruit; success_b citations are before delivery"
+        },
+        {
+          "case": "held_not_released",
+          "repeat": 1,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 1.0905203281436116
+        },
+        {
+          "case": "empty_approach",
+          "repeat": 1,
+          "d": 0,
+          "label": 0,
+          "complete_and_structural": true,
+          "validation": {
+            "valid": true,
+            "answer": {
+              "d": 0,
+              "h": null,
+              "r": null,
+              "e": null,
+              "next_skill": "observe"
+            },
+            "visual_evidence_audited": false,
+            "executable": false
+          },
+          "seconds": 2.0470904770772904
+        }
+      ]
+    }
+  },
+  "total_generations": 24
+}
