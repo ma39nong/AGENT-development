@@ -42,11 +42,18 @@ python3 scripts/check_model.py --model-dir /absolute/path/to/Qwen3-VL-4B-Instruc
 - [LoRA 数据与标注约定](data/README.md)
 - [现有204条数据接入核查](docs/data_intake_20261121.md)
 - [自动计数候选与复核范围](data/event_annotation_requirements.md)
-- [云API首批5条录像初标与后续路线](docs/api_teacher_pilot_20261121.md)
+- [云API首批5条录像初标与后续路线（多图历史试跑）](docs/api_teacher_pilot_20261121.md)
+- [原始完整视频直传实测（当前优先路线）](docs/direct_video_api_20261121.md)
 
 近期优先工作：沿用现有五阶段、四种Prompt和subtask，先用现有云API提取少量完整训练录像的计数候选，再复核纠错、消除跨分块重复，准备LoRA样本。不要求用户预先手工标完整细动作链。在线切换仍须因果回放验证。
 
-离线候选生成入口（关闭思考，不接机器人）：
+当前优先完整视频直传，自然语言回答后再整理候选：
+
+```bash
+.venv/bin/python scripts/test_direct_video_api.py --review runs/data-intake-204-v2/review-SOURCE_ID.json --camera cam2 --prompt-file prompts/direct_video_count_zh.txt --output runs/direct-video/SOURCE_ID
+```
+
+下面保留旧多图对照入口（关闭思考，不接机器人）：
 
 ```bash
 .venv/bin/python scripts/annotate_video_api.py --review runs/data-intake-204-v2/review-SOURCE_ID.json --output runs/api-teacher-pilot/SOURCE_ID
