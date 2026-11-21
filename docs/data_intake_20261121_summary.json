@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-21",
+  "source_lock_sha256": "c6e60835121e9f4cd1f6480eb018647359c4e34f01c5d1e2b42f2c0092ead332",
+  "counts": {
+    "train": 151,
+    "historical_test": 12,
+    "val": 21,
+    "blind_test": 20
+  },
+  "summary": {
+    "packages": 13,
+    "recordings": 204,
+    "frames": 588734,
+    "train_val_coarse_inspected": 172,
+    "heldout_recordings_sealed": 32,
+    "available_original_video_files": 291,
+    "resolved_train_val_video_files": 516,
+    "fallback_video_hashes_verified": 238,
+    "train_val_recordings_with_all_three_videos": 172,
+    "availability_checked_by_file_presence_only": true,
+    "video_pixels_decoded": false,
+    "all_video_hashes_verified": false,
+    "parquet_rows_verified": false,
+    "per_fruit_events_verified": false,
+    "ready_for_qwen_training": false
+  },
+  "warnings": [
+    "Root manifest declares training_ready=false; later coarse sidecars are checked separately, not auto-approved for Qwen SFT."
+  ],
+  "pilot": [
+    {
+      "source_recording_id": "4b1ae0e618d14710becb6e46ce34a8eb",
+      "split": "train",
+      "package": "B/1112_821_1011_normal",
+      "episode_index": 0,
+      "review_status": "unreviewed",
+      "task_goal_count": null
+    },
+    {
+      "source_recording_id": "90b3a5f50d814d09b4fcad9bb58723f9",
+      "split": "train",
+      "package": "A/1114_1056_1082_normal",
+      "episode_index": 1,
+      "review_status": "unreviewed",
+      "task_goal_count": null
+    },
+    {
+      "source_recording_id": "b0f7213da83547b99aac45f6438b511e",
+      "split": "train",
+      "package": "A/1112_820_1014_normal",
+      "episode_index": 0,
+      "review_status": "unreviewed",
+      "task_goal_count": null
+    },
+    {
+      "source_recording_id": "beb9cb8932084ba98da999f24ab03259",
+      "split": "train",
+      "package": "B/1113_1018_1033_normal",
+      "episode_index": 0,
+      "review_status": "unreviewed",
+      "task_goal_count": null
+    },
+    {
+      "source_recording_id": "c03971e9639d4d95b28565262aee20cc",
+      "split": "train",
+      "package": "A/1113_1017_1049_normal",
+      "episode_index": 0,
+      "review_status": "unreviewed",
+      "task_goal_count": null
+    }
+  ],
+  "limits": [
+    "Metadata and file-presence inventory, not full decode/synchronization validation.",
+    "Train/val coarse annotations checked against frozen hashes; heldout annotations and video pixels were not read.",
+    "238 missing mirror video files resolved through explicitly allowed original import root with matching annotation SHA256.",
+    "Existing primary video bytes have not all been hashed; per-fruit labels remain unreviewed."
+  ]
+}

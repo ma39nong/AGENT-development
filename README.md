@@ -40,5 +40,7 @@ python3 scripts/check_model.py --model-dir /absolute/path/to/Qwen3-VL-4B-Instruc
 - [部署接口草案](docs/deployment_interface.md)
 - [本地模型基线配置](configs/qwen3_vl_4b_baseline.json)
 - [LoRA 数据与标注约定](data/README.md)
+- [现有204条数据接入核查](docs/data_intake_20261121.md)
+- [单颗事件与决策补充标注](data/event_annotation_requirements.md)
 
 近期优先工作：扩大人工核查集、标注成功事件与证据、明确待处理状态和技能建议真值，再准备LoRA试训。条件计划先在离线执行模拟器验证，通过后才进行旁路和受限自动执行。
