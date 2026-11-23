@@ -58,3 +58,9 @@
 正式训练已以独立进程启动，PID和命令见runs/coarse_prefix_lora_20261123_launch.json；当前先评估初始adapter的前缀验证基线，再进行189次更新。日志runs/coarse_prefix_lora_20261123_v1.log。训练尚未完成，不能据此声称在线准确率已改善。
 
 本轮配置与数据摘要：[数据摘要](coarse_prefix_lora_20261123_data_summary.json)。观察记忆已实际保存17次回放候选，查询与重启测试通过；未将它们用作训练答案。
+
+## 输入方案比较前停止训练
+
+用户要求先比较近期窗口和受限记忆，再训练。此前正式作业已在第20步自动检查点保存后收到SIGINT停止，`runs/coarse_prefix_lora_20261123_v1/checkpoint-0020`完整保留；状态文件记录stopped_before_window_memory_comparison。终端的KeyboardInterrupt对应这次主动停止，不是训练数值失败。没有继续进行189步，也未自动启动另一轮训练。
+
+输入对照统一使用此前已完成的完整录像best LoRA，不使用这个20步中间权重，避免模型变化混入窗口对比。

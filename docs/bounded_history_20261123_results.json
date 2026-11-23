@@ -1,0 +1,396 @@
+{
+  "date": "2026-11-23",
+  "calls": 312,
+  "protocols": [
+    {
+      "adapter": "/home/user/AGENT-development/runs/coarse_lora_20261123_v1/best",
+      "adapter_sha256": "58ef89f2cf6e8c6ebc4b993d91ded000b2376796edbaa311f1a60f51262f1add",
+      "recording_ids": [
+        "205d3e6ee77f4221b22c39e6894a1086",
+        "3040dfd24ed042dfae8fc61f5af3e6c4",
+        "31b624bfd7d44443bf08164b7af006d3"
+      ],
+      "split": "validation",
+      "modes": [
+        [
+          "prefix",
+          null,
+          false
+        ],
+        [
+          "window8",
+          8,
+          false
+        ],
+        [
+          "window16",
+          16,
+          false
+        ],
+        [
+          "window32",
+          32,
+          false
+        ],
+        [
+          "memory8",
+          8,
+          true
+        ],
+        [
+          "memory16",
+          16,
+          true
+        ],
+        [
+          "memory32",
+          32,
+          true
+        ]
+      ],
+      "probes_per_mode": 39,
+      "training": false,
+      "robot_control": false,
+      "history": "previous actual model candidates only, at most 2 distinct label/index candidates and 2 original sampled frames; 384 text-token budget",
+      "memory_availability": "observation cutoff and estimated result receipt must be <= current cutoff",
+      "sampling": "annotation-stratified phase midpoints and +/-1s boundary probes; labels used only for coverage/scoring",
+      "limitations": "Frozen whole-video adapter, new short-output prompt. Offline causal probes, not continuous live execution; receipt estimate excludes queue/transport; no persistent KV reuse."
+    },
+    {
+      "adapter": "/home/user/AGENT-development/runs/coarse_lora_20261123_v1/best",
+      "adapter_sha256": "58ef89f2cf6e8c6ebc4b993d91ded000b2376796edbaa311f1a60f51262f1add",
+      "recording_ids": [
+        "205d3e6ee77f4221b22c39e6894a1086",
+        "3040dfd24ed042dfae8fc61f5af3e6c4",
+        "31b624bfd7d44443bf08164b7af006d3"
+      ],
+      "split": "validation",
+      "modes": [
+        [
+          "memory8_current_frame",
+          8,
+          true
+        ]
+      ],
+      "probes_per_mode": 39,
+      "training": false,
+      "robot_control": false,
+      "explicit_newest_frame": true,
+      "history": "previous actual model candidates only, at most 2 distinct label/index candidates and 2 original sampled frames; 384 text-token budget",
+      "memory_availability": "observation cutoff and estimated result receipt must be <= current cutoff",
+      "sampling": "annotation-stratified phase midpoints and +/-1s boundary probes; labels used only for coverage/scoring",
+      "limitations": "Frozen whole-video adapter, new short-output prompt. Offline causal probes, not continuous live execution; receipt estimate excludes queue/transport; no persistent KV reuse."
+    }
+  ],
+  "prompt": {
+    "template": "你是双臂番茄采摘任务的在线观察员，只判断当前时刻正在进行的粗阶段，不预测未来，不控制机器人，不计数。\n右手持番茄串，左手采摘放入左侧方形果盘。pickup=右手拿起并送到中间；harvest=左手靠近、摘果、送盘、释放和交接前等待；adjust=投放结束后右手主动调整持串位置或朝向；return=最后投放结束后右手持物向右盘回程。采摘中的小幅配合不算调整。等待不意味着下一阶段开始。\n视频只是截至当前的一个窗口，可能不从任务起点开始。视频内0秒对应本次观测的window_start_seconds，不能把窗口结尾当作任务结束。历史图片带有各自的源时间，不能当作当前画面。\n若提供history_candidates，它们只是以前模型未核实的判断，可能错误或过期。必须结合当前画面和历史原始图判断，不能因为历史说已放回就继续复述放回；冲突或缺证据时可返回unknown。\n当前数据通常为拿起、采摘、调整、再采摘、放回；仅在有证据时填写全任务中的阶段序号1到5，两轮采摘分别为2和4，无法区分时填null。不要补齐未发生的阶段。\n只输出一个简短JSON，不输出segments或长篇解释：{\"phase\":\"pickup或harvest或adjust或return或unknown\",\"phase_index\":整数或null,\"uncertain\":true或false,\"reason\":\"一句可见证据\"}。\n",
+    "sha256": "6b747158ff1132eb0ada2811666181de8023959a819522e23ec25457410c2b63"
+  },
+  "summaries": {
+    "prefix": {
+      "samples": 39,
+      "valid_outputs": 39,
+      "current_label_accuracy_all": 0.15384615384615385,
+      "current_phase_index_accuracy_all": 0.15384615384615385,
+      "median_prepare_generate_s": 2.0583216070663184,
+      "max_prepare_generate_s": 2.7652015949133784,
+      "median_input_tokens": 10302,
+      "max_input_tokens": 13043,
+      "abstentions": 0,
+      "history_items_total": 0
+    },
+    "window8": {
+      "samples": 39,
+      "valid_outputs": 39,
+      "current_label_accuracy_all": 0.3076923076923077,
+      "current_phase_index_accuracy_all": 0.1794871794871795,
+      "median_prepare_generate_s": 0.8452578010037541,
+      "max_prepare_generate_s": 1.0370699418708682,
+      "median_input_tokens": 2337,
+      "max_input_tokens": 2341,
+      "abstentions": 0,
+      "history_items_total": 0
+    },
+    "window16": {
+      "samples": 39,
+      "valid_outputs": 39,
+      "current_label_accuracy_all": 0.41025641025641024,
+      "current_phase_index_accuracy_all": 0.28205128205128205,
+      "median_prepare_generate_s": 1.1422066199593246,
+      "max_prepare_generate_s": 1.3705482902005315,
+      "median_input_tokens": 4327,
+      "max_input_tokens": 4331,
+      "abstentions": 0,
+      "history_items_total": 0
+    },
+    "window32": {
+      "samples": 39,
+      "valid_outputs": 39,
+      "current_label_accuracy_all": 0.4358974358974359,
+      "current_phase_index_accuracy_all": 0.20512820512820512,
+      "median_prepare_generate_s": 1.7506050139199942,
+      "max_prepare_generate_s": 1.893554164096713,
+      "median_input_tokens": 8311,
+      "max_input_tokens": 8315,
+      "abstentions": 0,
+      "history_items_total": 0
+    },
+    "memory8": {
+      "samples": 39,
+      "valid_outputs": 39,
+      "current_label_accuracy_all": 0.5128205128205128,
+      "current_phase_index_accuracy_all": 0.3076923076923077,
+      "median_prepare_generate_s": 0.9343603448942304,
+      "max_prepare_generate_s": 1.128320663003251,
+      "median_input_tokens": 2731,
+      "max_input_tokens": 2760,
+      "abstentions": 0,
+      "history_items_total": 57
+    },
+    "memory16": {
+      "samples": 39,
+      "valid_outputs": 39,
+      "current_label_accuracy_all": 0.5128205128205128,
+      "current_phase_index_accuracy_all": 0.3076923076923077,
+      "median_prepare_generate_s": 1.2214225770439953,
+      "max_prepare_generate_s": 1.4136741359252483,
+      "median_input_tokens": 4717,
+      "max_input_tokens": 4750,
+      "abstentions": 0,
+      "history_items_total": 51
+    },
+    "memory32": {
+      "samples": 39,
+      "valid_outputs": 39,
+      "current_label_accuracy_all": 0.4358974358974359,
+      "current_phase_index_accuracy_all": 0.20512820512820512,
+      "median_prepare_generate_s": 1.7729294730816036,
+      "max_prepare_generate_s": 1.9278139651287347,
+      "median_input_tokens": 8507,
+      "max_input_tokens": 8736,
+      "abstentions": 0,
+      "history_items_total": 29
+    },
+    "memory8_current_frame": {
+      "samples": 39,
+      "valid_outputs": 39,
+      "current_label_accuracy_all": 0.38461538461538464,
+      "current_phase_index_accuracy_all": 0.3076923076923077,
+      "median_prepare_generate_s": 0.8970927949994802,
+      "max_prepare_generate_s": 1.116098882863298,
+      "median_input_tokens": 3010,
+      "max_input_tokens": 3046,
+      "abstentions": 0,
+      "history_items_total": 60
+    }
+  },
+  "class_diagnostics": {
+    "prefix": {
+      "class_counts": {
+        "pickup": 6,
+        "harvest": 18,
+        "adjust": 9,
+        "return": 6
+      },
+      "correct_by_class": {
+        "pickup": 6,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 0
+      },
+      "predicted_counts": {
+        "pickup": 38,
+        "harvest": 1
+      },
+      "macro_recall": 0.25,
+      "uncertain_responses": 0,
+      "joint_label_index_correct": 6,
+      "wrong_return_predictions": 0
+    },
+    "window8": {
+      "class_counts": {
+        "pickup": 6,
+        "harvest": 18,
+        "adjust": 9,
+        "return": 6
+      },
+      "correct_by_class": {
+        "pickup": 6,
+        "harvest": 6,
+        "adjust": 0,
+        "return": 0
+      },
+      "predicted_counts": {
+        "pickup": 28,
+        "harvest": 11
+      },
+      "macro_recall": 0.3333333333333333,
+      "uncertain_responses": 0,
+      "joint_label_index_correct": 7,
+      "wrong_return_predictions": 0
+    },
+    "window16": {
+      "class_counts": {
+        "pickup": 6,
+        "harvest": 18,
+        "adjust": 9,
+        "return": 6
+      },
+      "correct_by_class": {
+        "pickup": 6,
+        "harvest": 10,
+        "adjust": 0,
+        "return": 0
+      },
+      "predicted_counts": {
+        "pickup": 14,
+        "harvest": 25
+      },
+      "macro_recall": 0.3888888888888889,
+      "uncertain_responses": 0,
+      "joint_label_index_correct": 11,
+      "wrong_return_predictions": 0
+    },
+    "window32": {
+      "class_counts": {
+        "pickup": 6,
+        "harvest": 18,
+        "adjust": 9,
+        "return": 6
+      },
+      "correct_by_class": {
+        "pickup": 6,
+        "harvest": 11,
+        "adjust": 0,
+        "return": 0
+      },
+      "predicted_counts": {
+        "pickup": 13,
+        "harvest": 26
+      },
+      "macro_recall": 0.4027777777777778,
+      "uncertain_responses": 0,
+      "joint_label_index_correct": 8,
+      "wrong_return_predictions": 0
+    },
+    "memory8": {
+      "class_counts": {
+        "pickup": 6,
+        "harvest": 18,
+        "adjust": 9,
+        "return": 6
+      },
+      "correct_by_class": {
+        "pickup": 6,
+        "harvest": 14,
+        "adjust": 0,
+        "return": 0
+      },
+      "predicted_counts": {
+        "pickup": 11,
+        "harvest": 28
+      },
+      "macro_recall": 0.4444444444444444,
+      "uncertain_responses": 0,
+      "joint_label_index_correct": 12,
+      "wrong_return_predictions": 0
+    },
+    "memory16": {
+      "class_counts": {
+        "pickup": 6,
+        "harvest": 18,
+        "adjust": 9,
+        "return": 6
+      },
+      "correct_by_class": {
+        "pickup": 6,
+        "harvest": 14,
+        "adjust": 0,
+        "return": 0
+      },
+      "predicted_counts": {
+        "pickup": 10,
+        "harvest": 29
+      },
+      "macro_recall": 0.4444444444444444,
+      "uncertain_responses": 0,
+      "joint_label_index_correct": 12,
+      "wrong_return_predictions": 0
+    },
+    "memory32": {
+      "class_counts": {
+        "pickup": 6,
+        "harvest": 18,
+        "adjust": 9,
+        "return": 6
+      },
+      "correct_by_class": {
+        "pickup": 6,
+        "harvest": 11,
+        "adjust": 0,
+        "return": 0
+      },
+      "predicted_counts": {
+        "pickup": 13,
+        "harvest": 26
+      },
+      "macro_recall": 0.4027777777777778,
+      "uncertain_responses": 0,
+      "joint_label_index_correct": 8,
+      "wrong_return_predictions": 0
+    },
+    "memory8_current_frame": {
+      "class_counts": {
+        "pickup": 6,
+        "harvest": 18,
+        "adjust": 9,
+        "return": 6
+      },
+      "correct_by_class": {
+        "pickup": 3,
+        "harvest": 6,
+        "adjust": 0,
+        "return": 6
+      },
+      "predicted_counts": {
+        "harvest": 10,
+        "pickup": 6,
+        "return": 21,
+        "adjust": 2
+      },
+      "macro_recall": 0.4583333333333333,
+      "uncertain_responses": 0,
+      "joint_label_index_correct": 12,
+      "wrong_return_predictions": 15
+    }
+  },
+  "matched_memory_effects": {
+    "8": {
+      "label_helped": 8,
+      "label_harmed": 0
+    },
+    "16": {
+      "label_helped": 4,
+      "label_harmed": 0
+    },
+    "32": {
+      "label_helped": 0,
+      "label_harmed": 0
+    }
+  },
+  "always_harvest_baseline": {
+    "correct": 18,
+    "total": 39,
+    "accuracy": 0.46153846153846156
+  },
+  "checks": {
+    "same_frozen_adapter": true,
+    "same_observation_points": true,
+    "sampled_frames_within_window": true,
+    "bounded_history_text_and_images": true,
+    "historical_evidence_hashes_checked": true,
+    "historical_results_available_before_query": true
+  },
+  "new_training_started": false,
+  "previous_training_saved_step": 20
+}
