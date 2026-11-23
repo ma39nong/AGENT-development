@@ -1,0 +1,172 @@
+{
+  "protocol": {
+    "model": "qwen3.8-flash",
+    "source_recording_id": "b0f7213da83547b99aac45f6438b511e",
+    "split": "train",
+    "source_video_sha256": "3c1683af41a9314077fc9c739784a2c9e9ca33a95eff01b3e36921bc4dd25f0a",
+    "camera": "cam0",
+    "fps": 30.0,
+    "window_seconds": 8,
+    "cadence_seconds": 2,
+    "requests_maximum": 63,
+    "enable_thinking": false,
+    "prompt": "你是双臂番茄采摘任务的在线观察员，只判断当前时刻正在进行的粗阶段，不预测未来，不控制机器人，不计数。\n右手持番茄串，左手采摘放入左侧方形果盘。pickup=右手拿起并送到中间；harvest=左手靠近、摘果、送盘、释放和交接前等待；adjust=投放结束后右手主动调整持串位置或朝向；return=最后投放结束后右手持物向右盘回程。采摘中的小幅配合不算调整。等待不意味着下一阶段开始。\n视频只是截至当前的一个窗口，可能不从任务起点开始。视频内0秒对应本次观测的window_start_seconds，不能把窗口结尾当作任务结束。历史候选只含以前的文字判断，不是当前画面。\n若提供history_candidates，它们只是以前模型未核实的判断，可能错误或过期。必须结合当前画面判断，不能因为历史说已放回就继续复述放回；冲突或缺证据时可返回unknown。\n当前数据通常为拿起、采摘、调整、再采摘、放回；仅在有证据时填写全任务中的阶段序号1到5，两轮采摘分别为2和4，无法区分时填null。不要补齐未发生的阶段。\n只输出一个简短JSON，不输出segments或长篇解释：{\"phase\":\"pickup或harvest或adjust或return或unknown\",\"phase_index\":整数或null,\"uncertain\":true或false,\"reason\":\"一句可见证据\"}。\n",
+    "memory": "up to two actually returned unverified own candidates",
+    "input": "native video_url MP4; no still-image inputs, no resizing, original frame clock; h264 re-encoding",
+    "server_sampling": "provider controlled, not measured",
+    "no_retries": true,
+    "control": false,
+    "counting": false,
+    "limitations": "Offline fixed-cadence replay. No real-time scheduler/backpressure; source-clock availability estimates assume requests could launch at cadence; no robot commands."
+  },
+  "strict_json": {
+    "samples": 63,
+    "valid": 47,
+    "correct": 35,
+    "accuracy": 0.5555555555555556,
+    "per_class_recall": {
+      "pickup": 0.0,
+      "harvest": 0.7291666666666666,
+      "adjust": 0.0,
+      "return": 0.0
+    },
+    "confusion": {
+      "pickup": {
+        "pickup": 0,
+        "harvest": 5,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 1,
+        "harvest": 35,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 12
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 4,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 3
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 2,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 1
+      }
+    },
+    "false_return_count": 0,
+    "median_api_s": 2.233657405944541,
+    "max_request_cycle_s": 16.265236130915582,
+    "median_request_cycle_s": 2.793193159159273
+  },
+  "phase_after_removing_only_complete_json_fences": {
+    "samples": 63,
+    "valid": 61,
+    "correct": 45,
+    "accuracy": 0.7142857142857143,
+    "per_class_recall": {
+      "pickup": 0.0,
+      "harvest": 0.9375,
+      "adjust": 0.0,
+      "return": 0.0
+    },
+    "confusion": {
+      "pickup": {
+        "pickup": 0,
+        "harvest": 5,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 1,
+        "harvest": 45,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 2
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 7,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 3,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "false_return_count": 0,
+    "median_api_s": 2.233657405944541,
+    "max_request_cycle_s": 16.265236130915582,
+    "median_request_cycle_s": 2.793193159159273
+  },
+  "fenced_json_recovered": 14,
+  "transitions": [
+    {
+      "from": "pickup",
+      "to": "harvest",
+      "reference_boundary_seconds": 11.4,
+      "first_correct_observation_cutoff": 14.0,
+      "estimated_result_source_seconds": 15.886239470914006,
+      "estimated_observed_to_result_after_boundary_s": 4.486239470914006,
+      "premature_new_phase_probes_in_previous_4s": 2
+    },
+    {
+      "from": "harvest",
+      "to": "adjust",
+      "reference_boundary_seconds": 46.9,
+      "first_correct_observation_cutoff": null,
+      "estimated_result_source_seconds": null,
+      "estimated_observed_to_result_after_boundary_s": null,
+      "premature_new_phase_probes_in_previous_4s": 0
+    },
+    {
+      "from": "adjust",
+      "to": "harvest",
+      "reference_boundary_seconds": 61.266666666666666,
+      "first_correct_observation_cutoff": 62.0,
+      "estimated_result_source_seconds": 78.26523613091558,
+      "estimated_observed_to_result_after_boundary_s": 16.998569464248916,
+      "premature_new_phase_probes_in_previous_4s": 2
+    },
+    {
+      "from": "harvest",
+      "to": "return",
+      "reference_boundary_seconds": 121.0,
+      "first_correct_observation_cutoff": null,
+      "estimated_result_source_seconds": null,
+      "estimated_observed_to_result_after_boundary_s": null,
+      "premature_new_phase_probes_in_previous_4s": 0
+    }
+  ],
+  "api_exceed_2s_count": 50,
+  "cycle_exceed_2s_count": 59,
+  "video_tokens_reported_count": 63,
+  "max_api_s": 15.716572103090584,
+  "limitations": [
+    "one previously inspected train recording, no general accuracy estimate",
+    "fixed-cadence offline source probes, actual HTTP calls sequential; not a live streaming scheduler",
+    "normalization is posthoc scoring only, original strict failures remained excluded from replay memory",
+    "result source times estimate independent launches; queueing/backpressure/robot execution not measured",
+    "counts not tested; no automatic control"
+  ]
+}
