@@ -1,0 +1,42 @@
+{
+  "samples": 273,
+  "prepare_generate_seconds": {
+    "min": 0.5515912920236588,
+    "p50": 0.7690032990649343,
+    "p90": 0.8059812896419316,
+    "p95": 0.8273555628489702,
+    "p99": 0.846854448309168,
+    "max": 0.9472760611679405
+  },
+  "latest_sample_age_at_cutoff_seconds": {
+    "min": 0.4999999999999982,
+    "p50": 0.5,
+    "p90": 0.5600000000000004,
+    "p95": 0.6666666666666665,
+    "p99": 0.8093333333333322,
+    "max": 0.8666666666666663
+  },
+  "estimated_latest_sample_age_at_result_seconds": {
+    "min": 1.109270573252191,
+    "p50": 1.2719301199540496,
+    "p90": 1.3221571727190167,
+    "p95": 1.338321581017226,
+    "p99": 1.522921784368652,
+    "max": 1.613942727834607
+  },
+  "combined_exceeds": {
+    "0.5": 273,
+    "1": 273,
+    "1.5": 4,
+    "2": 0
+  },
+  "input_tokens": {
+    "min": 1095,
+    "p50": 2744,
+    "p90": 2785.0,
+    "p95": 2786.0,
+    "p99": 2789.2799999999997,
+    "max": 2790
+  },
+  "interpretation": "offline independently-issued source-time estimate; excludes physical clip creation, camera/queue/transport/robot skill handoff; not event confirmation delay or live control latency"
+}

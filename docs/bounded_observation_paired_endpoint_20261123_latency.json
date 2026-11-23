@@ -1,0 +1,62 @@
+{
+  "default_sampling": {
+    "samples": 39,
+    "correct": 34,
+    "false_return": 1,
+    "processing_p50_s": 0.7664891330059618,
+    "processing_p95_s": 0.8165984592866152,
+    "processing_max_s": 0.9472760611679405,
+    "latest_frame_age_at_cutoff_p50_s": 0.5,
+    "estimated_age_at_result_p50_s": 1.2715763770975173,
+    "estimated_age_at_result_p95_s": 1.4299533648509533,
+    "estimated_age_at_result_max_s": 1.613942727834607
+  },
+  "through_latest_frame": {
+    "samples": 39,
+    "correct": 37,
+    "false_return": 1,
+    "processing_p50_s": 0.7861948551144451,
+    "processing_p95_s": 0.8526754942024126,
+    "processing_max_s": 0.9343992408830673,
+    "latest_frame_age_at_cutoff_p50_s": 0.03333333333333144,
+    "estimated_age_at_result_p50_s": 0.8195281884477783,
+    "estimated_age_at_result_p95_s": 0.8860088275357505,
+    "estimated_age_at_result_max_s": 0.9677325742164005
+  },
+  "changes": [
+    {
+      "recording": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 1269,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "improved": true
+    },
+    {
+      "recording": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 1368,
+      "target": "harvest",
+      "before": "adjust",
+      "after": "harvest",
+      "improved": true
+    },
+    {
+      "recording": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1119,
+      "target": "harvest",
+      "before": "adjust",
+      "after": "harvest",
+      "improved": true
+    }
+  ],
+  "scope": "39 matched validation probes; same third-round weights, prompt and sample count, own evolving candidate histories; no robot control",
+  "excluded": [
+    "camera capture",
+    "wait until next request",
+    "physical clip encode",
+    "queue",
+    "transport",
+    "skill handoff"
+  ],
+  "estimated_age_definition": "offline independent source-clock launch estimate; latest sampled frame source time to predicted result receipt, not detected event-to-action latency"
+}
