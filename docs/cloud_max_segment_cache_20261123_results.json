@@ -1,0 +1,166 @@
+{
+  "run_status": {
+    "status": "complete",
+    "completed": 8
+  },
+  "mode_summary": {
+    "full": {
+      "samples": 4,
+      "strict_valid": 4,
+      "median_s": 2.904520916985348,
+      "max_s": 9.837163746124133
+    },
+    "segmented": {
+      "samples": 4,
+      "strict_valid": 4,
+      "median_s": 4.593359115999192,
+      "max_s": 6.178934179013595
+    }
+  },
+  "cases": {
+    "B4-+1": {
+      "first_control_s": 3.0041067521087825,
+      "last_control_s": 2.7173167429864407,
+      "middle_treatment_median_s": 4.338891265913844,
+      "same_answer_all_four": true,
+      "requests": [
+        {
+          "mode": "full",
+          "seconds": 3.0041067521087825,
+          "headers_s": 3.0040172869339585,
+          "cached_tokens": 0,
+          "video_tokens": 30390,
+          "completion_tokens": 22,
+          "payload_bytes": 11569443,
+          "socket_fingerprint": "7711570a95be4161",
+          "answer": {
+            "completion": "yes",
+            "decision": "handoff",
+            "next_skill": "return"
+          }
+        },
+        {
+          "mode": "segmented",
+          "seconds": 6.047692464897409,
+          "headers_s": 6.0476060239598155,
+          "cached_tokens": 15360,
+          "video_tokens": 30358,
+          "completion_tokens": 22,
+          "payload_bytes": 11570805,
+          "socket_fingerprint": "7711570a95be4161",
+          "answer": {
+            "completion": "yes",
+            "decision": "handoff",
+            "next_skill": "return"
+          }
+        },
+        {
+          "mode": "segmented",
+          "seconds": 2.630090066930279,
+          "headers_s": 2.6299996699672192,
+          "cached_tokens": 30720,
+          "video_tokens": 30358,
+          "completion_tokens": 22,
+          "payload_bytes": 11570805,
+          "socket_fingerprint": "7711570a95be4161",
+          "answer": {
+            "completion": "yes",
+            "decision": "handoff",
+            "next_skill": "return"
+          }
+        },
+        {
+          "mode": "full",
+          "seconds": 2.7173167429864407,
+          "headers_s": 2.7172251630108804,
+          "cached_tokens": 30720,
+          "video_tokens": 30390,
+          "completion_tokens": 22,
+          "payload_bytes": 11569443,
+          "socket_fingerprint": "7711570a95be4161",
+          "answer": {
+            "completion": "yes",
+            "decision": "handoff",
+            "next_skill": "return"
+          }
+        }
+      ]
+    },
+    "B4--1": {
+      "first_control_s": 9.837163746124133,
+      "last_control_s": 2.804935081861913,
+      "middle_treatment_median_s": 4.658979973057285,
+      "same_answer_all_four": true,
+      "requests": [
+        {
+          "mode": "full",
+          "seconds": 9.837163746124133,
+          "headers_s": 9.837064150953665,
+          "cached_tokens": 0,
+          "video_tokens": 29890,
+          "completion_tokens": 22,
+          "payload_bytes": 11405169,
+          "socket_fingerprint": "7711570a95be4161",
+          "answer": {
+            "completion": "yes",
+            "decision": "handoff",
+            "next_skill": "return"
+          }
+        },
+        {
+          "mode": "segmented",
+          "seconds": 6.178934179013595,
+          "headers_s": 6.178828953998163,
+          "cached_tokens": 0,
+          "video_tokens": 29860,
+          "completion_tokens": 30,
+          "payload_bytes": 11406531,
+          "socket_fingerprint": "7711570a95be4161",
+          "answer": {
+            "completion": "yes",
+            "decision": "handoff",
+            "next_skill": "return"
+          }
+        },
+        {
+          "mode": "segmented",
+          "seconds": 3.139025767100975,
+          "headers_s": 3.1389195199590176,
+          "cached_tokens": 29952,
+          "video_tokens": 29860,
+          "completion_tokens": 22,
+          "payload_bytes": 11406531,
+          "socket_fingerprint": "7711570a95be4161",
+          "answer": {
+            "completion": "yes",
+            "decision": "handoff",
+            "next_skill": "return"
+          }
+        },
+        {
+          "mode": "full",
+          "seconds": 2.804935081861913,
+          "headers_s": 2.804835226852447,
+          "cached_tokens": 29952,
+          "video_tokens": 29890,
+          "completion_tokens": 22,
+          "payload_bytes": 11405169,
+          "socket_fingerprint": "7711570a95be4161",
+          "answer": {
+            "completion": "yes",
+            "decision": "handoff",
+            "next_skill": "return"
+          }
+        }
+      ]
+    }
+  },
+  "max_body_read_after_headers_s": 0.00010624714195728302,
+  "limitations": [
+    "tiny fixed-case ABBA test; no independent p95/p99 estimate",
+    "provider cache and queue are not controlled; first control vs middle treatments alone cannot prove speedup",
+    "headers wait includes connection/upload/proxy/provider compute; cannot separate these without telemetry",
+    "unchanged model answers do not independently establish visual completion accuracy",
+    "no robot control or gate-policy changes"
+  ]
+}

@@ -51,3 +51,7 @@ qwen3.8-max，enable_thinking=false，response_format=json_object，max_tokens=9
 - 测试：`tests/test_handoff_gate.py`
 
 此前自动跟进配置也已收敛为这一固定路线，并保留原 PAUSED 状态，没有擅自恢复自动运行。无新增批量付费、训练、计数、V-JEPA 或 π0.5 变更。
+
+## 用户后续要求：在固定路线内提速
+
+已完成12次连接复用及8次保留全部视觉帧的视频分段对照，只用原固定案例、原Max、原完成条件，无模型或提示词扫参。结果见 `docs/cloud_max_latency_20261123.md`。两项均未证明稳定提速，不将其作为已解决延迟的部署默认；也不通过放宽完成条件或门控换速度。
