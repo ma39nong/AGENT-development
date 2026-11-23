@@ -41,6 +41,8 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--model',choices=['qwen3.8-flash','qwen3.8-max'],default='qwen3.8-flash')
+    p.add_argument('--prompt-file',type=Path)
+    p.add_argument('--fixed-context-run',type=Path,help='Prompt-only comparison using exact prior unverified context at each cutoff')
     args=p.parse_args()
     root=Path(__file__).resolve().parents[1]
     args.output.mkdir(parents=True,exist_ok=False)
@@ -51,8 +53,13 @@ def main():
     seg=json.loads(Path(source['annotation']).read_text())['segments']
     fps=source['fps'];ends=list(range(round(2*fps),source['frames'],round(2*fps)))+[source['frames']]
     template=(root/'prompts/bounded_history_probe_zh.txt').read_text().replace('历史图片带有各自的源时间，不能当作当前画面。','历史候选只含以前的文字判断，不是当前画面。').replace('和历史原始图','')
+    if args.prompt_file:
+        template=args.prompt_file.read_text()
+    fixed={r['cutoff_frame']:r for r in map(json.loads,(args.fixed_context_run/'predictions.jsonl').read_text().splitlines())} if args.fixed_context_run else None
+    if fixed is not None and set(fixed)!=set(ends):raise ValueError('fixed replay cutoff mismatch')
     save(args.output/'protocol.json',{'model':args.model,'source_recording_id':source['source_recording_id'],'split':'train',
         'source_video_sha256':source['video_sha256'],'camera':'cam0','fps':fps,'window_seconds':8,'cadence_seconds':2,
+        'fixed_context_run':str(args.fixed_context_run) if args.fixed_context_run else None,'prompt_sha256':__import__('hashlib').sha256(template.encode()).hexdigest(),
         'requests_maximum':len(ends),'enable_thinking':False,'prompt':template,'memory':'up to two actually returned unverified own candidates',
         'input':'native video_url MP4; no still-image inputs, no resizing, original frame clock; h264 re-encoding',
         'server_sampling':'provider controlled, not measured','no_retries':True,'control':False,'counting':False,
@@ -68,7 +75,8 @@ def main():
                 '-c:v','libx264','-threads','1','-preset','ultrafast','-crf','18',str(clip)],check=True)
             cap=cv2.VideoCapture(str(clip));count=int(cap.get(cv2.CAP_PROP_FRAME_COUNT));actual_fps=cap.get(cv2.CAP_PROP_FPS);cap.release()
             if count!=cutoff-start or abs(actual_fps-fps)>.01:raise ValueError('frame clock mismatch')
-            history=available_history(results,cutoff/fps)
+            if fixed is not None and digest(clip)!=fixed[cutoff]['clip_sha256']:raise ValueError('video differs from fixed-context baseline')
+            history=fixed[cutoff]['history'] if fixed is not None else available_history(results,cutoff/fps)
             context={'window_start_seconds':start/fps,'observation_cutoff_seconds':cutoff/fps,'history_candidates':history}
             payload={'model':args.model,'enable_thinking':False,'stream':False,'max_tokens':160,
                      'messages':[{'role':'user','content':[{'type':'video_url','video_url':{'url':'data:video/mp4;base64,'+base64.b64encode(clip.read_bytes()).decode()}},
