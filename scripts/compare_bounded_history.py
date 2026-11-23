@@ -1,5 +1,7 @@
 """Frozen-model causal probes: full prefix vs bounded windows with/without memory."""
 import argparse
+import hashlib
+import shutil
 from collections import Counter
 import json
 from pathlib import Path
@@ -64,6 +66,19 @@ def summarize(rows):
             "history_items_total": sum(len(r["history"]) for r in rows)}
 
 
+def training_cutoffs(segments, fps, recording_id, boundary_focus=False):
+    cutoffs = [(s["start_frame"]+s["end_frame"])//2 for s in segments]
+    if boundary_focus:
+        if [s["label"] for s in segments] != ["pickup", "harvest", "adjust", "harvest", "return"]:
+            raise ValueError("boundary-focus experiment requires reviewed five-phase sequence")
+        index = (1, 3)[int(hashlib.sha256(recording_id.encode()).hexdigest()[:8], 16) % 2]
+        stage = segments[index]
+        cutoffs[index] = min(stage["end_frame"], stage["start_frame"]+max(1, round(fps)))
+    if len(set(cutoffs)) != len(segments):
+        raise ValueError("duplicate training probes")
+    return set(cutoffs)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--output", type=Path, required=True)
@@ -72,7 +87,10 @@ def main():
     p.add_argument("--only-mode", choices=["prefix", "window8", "window16", "window32", "memory8", "memory16", "memory32"])
     p.add_argument("--current-frame", action="store_true", help="Exploratory explicit newest-frame input after history")
     p.add_argument("--prepare-training", action="store_true", help="Frozen candidate rollout on train/val midpoints; export bounded SFT inputs")
+    p.add_argument("--boundary-focus", action="store_true", help="Train-only fixed-budget sampling ablation; copy original validation inputs")
     args = p.parse_args()
+    if args.boundary_focus and (not args.prepare_training or args.current_frame):
+        raise ValueError("boundary focus requires training preparation without current-frame ablation")
     if args.output.exists():
         raise ValueError("output exists")
     root = Path(__file__).resolve().parents[1]
@@ -80,7 +98,7 @@ def main():
     data = root/"data/derived/coarse_sft_20261123_v1"
     rows = sorted([json.loads(s) for s in (data/"val.jsonl").read_text().splitlines()], key=lambda r: r["source_recording_id"])[:args.recordings]
     if args.prepare_training:
-        rows = [json.loads(s) for split in ("train", "val") for s in (data/(split+".jsonl")).read_text().splitlines()]
+        rows = [json.loads(s) for split in (("train",) if args.boundary_focus else ("train", "val")) for s in (data/(split+".jsonl")).read_text().splitlines()]
     modes = [("prefix", None, False)]+[(f"window{w}", w, False) for w in (8, 16, 32)]+[(f"memory{w}", w, True) for w in (8, 16, 32)]
     if args.only_mode:
         modes = [m for m in modes if m[0] == args.only_mode]
@@ -96,7 +114,7 @@ def main():
         if row["split"] not in ({"train", "val"} if args.prepare_training else {"val"}) or digest(Path(row["video"])) != row["video_sha256"] or digest(Path(row["annotation"])) != row["annotation_sha256"]:
             raise ValueError("validation identity changed")
         segments = json.loads(Path(row["annotation"]).read_text())["segments"]
-        cutoffs = {(s["start_frame"]+s["end_frame"])//2 for s in segments}
+        cutoffs = training_cutoffs(segments, row["fps"], row["source_recording_id"], args.boundary_focus)
         for s in ([] if args.prepare_training else segments[:-1]):
             cutoffs.update([s["end_frame"]-round(row["fps"]), s["end_frame"]+round(row["fps"])])
         for cutoff in sorted(c for c in cutoffs if 0 < c < row["frames"]):
@@ -104,12 +122,13 @@ def main():
             phase = next(i for i, s in enumerate(segments, 1) if s["start_frame"] <= cutoff-1 < s["end_frame"])
             jobs.append({"row": row, "cutoff_frame": cutoff, "target_phase": segments[phase-1]["label"], "target_index": phase})
     write_json(args.output/"protocol.json", {"adapter": str(adapter), "adapter_sha256": digest(adapter/"adapter_model.safetensors"),
-        "recording_ids": [r["source_recording_id"] for r in rows], "split": "train_and_val" if args.prepare_training else "validation",
+        "recording_ids": [r["source_recording_id"] for r in rows], "split": "train_with_copied_validation" if args.boundary_focus else ("train_and_val" if args.prepare_training else "validation"),
+        "boundary_focus": args.boundary_focus,
         "modes": modes, "probes_per_mode": len(jobs), "training": False, "robot_control": False,
         "explicit_newest_frame": args.current_frame,
         "history": "previous actual model candidates only, at most 2 distinct label/index candidates and 2 original sampled frames; 384 text-token budget",
         "memory_availability": "observation cutoff and estimated result receipt must be <= current cutoff",
-        "sampling": "annotation-stratified phase midpoints and +/-1s boundary probes; labels used only for coverage/scoring",
+        "sampling": "one harvest midpoint per training recording replaced by start+1s; other midpoints retained; original validation copied" if args.boundary_focus else "annotation-stratified phase midpoints and +/-1s boundary probes; labels used only for coverage/scoring",
         "limitations": "Frozen whole-video adapter, new short-output prompt. Offline causal probes, not continuous live execution; receipt estimate excludes queue/transport; no persistent KV reuse."})
     import cv2
     from PIL import Image
@@ -245,7 +264,11 @@ def main():
             write_json(args.output/"summary.json", {m: summarize([r for r in predictions if r["mode"] == m])
                                                     for m in Counter(r["mode"] for r in predictions)})
         if args.prepare_training:
-            write_json(args.output/"summary.json", {"counts": {split: sum(r["split"] == split for r in rows)*5 for split in ("train", "val")},
+            if args.boundary_focus:
+                shutil.copyfile(root/"data/derived/bounded_observation_sft_20261123_v1/val.jsonl", args.output/"val.jsonl")
+            write_json(args.output/"summary.json", {"counts": {split: len((args.output/(split+".jsonl")).read_text().splitlines()) for split in ("train", "val")},
+                "boundary_focus": args.boundary_focus,
+                "validation_inputs": "byte-identical copy of v1 fixed validation" if args.boundary_focus else "midpoint rollouts",
                 "manifests_sha256": {split: digest(args.output/(split+".jsonl")) for split in ("train", "val")},
                 "history": "own frozen-model candidates, never ground truth; <=2 images and 384 text tokens",
                 "harvest_ordinal_supervision": "null; unsupported first/second distinction is not fabricated",
