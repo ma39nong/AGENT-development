@@ -1,0 +1,102 @@
+{
+  "run_status": {
+    "status": "complete",
+    "completed": 22
+  },
+  "requests": 22,
+  "model": "qwen3.8-max",
+  "strict_valid": 22,
+  "groups": {
+    "handoff_after": {
+      "samples": 8,
+      "strict_valid": 8,
+      "truncated": 0,
+      "handoff_proposals": 8,
+      "scene_changed_reported": 0,
+      "gate_rejections": {
+        "stale_execution": 8
+      }
+    },
+    "handoff_before": {
+      "samples": 8,
+      "strict_valid": 8,
+      "truncated": 0,
+      "handoff_proposals": 8,
+      "scene_changed_reported": 0,
+      "gate_rejections": {
+        "no_safe_point": 8
+      }
+    },
+    "original_truncation": {
+      "samples": 6,
+      "strict_valid": 6,
+      "truncated": 0,
+      "handoff_proposals": 0,
+      "scene_changed_reported": 0,
+      "gate_rejections": {
+        "no_stop_request": 6
+      }
+    }
+  },
+  "median_api_s": 2.7746503229718655,
+  "max_api_s": 10.692158092046157,
+  "over_screening_age_2s": 19,
+  "completion_consistent_cases": 10,
+  "decision_consistent_cases": 11,
+  "repeat_cases": {
+    "B1-+1": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "B1--1": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "B2-+1": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "B2--1": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "B3-+1": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "B3--1": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "B4-+1": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "B4--1": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "truncated-30": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "truncated-40": {
+      "completion_consistent": true,
+      "decision_and_next_consistent": true
+    },
+    "truncated-80": {
+      "completion_consistent": false,
+      "decision_and_next_consistent": true
+    }
+  },
+  "release_count_in_fault_fixtures": 0,
+  "visual_completion_accuracy": null,
+  "limitations": [
+    "coarse onset times are not skill-completion truth; before cases remain visual review pending",
+    "executor fields/safe points/transition capability are simulated fixtures, not real acknowledgements",
+    "all-blocked fixtures are not end-to-end success and do not demonstrate controller hold or pause",
+    "two-second gate age is a screening parameter, not measured robot deadline",
+    "after cases provide known old executor context as a stale-state challenge; not the new skill as an answer",
+    "single previously inspected recording; repeated calls are not independent scenes; no counts or robot control"
+  ]
+}
