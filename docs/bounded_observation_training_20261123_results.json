@@ -1,0 +1,2399 @@
+{
+  "training": {
+    "status": "complete",
+    "global_step": 189,
+    "total_optimizer_steps": 189,
+    "updated_unix": 1795417696.5204911
+  },
+  "full_static_midpoint_validation": {
+    "tag": "best-full-validation",
+    "global_step": 189,
+    "validation_loss": 0.0005151757155025345,
+    "loss_samples": 105,
+    "generation_samples": 105,
+    "valid_outputs": 105,
+    "boundary_mae_s_valid_only": null,
+    "current_label_accuracy": 0.9904761904761905,
+    "predictions": [
+      {
+        "source_recording_id": "b3a43d954c364e73a872b6e296a0f2ba",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "b3a43d954c364e73a872b6e296a0f2ba:105",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "b3a43d954c364e73a872b6e296a0f2ba",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "b3a43d954c364e73a872b6e296a0f2ba:751",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "b3a43d954c364e73a872b6e296a0f2ba",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "b3a43d954c364e73a872b6e296a0f2ba:1356",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "b3a43d954c364e73a872b6e296a0f2ba",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "b3a43d954c364e73a872b6e296a0f2ba:2703",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "b3a43d954c364e73a872b6e296a0f2ba",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "b3a43d954c364e73a872b6e296a0f2ba:4043",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e76988ce48664dceb9a7ebe24beb18f2",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e76988ce48664dceb9a7ebe24beb18f2:83",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e76988ce48664dceb9a7ebe24beb18f2",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e76988ce48664dceb9a7ebe24beb18f2:695",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e76988ce48664dceb9a7ebe24beb18f2",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e76988ce48664dceb9a7ebe24beb18f2:1277",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e76988ce48664dceb9a7ebe24beb18f2",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e76988ce48664dceb9a7ebe24beb18f2:1897",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e76988ce48664dceb9a7ebe24beb18f2",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e76988ce48664dceb9a7ebe24beb18f2:2520",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3568ce04af7b478894d16122d2921352",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3568ce04af7b478894d16122d2921352:136",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3568ce04af7b478894d16122d2921352",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3568ce04af7b478894d16122d2921352:670",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3568ce04af7b478894d16122d2921352",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3568ce04af7b478894d16122d2921352:1131",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3568ce04af7b478894d16122d2921352",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3568ce04af7b478894d16122d2921352:1878",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3568ce04af7b478894d16122d2921352",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3568ce04af7b478894d16122d2921352:2609",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "710aa75fc5294d3eab124ebf4fc7c755",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "710aa75fc5294d3eab124ebf4fc7c755:112",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "710aa75fc5294d3eab124ebf4fc7c755",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "710aa75fc5294d3eab124ebf4fc7c755:780",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "710aa75fc5294d3eab124ebf4fc7c755",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "710aa75fc5294d3eab124ebf4fc7c755:1396",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "710aa75fc5294d3eab124ebf4fc7c755",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "710aa75fc5294d3eab124ebf4fc7c755:2049",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "710aa75fc5294d3eab124ebf4fc7c755",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "710aa75fc5294d3eab124ebf4fc7c755:2687",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "5cd919966faf448990ced340502ae0c3",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "5cd919966faf448990ced340502ae0c3:106",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "5cd919966faf448990ced340502ae0c3",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "5cd919966faf448990ced340502ae0c3:946",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "5cd919966faf448990ced340502ae0c3",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "5cd919966faf448990ced340502ae0c3:1731",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "5cd919966faf448990ced340502ae0c3",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "5cd919966faf448990ced340502ae0c3:2421",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "5cd919966faf448990ced340502ae0c3",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "5cd919966faf448990ced340502ae0c3:3106",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3b392d1148c443fcbc3ef272339394a0",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3b392d1148c443fcbc3ef272339394a0:82",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3b392d1148c443fcbc3ef272339394a0",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3b392d1148c443fcbc3ef272339394a0:454",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3b392d1148c443fcbc3ef272339394a0",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3b392d1148c443fcbc3ef272339394a0:810",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3b392d1148c443fcbc3ef272339394a0",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3b392d1148c443fcbc3ef272339394a0:2040",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3b392d1148c443fcbc3ef272339394a0",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3b392d1148c443fcbc3ef272339394a0:3276",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "ca2d608c0d0f443b98879c64493f4c02",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "ca2d608c0d0f443b98879c64493f4c02:157",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "ca2d608c0d0f443b98879c64493f4c02",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "ca2d608c0d0f443b98879c64493f4c02:1065",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "ca2d608c0d0f443b98879c64493f4c02",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "ca2d608c0d0f443b98879c64493f4c02:1880",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "ca2d608c0d0f443b98879c64493f4c02",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "ca2d608c0d0f443b98879c64493f4c02:2622",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "ca2d608c0d0f443b98879c64493f4c02",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "ca2d608c0d0f443b98879c64493f4c02:3363",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3:152",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3:1141",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3:2030",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3:2438",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "6fe3b3a543d44c3da8f9622ef6a2a2c3:2856",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "88a24bb59c29446aae5f99ba0d58eeae",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "88a24bb59c29446aae5f99ba0d58eeae:116",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "88a24bb59c29446aae5f99ba0d58eeae",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "88a24bb59c29446aae5f99ba0d58eeae:655",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "88a24bb59c29446aae5f99ba0d58eeae",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "88a24bb59c29446aae5f99ba0d58eeae:1124",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "88a24bb59c29446aae5f99ba0d58eeae",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "88a24bb59c29446aae5f99ba0d58eeae:1782",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "88a24bb59c29446aae5f99ba0d58eeae",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "88a24bb59c29446aae5f99ba0d58eeae:2441",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "67777d419ca542ec8aabc8ea1320a524",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "67777d419ca542ec8aabc8ea1320a524:94",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "67777d419ca542ec8aabc8ea1320a524",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "67777d419ca542ec8aabc8ea1320a524:642",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "67777d419ca542ec8aabc8ea1320a524",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "67777d419ca542ec8aabc8ea1320a524:1164",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "67777d419ca542ec8aabc8ea1320a524",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "67777d419ca542ec8aabc8ea1320a524:1959",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "67777d419ca542ec8aabc8ea1320a524",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "67777d419ca542ec8aabc8ea1320a524:2754",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "205d3e6ee77f4221b22c39e6894a1086:116",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "205d3e6ee77f4221b22c39e6894a1086:735",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "205d3e6ee77f4221b22c39e6894a1086:1288",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "205d3e6ee77f4221b22c39e6894a1086:2000",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "205d3e6ee77f4221b22c39e6894a1086:2731",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "beeb9011837348a5ac87b94e69516cfa",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "beeb9011837348a5ac87b94e69516cfa:139",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "beeb9011837348a5ac87b94e69516cfa",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "beeb9011837348a5ac87b94e69516cfa:737",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "beeb9011837348a5ac87b94e69516cfa",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "beeb9011837348a5ac87b94e69516cfa:1243",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "beeb9011837348a5ac87b94e69516cfa",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "beeb9011837348a5ac87b94e69516cfa:1990",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "beeb9011837348a5ac87b94e69516cfa",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "beeb9011837348a5ac87b94e69516cfa:2755",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bd0ca226f3914765a64500e10741014c",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bd0ca226f3914765a64500e10741014c:128",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bd0ca226f3914765a64500e10741014c",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bd0ca226f3914765a64500e10741014c:740",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bd0ca226f3914765a64500e10741014c",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bd0ca226f3914765a64500e10741014c:1253",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bd0ca226f3914765a64500e10741014c",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bd0ca226f3914765a64500e10741014c:1861",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bd0ca226f3914765a64500e10741014c",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bd0ca226f3914765a64500e10741014c:2497",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e5f7cf413c764ae08e410e90aebdd26d",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e5f7cf413c764ae08e410e90aebdd26d:81",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e5f7cf413c764ae08e410e90aebdd26d",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e5f7cf413c764ae08e410e90aebdd26d:492",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e5f7cf413c764ae08e410e90aebdd26d",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e5f7cf413c764ae08e410e90aebdd26d:858",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e5f7cf413c764ae08e410e90aebdd26d",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e5f7cf413c764ae08e410e90aebdd26d:1166",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "e5f7cf413c764ae08e410e90aebdd26d",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "e5f7cf413c764ae08e410e90aebdd26d:1499",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "31b624bfd7d44443bf08164b7af006d3:117",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "31b624bfd7d44443bf08164b7af006d3:690",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "31b624bfd7d44443bf08164b7af006d3:1191",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "31b624bfd7d44443bf08164b7af006d3:1517",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "31b624bfd7d44443bf08164b7af006d3:1853",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "52577b70bb5b4876908dadb5f3af4402",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "52577b70bb5b4876908dadb5f3af4402:118",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "52577b70bb5b4876908dadb5f3af4402",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "52577b70bb5b4876908dadb5f3af4402:792",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "52577b70bb5b4876908dadb5f3af4402",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "52577b70bb5b4876908dadb5f3af4402:1400",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "52577b70bb5b4876908dadb5f3af4402",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "52577b70bb5b4876908dadb5f3af4402:1830",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "52577b70bb5b4876908dadb5f3af4402",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "52577b70bb5b4876908dadb5f3af4402:2261",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3040dfd24ed042dfae8fc61f5af3e6c4:106",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3040dfd24ed042dfae8fc61f5af3e6c4:606",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3040dfd24ed042dfae8fc61f5af3e6c4:1044",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3040dfd24ed042dfae8fc61f5af3e6c4:1743",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "3040dfd24ed042dfae8fc61f5af3e6c4:2449",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "a47a06fc5cd646cf9ae26f46f4710c5f",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "a47a06fc5cd646cf9ae26f46f4710c5f:140",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "a47a06fc5cd646cf9ae26f46f4710c5f",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "a47a06fc5cd646cf9ae26f46f4710c5f:1008",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "a47a06fc5cd646cf9ae26f46f4710c5f",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "a47a06fc5cd646cf9ae26f46f4710c5f:1804",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "a47a06fc5cd646cf9ae26f46f4710c5f",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "a47a06fc5cd646cf9ae26f46f4710c5f:2718",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "a47a06fc5cd646cf9ae26f46f4710c5f",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "a47a06fc5cd646cf9ae26f46f4710c5f:3643",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": false,
+          "current_phase_index_correct": false
+        }
+      },
+      {
+        "source_recording_id": "bc6f593ab74f477a985f8c27a0d375fc",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bc6f593ab74f477a985f8c27a0d375fc:102",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bc6f593ab74f477a985f8c27a0d375fc",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bc6f593ab74f477a985f8c27a0d375fc:693",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bc6f593ab74f477a985f8c27a0d375fc",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bc6f593ab74f477a985f8c27a0d375fc:1217",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bc6f593ab74f477a985f8c27a0d375fc",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bc6f593ab74f477a985f8c27a0d375fc:1902",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "bc6f593ab74f477a985f8c27a0d375fc",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "bc6f593ab74f477a985f8c27a0d375fc:2600",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "d0182c0664fb40b78e8fd07e25a8445f",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "d0182c0664fb40b78e8fd07e25a8445f:121",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "d0182c0664fb40b78e8fd07e25a8445f",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "d0182c0664fb40b78e8fd07e25a8445f:624",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "d0182c0664fb40b78e8fd07e25a8445f",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "d0182c0664fb40b78e8fd07e25a8445f:1052",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "d0182c0664fb40b78e8fd07e25a8445f",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "d0182c0664fb40b78e8fd07e25a8445f:1802",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "d0182c0664fb40b78e8fd07e25a8445f",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "d0182c0664fb40b78e8fd07e25a8445f:2567",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "db85f97ba9804974ae224561f95d5874",
+        "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "db85f97ba9804974ae224561f95d5874:120",
+        "reference_phase_index": 1,
+        "target": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "db85f97ba9804974ae224561f95d5874",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "db85f97ba9804974ae224561f95d5874:1321",
+        "reference_phase_index": 2,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "db85f97ba9804974ae224561f95d5874",
+        "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "db85f97ba9804974ae224561f95d5874:2479",
+        "reference_phase_index": 3,
+        "target": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "db85f97ba9804974ae224561f95d5874",
+        "raw_output": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "db85f97ba9804974ae224561f95d5874:3391",
+        "reference_phase_index": 4,
+        "target": "{\"phase\": \"harvest\", \"phase_index\": null, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      },
+      {
+        "source_recording_id": "db85f97ba9804974ae224561f95d5874",
+        "raw_output": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "sample_id": "db85f97ba9804974ae224561f95d5874:4298",
+        "reference_phase_index": 5,
+        "target": "{\"phase\": \"return\", \"phase_index\": 5, \"uncertain\": false, \"reason\": \"\"}",
+        "metrics": {
+          "valid": true,
+          "boundary_mae_s": 0.0,
+          "classification_only": true
+        },
+        "online_metrics": {
+          "current_label_correct": true,
+          "current_phase_index_correct": true
+        }
+      }
+    ],
+    "observation_report": {
+      "confusion": {
+        "pickup": {
+          "pickup": 21,
+          "harvest": 0,
+          "adjust": 0,
+          "return": 0,
+          "unknown": 0,
+          "invalid": 0
+        },
+        "harvest": {
+          "pickup": 0,
+          "harvest": 42,
+          "adjust": 0,
+          "return": 0,
+          "unknown": 0,
+          "invalid": 0
+        },
+        "adjust": {
+          "pickup": 0,
+          "harvest": 0,
+          "adjust": 21,
+          "return": 0,
+          "unknown": 0,
+          "invalid": 0
+        },
+        "return": {
+          "pickup": 0,
+          "harvest": 0,
+          "adjust": 1,
+          "return": 20,
+          "unknown": 0,
+          "invalid": 0
+        }
+      },
+      "per_class_recall": {
+        "pickup": 1.0,
+        "harvest": 1.0,
+        "adjust": 1.0,
+        "return": 0.9523809523809523
+      },
+      "macro_recall_present_classes": 0.9880952380952381,
+      "false_return_count": 0,
+      "non_null_target_index_samples": 63,
+      "non_null_target_index_accuracy": 0.9841269841269841,
+      "reference_full_five_stage_index_accuracy": 0.5904761904761905,
+      "note": "Nullable target agreement is not full five-stage index accuracy; static frozen-candidate validation is not online closed-loop evaluation."
+    },
+    "nullable_target_index_agreement": 0.9904761904761905
+  },
+  "causal_replay_before": {
+    "samples": 39,
+    "valid": 39,
+    "label_correct": 20,
+    "label_accuracy": 0.5128205128205128,
+    "full_five_stage_index_correct": 12,
+    "confusion": {
+      "pickup": {
+        "pickup": 6,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 4,
+        "harvest": 14,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 9,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "return": {
+        "pickup": 1,
+        "harvest": 5,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "per_class_recall": {
+      "pickup": 1.0,
+      "harvest": 0.7777777777777778,
+      "adjust": 0.0,
+      "return": 0.0
+    },
+    "macro_recall": 0.4444444444444444,
+    "false_return_count": 0,
+    "median_prepare_generate_s": 0.9343603448942304,
+    "max_prepare_generate_s": 1.128320663003251,
+    "median_input_tokens": 2731
+  },
+  "causal_replay_after": {
+    "samples": 39,
+    "valid": 39,
+    "label_correct": 33,
+    "label_accuracy": 0.8461538461538461,
+    "full_five_stage_index_correct": 21,
+    "confusion": {
+      "pickup": {
+        "pickup": 6,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 3,
+        "harvest": 12,
+        "adjust": 3,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 9,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 6,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "per_class_recall": {
+      "pickup": 1.0,
+      "harvest": 0.6666666666666666,
+      "adjust": 1.0,
+      "return": 1.0
+    },
+    "macro_recall": 0.9166666666666666,
+    "false_return_count": 0,
+    "median_prepare_generate_s": 0.7675042289774865,
+    "max_prepare_generate_s": 0.867085063830018,
+    "median_input_tokens": 2730
+  },
+  "trained_replay_midpoints": {
+    "samples": 15,
+    "valid": 15,
+    "label_correct": 15,
+    "label_accuracy": 1.0,
+    "full_five_stage_index_correct": 9,
+    "confusion": {
+      "pickup": {
+        "pickup": 3,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 0,
+        "harvest": 6,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 3,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 3,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "per_class_recall": {
+      "pickup": 1.0,
+      "harvest": 1.0,
+      "adjust": 1.0,
+      "return": 1.0
+    },
+    "macro_recall": 1.0,
+    "false_return_count": 0,
+    "median_prepare_generate_s": 0.7628533949609846,
+    "max_prepare_generate_s": 0.867085063830018,
+    "median_input_tokens": 2726
+  },
+  "trained_replay_boundary_probes": {
+    "samples": 24,
+    "valid": 24,
+    "label_correct": 18,
+    "label_accuracy": 0.75,
+    "full_five_stage_index_correct": 12,
+    "confusion": {
+      "pickup": {
+        "pickup": 3,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 3,
+        "harvest": 6,
+        "adjust": 3,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 6,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 3,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "per_class_recall": {
+      "pickup": 1.0,
+      "harvest": 0.5,
+      "adjust": 1.0,
+      "return": 1.0
+    },
+    "macro_recall": 0.875,
+    "false_return_count": 0,
+    "median_prepare_generate_s": 0.7695956213865429,
+    "max_prepare_generate_s": 0.8276851910632104,
+    "median_input_tokens": 2730.0
+  },
+  "paired_changes": [
+    {
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 1269,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 1288,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 1308,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 1368,
+      "target": "harvest",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": true,
+      "after_correct": false
+    },
+    {
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 2000,
+      "target": "harvest",
+      "before": "pickup",
+      "after": "harvest",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 2693,
+      "target": "return",
+      "before": "harvest",
+      "after": "return",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 2731,
+      "target": "return",
+      "before": "harvest",
+      "after": "return",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1030,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1044,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1059,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1119,
+      "target": "harvest",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": true,
+      "after_correct": false
+    },
+    {
+      "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 2427,
+      "target": "return",
+      "before": "harvest",
+      "after": "return",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 2449,
+      "target": "return",
+      "before": "pickup",
+      "after": "return",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+      "cutoff_frame": 1177,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+      "cutoff_frame": 1191,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+      "cutoff_frame": 1205,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+      "cutoff_frame": 1265,
+      "target": "harvest",
+      "before": "harvest",
+      "after": "adjust",
+      "before_correct": true,
+      "after_correct": false
+    },
+    {
+      "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+      "cutoff_frame": 1830,
+      "target": "return",
+      "before": "harvest",
+      "after": "return",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+      "cutoff_frame": 1853,
+      "target": "return",
+      "before": "harvest",
+      "after": "return",
+      "before_correct": false,
+      "after_correct": true
+    }
+  ],
+  "errors": [
+    {
+      "mode": "memory8",
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "window_start_seconds": 0.7333333333333333,
+      "cutoff_seconds": 8.733333333333333,
+      "source_first_frame": 22,
+      "source_exclusive_end_frame": 262,
+      "last_sampled_source_frame": 247,
+      "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+      "answer": {
+        "phase": "pickup",
+        "phase_index": 1,
+        "uncertain": false,
+        "reason": ""
+      },
+      "valid": true,
+      "error": null,
+      "target_phase": "harvest",
+      "target_index": 2,
+      "label_correct": false,
+      "index_correct": false,
+      "history": [],
+      "history_visual_evidence": [],
+      "explicit_current_frame": null,
+      "prepare_generate_s": 0.7373243430629373,
+      "input_tokens": 2339
+    },
+    {
+      "mode": "memory8",
+      "source_recording_id": "205d3e6ee77f4221b22c39e6894a1086",
+      "window_start_seconds": 37.6,
+      "cutoff_seconds": 45.6,
+      "source_first_frame": 1128,
+      "source_exclusive_end_frame": 1368,
+      "last_sampled_source_frame": 1353,
+      "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+      "answer": {
+        "phase": "adjust",
+        "phase_index": 3,
+        "uncertain": false,
+        "reason": ""
+      },
+      "valid": true,
+      "error": null,
+      "target_phase": "harvest",
+      "target_index": 4,
+      "label_correct": false,
+      "index_correct": false,
+      "history": [
+        {
+          "observed_until": 24.5,
+          "candidate_phase": "harvest",
+          "candidate_phase_index": null,
+          "uncertain": false,
+          "status": "unverified",
+          "evidence_seconds": 24.0
+        },
+        {
+          "observed_until": 8.733333333333333,
+          "candidate_phase": "pickup",
+          "candidate_phase_index": 1,
+          "uncertain": false,
+          "status": "unverified",
+          "evidence_seconds": 8.233333333333333
+        }
+      ],
+      "history_visual_evidence": [
+        {
+          "image_path": "/home/user/AGENT-development/runs/bounded_history_trained_20261123_v1/205d3e6ee77f4221b22c39e6894a1086-000720.jpg",
+          "image_sha256": "b7a5d0da3124fa32eb89c3cedd2036a41770a035bec19f6934fc499f2bfe8d46",
+          "source_last_frame": 720,
+          "source_last_seconds": 24.0,
+          "source_video_sha256": "620478d7025da2149b62e02d4dda4c65ed536dfa76911e3aa4e9897a54ce1b9a"
+        },
+        {
+          "image_path": "/home/user/AGENT-development/runs/bounded_history_trained_20261123_v1/205d3e6ee77f4221b22c39e6894a1086-000247.jpg",
+          "image_sha256": "7b5256677d8ce34995b97fb89b7bed0cd039ae61125ca25324fc6a6f2834de7d",
+          "source_last_frame": 247,
+          "source_last_seconds": 8.233333333333333,
+          "source_video_sha256": "620478d7025da2149b62e02d4dda4c65ed536dfa76911e3aa4e9897a54ce1b9a"
+        }
+      ],
+      "explicit_current_frame": null,
+      "prepare_generate_s": 0.763893562136218,
+      "input_tokens": 2754
+    },
+    {
+      "mode": "memory8",
+      "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "window_start_seconds": 0.1,
+      "cutoff_seconds": 8.1,
+      "source_first_frame": 3,
+      "source_exclusive_end_frame": 243,
+      "last_sampled_source_frame": 228,
+      "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+      "answer": {
+        "phase": "pickup",
+        "phase_index": 1,
+        "uncertain": false,
+        "reason": ""
+      },
+      "valid": true,
+      "error": null,
+      "target_phase": "harvest",
+      "target_index": 2,
+      "label_correct": false,
+      "index_correct": false,
+      "history": [],
+      "history_visual_evidence": [],
+      "explicit_current_frame": null,
+      "prepare_generate_s": 0.7161556771025062,
+      "input_tokens": 2335
+    },
+    {
+      "mode": "memory8",
+      "source_recording_id": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "window_start_seconds": 29.3,
+      "cutoff_seconds": 37.3,
+      "source_first_frame": 879,
+      "source_exclusive_end_frame": 1119,
+      "last_sampled_source_frame": 1104,
+      "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+      "answer": {
+        "phase": "adjust",
+        "phase_index": 3,
+        "uncertain": false,
+        "reason": ""
+      },
+      "valid": true,
+      "error": null,
+      "target_phase": "harvest",
+      "target_index": 4,
+      "label_correct": false,
+      "index_correct": false,
+      "history": [
+        {
+          "observed_until": 20.2,
+          "candidate_phase": "harvest",
+          "candidate_phase_index": null,
+          "uncertain": false,
+          "status": "unverified",
+          "evidence_seconds": 19.7
+        },
+        {
+          "observed_until": 8.1,
+          "candidate_phase": "pickup",
+          "candidate_phase_index": 1,
+          "uncertain": false,
+          "status": "unverified",
+          "evidence_seconds": 7.6
+        }
+      ],
+      "history_visual_evidence": [
+        {
+          "image_path": "/home/user/AGENT-development/runs/bounded_history_trained_20261123_v1/3040dfd24ed042dfae8fc61f5af3e6c4-000591.jpg",
+          "image_sha256": "52540c33e734f9cc75e5eb5f546005ea41845dd391aeb299be7b9515ba2dfe5b",
+          "source_last_frame": 591,
+          "source_last_seconds": 19.7,
+          "source_video_sha256": "d42fed61df90af4b21087eb00939f562e527690c5738edbc8ab96245f2f52c30"
+        },
+        {
+          "image_path": "/home/user/AGENT-development/runs/bounded_history_trained_20261123_v1/3040dfd24ed042dfae8fc61f5af3e6c4-000228.jpg",
+          "image_sha256": "23499e5305a48f1d196573f9dd53d7df552f813de0002870b165222105497c69",
+          "source_last_frame": 228,
+          "source_last_seconds": 7.6,
+          "source_video_sha256": "d42fed61df90af4b21087eb00939f562e527690c5738edbc8ab96245f2f52c30"
+        }
+      ],
+      "explicit_current_frame": null,
+      "prepare_generate_s": 0.7611363709438592,
+      "input_tokens": 2726
+    },
+    {
+      "mode": "memory8",
+      "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+      "window_start_seconds": 0.8,
+      "cutoff_seconds": 8.8,
+      "source_first_frame": 24,
+      "source_exclusive_end_frame": 264,
+      "last_sampled_source_frame": 249,
+      "raw_output": "{\"phase\": \"pickup\", \"phase_index\": 1, \"uncertain\": false, \"reason\": \"\"}",
+      "answer": {
+        "phase": "pickup",
+        "phase_index": 1,
+        "uncertain": false,
+        "reason": ""
+      },
+      "valid": true,
+      "error": null,
+      "target_phase": "harvest",
+      "target_index": 2,
+      "label_correct": false,
+      "index_correct": false,
+      "history": [],
+      "history_visual_evidence": [],
+      "explicit_current_frame": null,
+      "prepare_generate_s": 0.7210259467829019,
+      "input_tokens": 2335
+    },
+    {
+      "mode": "memory8",
+      "source_recording_id": "31b624bfd7d44443bf08164b7af006d3",
+      "window_start_seconds": 34.166666666666664,
+      "cutoff_seconds": 42.166666666666664,
+      "source_first_frame": 1025,
+      "source_exclusive_end_frame": 1265,
+      "last_sampled_source_frame": 1250,
+      "raw_output": "{\"phase\": \"adjust\", \"phase_index\": 3, \"uncertain\": false, \"reason\": \"\"}",
+      "answer": {
+        "phase": "adjust",
+        "phase_index": 3,
+        "uncertain": false,
+        "reason": ""
+      },
+      "valid": true,
+      "error": null,
+      "target_phase": "harvest",
+      "target_index": 4,
+      "label_correct": false,
+      "index_correct": false,
+      "history": [
+        {
+          "observed_until": 23.0,
+          "candidate_phase": "harvest",
+          "candidate_phase_index": null,
+          "uncertain": false,
+          "status": "unverified",
+          "evidence_seconds": 22.5
+        },
+        {
+          "observed_until": 8.8,
+          "candidate_phase": "pickup",
+          "candidate_phase_index": 1,
+          "uncertain": false,
+          "status": "unverified",
+          "evidence_seconds": 8.3
+        }
+      ],
+      "history_visual_evidence": [
+        {
+          "image_path": "/home/user/AGENT-development/runs/bounded_history_trained_20261123_v1/31b624bfd7d44443bf08164b7af006d3-000675.jpg",
+          "image_sha256": "8105e9015b55b975998e225295b84c56d8ecf0f7f80c17e5e4e671bf1140c469",
+          "source_last_frame": 675,
+          "source_last_seconds": 22.5,
+          "source_video_sha256": "986f8811e49961c6d02918c74d4f5d0759a3a6d3288a88fe6618f13b71eb1714"
+        },
+        {
+          "image_path": "/home/user/AGENT-development/runs/bounded_history_trained_20261123_v1/31b624bfd7d44443bf08164b7af006d3-000249.jpg",
+          "image_sha256": "cc69e4f9fe6507cdae54cd4c6bf71e036dccc3d490c14077551eb46474a672d2",
+          "source_last_frame": 249,
+          "source_last_seconds": 8.3,
+          "source_video_sha256": "986f8811e49961c6d02918c74d4f5d0759a3a6d3288a88fe6618f13b71eb1714"
+        }
+      ],
+      "explicit_current_frame": null,
+      "prepare_generate_s": 0.7689728159457445,
+      "input_tokens": 2730
+    }
+  ],
+  "limitations": [
+    "Validation only, three recordings and annotation-selected probes; not a deployment guarantee.",
+    "Elapsed excludes physical trim, storage, robot/transport/queue.",
+    "First vs second harvest ordinal was deliberately not supervised.",
+    "Two-second boundary bracket probes do not measure exact boundary timing."
+  ],
+  "adapter_sha256": "da150a6dbcb9b9d416f6bb7add1952e94a9ffd202950ae9733536599d9ff6e8a",
+  "model_initialization": "whole_video_best; not stopped_prefix_checkpoint20",
+  "continued_validation": "runs/bounded_history_trained_allval_20261123_v1"
+}
