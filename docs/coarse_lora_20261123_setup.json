@@ -1,0 +1,204 @@
+{
+  "as_of_unix": 1795402910.598205,
+  "task": "full_video_coarse_segmentation_only",
+  "status_snapshot": {
+    "status": "training",
+    "global_step": 4,
+    "total_optimizer_steps": 114,
+    "epoch": 1,
+    "updated_unix": 1795402902.2072947
+  },
+  "configuration": {
+    "task": "full_video_coarse_segmentation_only",
+    "model_dir": "/home/user/models/Qwen3-VL-4B-Instruct",
+    "camera": "cam0",
+    "video_sampling_fps": 2.0,
+    "max_sequence_tokens": 32768,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "target_language_linear_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "freeze_vision": true,
+    "freeze_base_model": true,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "gradient_checkpointing": true,
+    "epochs": 3,
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "seed": 20261123,
+    "save_every_optimizer_steps": 20,
+    "generation_eval_samples": 3,
+    "generation_max_new_tokens": 512,
+    "loss": "assistant_tokens_only_causal_cross_entropy",
+    "logits": "supervised_suffix_plus_one_predecessor",
+    "task_excludes": [
+      "fruit_counting",
+      "prompt_switching",
+      "fine_phase_labels",
+      "robot_control"
+    ]
+  },
+  "dataset": {
+    "counts": {
+      "train": 151,
+      "val": 21
+    },
+    "camera": "cam0",
+    "sealed_records_not_opened": 32,
+    "all_selected_video_sha256_checked": true,
+    "all_selected_frame_clocks_checked": true,
+    "prompt_sha256": "fe2a538e6d730d022b3a192c46e19f0ad91e3f7d6348333766bbece941610d26",
+    "source_lock_sha256": "c6e60835121e9f4cd1f6480eb018647359c4e34f01c5d1e2b42f2c0092ead332",
+    "manifests_sha256": {
+      "train": "66483b9160e67d5a4244d62931ff4a135561c910dd2d9f953cdbe33bf94db991",
+      "val": "18780a0c4eefc36e5da07f6a1a1584cb8907e5b9250cc148d2c6c7a4bc03f54a"
+    },
+    "sequence_counts": {
+      "pickup,harvest,adjust,harvest,return": 172
+    },
+    "limitations": "All current examples have same five-stage sequence; variation in stage number/order is untested. Two decimals represent rounded source-frame annotations, not centisecond truth."
+  },
+  "trainable_parameters": 16515072,
+  "total_parameters_including_adapters": 4454330880,
+  "lora_target_count": 252,
+  "environment": {
+    "torch": "2.7.1+cu128",
+    "transformers": "4.57.6",
+    "peft": "0.17.1",
+    "gpu": "NVIDIA GeForce RTX 5090"
+  },
+  "smoke": {
+    "passed": true,
+    "loss_finite": true,
+    "gradients_finite": true,
+    "lora_weights_updated": true,
+    "checkpoint": "/home/user/AGENT-development/runs/coarse_lora_20261123_smoke_v1/checkpoint-0001"
+  },
+  "adapter_reload": {
+    "passed": true,
+    "adapter_reload_successful": true,
+    "reloaded_loss": 0.21537403762340546,
+    "base_weights_unchanged": true,
+    "sample_id": "c88edca46e6b47abb08f416fe3a9c522"
+  },
+  "launch": {
+    "pid": 1259074,
+    "command": [
+      "/home/user/AGENT-development/.venv/bin/python",
+      "-u",
+      "scripts/train_coarse_lora.py",
+      "--config",
+      "configs/coarse_lora_v1.json",
+      "--data",
+      "data/derived/coarse_sft_20261123_v1",
+      "--output",
+      "runs/coarse_lora_20261123_v1"
+    ],
+    "working_directory": "/home/user/AGENT-development",
+    "output": "/home/user/AGENT-development/runs/coarse_lora_20261123_v1",
+    "log": "/home/user/AGENT-development/runs/coarse_lora_20261123_v1.log",
+    "started_unix": 1795402750.4566472
+  },
+  "first_train_step": {
+    "event": "train_step",
+    "unix_time": 1795402836.2749074,
+    "elapsed_s": 84.18360638618469,
+    "global_step": 1,
+    "total_optimizer_steps": 114,
+    "epoch": 1,
+    "loss": 0.2319103591144085,
+    "grad_norm": 0.2786671221256256,
+    "lr": 1.6666666666666667e-05,
+    "sample_ids": [
+      "94eb0ed2c15343ceaf6c6bcb30ebd5ae",
+      "33f525186cf64b19a68274e1a7022385",
+      "1bb6e88790ba4de0a9474bc90f470121",
+      "77315a5a720145808404789a8c9c10bc"
+    ],
+    "lengths": [
+      {
+        "tokens": 13334,
+        "assistant_tokens": 143
+      },
+      {
+        "tokens": 12650,
+        "assistant_tokens": 141
+      },
+      {
+        "tokens": 12833,
+        "assistant_tokens": 140
+      },
+      {
+        "tokens": 12880,
+        "assistant_tokens": 145
+      }
+    ],
+    "step_s": 22.6088239219971,
+    "peak_allocated_gib": 15.022136211395264
+  },
+  "last_observed_step": {
+    "event": "train_step",
+    "unix_time": 1795402902.2070658,
+    "elapsed_s": 150.11576461791992,
+    "global_step": 4,
+    "total_optimizer_steps": 114,
+    "epoch": 1,
+    "loss": 0.22596853598952293,
+    "grad_norm": 0.3332351744174957,
+    "lr": 6.666666666666667e-05,
+    "sample_ids": [
+      "885b4a8d553445b19858d69eed493020",
+      "35a7f5bd69d3496f8bdc7cfb6d8d8cd0",
+      "4b1ae0e618d14710becb6e46ce34a8eb",
+      "d2041afb620048d1a48e1c64bfa03547"
+    ],
+    "lengths": [
+      {
+        "tokens": 12698,
+        "assistant_tokens": 140
+      },
+      {
+        "tokens": 12164,
+        "assistant_tokens": 140
+      },
+      {
+        "tokens": 13222,
+        "assistant_tokens": 145
+      },
+      {
+        "tokens": 12698,
+        "assistant_tokens": 140
+      }
+    ],
+    "step_s": 22.050513655878603,
+    "peak_allocated_gib": 15.149106979370117
+  },
+  "baseline_validation": {
+    "tag": "baseline",
+    "global_step": 0,
+    "validation_loss": 0.23354676578726088,
+    "loss_samples": 21,
+    "generation_samples": 3,
+    "valid_outputs": 0,
+    "boundary_mae_s_valid_only": null
+  },
+  "tests": {
+    "unit_tests_passed": 32,
+    "ruff_F_E9": true,
+    "assistant_suffix_loss_and_gradients_match_full_masked_loss": true
+  },
+  "limitations": "Training running, not a completed result. All recordings share five-stage order, and only head-camera inputs are trained in this run. No counting or robot control."
+}

@@ -20,7 +20,7 @@ Agent 可以接普通四路或 Fovea，但输入必须携带实际裁剪来源�
 - 官方 `Qwen3-VL-4B-Instruct` 权重已在本机下载，两个分片经过官方 SHA-256 校验；权重不提交 Git。
 - 已建立开发要求、接口草案、基线配置、权重检查、视频样本提取和本地多图推理入口。
 - 独立环境已在RTX5090跑通24次真实视频窗口调试推理，发现漏识别和视觉证据引用错误；[基线记录](docs/local_baseline_20261121.md)。
-- 本仓库尚未完成LoRA、可靠实时事件识别或自动技能控制。部署仓库现有Qwen原型尚未迁移，不将其固定轮次结构作为新设计。
+- 已启动首轮完整视频粗阶段LoRA（151 train/21 val，3轮），尚未完成；[训练配置与运行记录](docs/coarse_lora_20261123.md)。本轮不训练计数或自动控制。部署旧Qwen原型尚未迁移。
 
 ## 开始工作
 
@@ -47,8 +47,9 @@ python3 scripts/check_model.py --model-dir /absolute/path/to/Qwen3-VL-4B-Instruc
 - [Flash完整视频3次重复对照](docs/direct_video_flash_20261121.md)
 - [用户粗阶段原提示词复测](docs/user_coarse_prompt_retest_20261121.md)
 - [本地baseline、流式历史与Prompt切换筛查](docs/baseline_capability_20261121.md)
+- [完整视频粗阶段LoRA首轮训练](docs/coarse_lora_20261123.md)
 
-近期优先工作：先完成现有baseline的完整视频、计数、历史输入与Prompt切换筛查，再依据错误决定数据和LoRA。保持五阶段、四种Prompt，不要求用户重标204条细阶段或实时盯每次结果。本轮发现本地识别、云模型顺序约束和响应时效均未满足目标，见最新筛查报告。
+当前任务：按用户收窄范围，仅训练完整视频粗阶段分段；计数与在线Prompt切换留待后续。训练已启动，不能把启动或loss下降当作精度改善，最终对比完整阶段和边界误差。
 
 当前优先完整视频直传，自然语言回答后再整理候选：
 
