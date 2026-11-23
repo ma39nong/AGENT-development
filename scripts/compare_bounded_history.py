@@ -67,9 +67,11 @@ def summarize(rows):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--adapter", type=Path, help="Adapter override for post-training causal replay")
     p.add_argument("--recordings", type=int, default=3)
     p.add_argument("--only-mode", choices=["prefix", "window8", "window16", "window32", "memory8", "memory16", "memory32"])
     p.add_argument("--current-frame", action="store_true", help="Exploratory explicit newest-frame input after history")
+    p.add_argument("--prepare-training", action="store_true", help="Frozen candidate rollout on train/val midpoints; export bounded SFT inputs")
     args = p.parse_args()
     if args.output.exists():
         raise ValueError("output exists")
@@ -77,26 +79,32 @@ def main():
     args.output.mkdir(parents=True)
     data = root/"data/derived/coarse_sft_20261123_v1"
     rows = sorted([json.loads(s) for s in (data/"val.jsonl").read_text().splitlines()], key=lambda r: r["source_recording_id"])[:args.recordings]
+    if args.prepare_training:
+        rows = [json.loads(s) for split in ("train", "val") for s in (data/(split+".jsonl")).read_text().splitlines()]
     modes = [("prefix", None, False)]+[(f"window{w}", w, False) for w in (8, 16, 32)]+[(f"memory{w}", w, True) for w in (8, 16, 32)]
     if args.only_mode:
         modes = [m for m in modes if m[0] == args.only_mode]
     if args.current_frame:
         modes = [(m+"_current_frame", w, memory) for m, w, memory in modes]
+    if args.prepare_training:
+        modes = [("memory8", 8, True)]
     adapter = root/"runs/coarse_lora_20261123_v1/best"
+    if args.adapter:
+        adapter = args.adapter
     jobs = []
     for row in rows:
-        if row["split"] != "val" or digest(Path(row["video"])) != row["video_sha256"] or digest(Path(row["annotation"])) != row["annotation_sha256"]:
+        if row["split"] not in ({"train", "val"} if args.prepare_training else {"val"}) or digest(Path(row["video"])) != row["video_sha256"] or digest(Path(row["annotation"])) != row["annotation_sha256"]:
             raise ValueError("validation identity changed")
         segments = json.loads(Path(row["annotation"]).read_text())["segments"]
         cutoffs = {(s["start_frame"]+s["end_frame"])//2 for s in segments}
-        for s in segments[:-1]:
+        for s in ([] if args.prepare_training else segments[:-1]):
             cutoffs.update([s["end_frame"]-round(row["fps"]), s["end_frame"]+round(row["fps"])])
         for cutoff in sorted(c for c in cutoffs if 0 < c < row["frames"]):
             # Last supplied frame is cutoff-1; scoring refers to this exact observed frame.
             phase = next(i for i, s in enumerate(segments, 1) if s["start_frame"] <= cutoff-1 < s["end_frame"])
             jobs.append({"row": row, "cutoff_frame": cutoff, "target_phase": segments[phase-1]["label"], "target_index": phase})
     write_json(args.output/"protocol.json", {"adapter": str(adapter), "adapter_sha256": digest(adapter/"adapter_model.safetensors"),
-        "recording_ids": [r["source_recording_id"] for r in rows], "split": "validation",
+        "recording_ids": [r["source_recording_id"] for r in rows], "split": "train_and_val" if args.prepare_training else "validation",
         "modes": modes, "probes_per_mode": len(jobs), "training": False, "robot_control": False,
         "explicit_newest_frame": args.current_frame,
         "history": "previous actual model candidates only, at most 2 distinct label/index candidates and 2 original sampled frames; 384 text-token budget",
@@ -130,7 +138,7 @@ def main():
                 first = 0 if width is None else max(0, cutoff_frame-round(width*row["fps"]))
                 start = first/row["fps"]
                 task = mode+":"+row["source_recording_id"]
-                clip = args.output/"current.mp4"
+                clip = args.output/(f"{row['source_recording_id']}-{cutoff_frame}.mp4" if args.prepare_training else "current.mp4")
                 # Physical trim means even the video loader cannot access future frames.
                 subprocess.run(["ffmpeg", "-nostdin", "-y", "-v", "error", "-threads", "1", "-i", row["video"],
                     "-vf", f"trim=start_frame={first}:end_frame={cutoff_frame},setpts=N/({row['fps']}*TB)", "-an",
@@ -202,7 +210,7 @@ def main():
                 memory.append(task, str(cutoff_frame), cutoff, cutoff+elapsed,
                     [{"source_last_seconds": sampled/row["fps"], "source_last_frame": sampled,
                       "image_path": str(image_path.resolve()), "image_sha256": digest(image_path), "source_video_sha256": row["video_sha256"]}],
-                    {"valid": error is None, **answer}, "frozen-whole-video-best")
+                    {"valid": error is None, **answer}, str(adapter.resolve()))
                 result = {"mode": mode, "source_recording_id": row["source_recording_id"], "window_start_seconds": start,
                           "cutoff_seconds": cutoff, "source_first_frame": first, "source_exclusive_end_frame": cutoff_frame,
                           "last_sampled_source_frame": sampled, "raw_output": raw, "answer": answer, "valid": error is None,
@@ -212,6 +220,21 @@ def main():
                           "history": [x[0] for x in history], "history_visual_evidence": [x[1] for x in history],
                           "explicit_current_frame": newest,
                           "prepare_generate_s": elapsed, "input_tokens": tokens}
+                if args.prepare_training:
+                    # No reference label is inserted into candidate history. Ordinal harvest identity
+                    # cannot reliably be inferred from an isolated window: explicitly leave it null.
+                    target = {"phase": job["target_phase"], "phase_index": None if job["target_phase"] == "harvest" else job["target_index"],
+                              "uncertain": False, "reason": ""}
+                    sample = {"sample_id": row["source_recording_id"]+":"+str(cutoff_frame),
+                              "source_recording_id": row["source_recording_id"], "split": row["split"],
+                              "video": str(clip.resolve()), "video_sha256": digest(clip), "frames": count, "fps": fps,
+                              "prompt": question, "history_items": [x[0] for x in history],
+                              "history_images": [x[1] for x in history], "bounded_observation": True,
+                              "source_first_frame": first, "source_exclusive_end_frame": cutoff_frame,
+                              "source_video_sha256": row["video_sha256"], "reference_phase_index": job["target_index"],
+                              "answer": json.dumps(target, ensure_ascii=False)}
+                    with (args.output/(row["split"]+".jsonl")).open("a") as stream:
+                        stream.write(json.dumps(sample, ensure_ascii=False)+"\n")
                 predictions.append(result)
                 with (args.output/"predictions.jsonl").open("a") as stream:
                     stream.write(json.dumps(result, ensure_ascii=False)+"\n")
@@ -221,6 +244,14 @@ def main():
                 del inputs, output, video
             write_json(args.output/"summary.json", {m: summarize([r for r in predictions if r["mode"] == m])
                                                     for m in Counter(r["mode"] for r in predictions)})
+        if args.prepare_training:
+            write_json(args.output/"summary.json", {"counts": {split: sum(r["split"] == split for r in rows)*5 for split in ("train", "val")},
+                "manifests_sha256": {split: digest(args.output/(split+".jsonl")) for split in ("train", "val")},
+                "history": "own frozen-model candidates, never ground truth; <=2 images and 384 text tokens",
+                "harvest_ordinal_supervision": "null; unsupported first/second distinction is not fabricated",
+                "reason_supervision": "empty: coarse labels do not supply visual evidence descriptions",
+                "source_manifest_sha256": {split: digest(data/(split+".jsonl")) for split in ("train", "val")},
+                "test_used": False})
         write_json(args.output/"status.json", {"status": "complete", "completed": len(predictions)})
     except Exception as exc:
         write_json(args.output/"status.json", {"status": "failed", "completed": len(predictions), "error": str(exc)})

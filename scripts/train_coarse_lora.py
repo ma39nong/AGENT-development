@@ -37,6 +37,15 @@ def suffix_loss(logits, target):
 def evaluate_answer(raw, truth):
     try:
         answer = json.loads(raw)
+        if not isinstance(answer, dict):
+            raise ValueError("output must be an object")
+        if "phase" in json.loads(truth):
+            if answer.get("phase") not in {"pickup", "harvest", "adjust", "return", "unknown"} or type(answer.get("uncertain")) is not bool:
+                raise ValueError("invalid observation output")
+            idx = answer.get("phase_index")
+            if idx is not None and (type(idx) is not int or not 1 <= idx <= 5):
+                raise ValueError("invalid phase index")
+            return {"valid": True, "boundary_mae_s": 0., "classification_only": True}
         if set(answer) != {"segments"} or not isinstance(answer["segments"], list):
             raise ValueError("unexpected output schema")
         expected = json.loads(truth)["segments"]
@@ -68,12 +77,46 @@ def evaluate_answer(raw, truth):
 def current_phase_metrics(raw, truth):
     """Current label/index accuracy is separate from complete-history correctness."""
     try:
+        if "phase" in json.loads(truth):
+            actual, expected = json.loads(raw), json.loads(truth)
+            return {"current_label_correct": actual.get("phase") == expected["phase"],
+                    "current_phase_index_correct": actual.get("phase_index") == expected["phase_index"]}
         actual = json.loads(raw)["segments"][-1]
         expected = json.loads(truth)["segments"][-1]
         return {"current_label_correct": actual["label"] == expected["label"],
                 "current_phase_index_correct": actual["phase_index"] == expected["phase_index"]}
-    except (ValueError, KeyError, TypeError, IndexError):
+    except (ValueError, KeyError, TypeError, IndexError, AttributeError):
         return {"current_label_correct": False, "current_phase_index_correct": False}
+
+
+def observation_report(predictions):
+    """Errors remain in recall denominators; null index agreement is not ordinal accuracy."""
+    labels = ("pickup", "harvest", "adjust", "return")
+    confusion = {label: {x: 0 for x in (*labels, "unknown", "invalid")} for label in labels}
+    known_total = known_correct = reference_total = reference_correct = 0
+    for prediction in predictions:
+        truth = json.loads(prediction["target"])
+        try:
+            actual = json.loads(prediction["raw_output"])
+            phase = actual["phase"] if prediction["metrics"]["valid"] else "invalid"
+        except (ValueError, TypeError, KeyError):
+            actual, phase = {}, "invalid"
+        confusion[truth["phase"]][phase] += 1
+        if truth["phase_index"] is not None:
+            known_total += 1
+            known_correct += prediction["metrics"]["valid"] and actual.get("phase_index") == truth["phase_index"]
+        if prediction.get("reference_phase_index") is not None:
+            reference_total += 1
+            reference_correct += prediction["metrics"]["valid"] and actual.get("phase_index") == prediction["reference_phase_index"]
+    recalls = {k: row[k]/sum(row.values()) if sum(row.values()) else None for k, row in confusion.items()}
+    present = [x for x in recalls.values() if x is not None]
+    return {"confusion": confusion, "per_class_recall": recalls,
+            "macro_recall_present_classes": sum(present)/len(present) if present else None,
+            "false_return_count": sum(row["return"] for label, row in confusion.items() if label != "return"),
+            "non_null_target_index_samples": known_total,
+            "non_null_target_index_accuracy": known_correct/known_total if known_total else None,
+            "reference_full_five_stage_index_accuracy": reference_correct/reference_total if reference_total else None,
+            "note": "Nullable target agreement is not full five-stage index accuracy; static frozen-candidate validation is not online closed-loop evaluation."}
 
 
 def main():
@@ -119,6 +162,7 @@ def main():
             f.write(json.dumps(record, ensure_ascii=False)+"\n")
         print(json.dumps(record, ensure_ascii=False), flush=True)
 
+    write_json(args.output/"status.json", {"status": "loading", "global_step": 0})
     log("loading", config=config, smoke=args.smoke, train_count=len(train), val_count=len(val))
     processor = AutoProcessor.from_pretrained(config["model_dir"], local_files_only=True, trust_remote_code=False)
     model = Qwen3VLForConditionalGeneration.from_pretrained(config["model_dir"], dtype=torch.bfloat16,
@@ -156,7 +200,7 @@ def main():
            "trainer_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
            "video_processor_size": dict(processor.video_processor.size), "sealed_test_used": False,
            "robot_control": False, "counting_supervision": False,
-           "input_type": "physical_causal_head_video_prefix" if config.get("prefix_task") else "full_original_head_video_native_video_tokens"}
+           "input_type": "trailing_8s_head_video_and_bounded_candidate_memory" if config.get("bounded_observation_task") else ("physical_causal_head_video_prefix" if config.get("prefix_task") else "full_original_head_video_native_video_tokens")}
     if config.get("initial_adapter"):
         run["initial_adapter_sha256"] = hashlib.sha256((Path(config["initial_adapter"])/"adapter_model.safetensors").read_bytes()).hexdigest()
     write_json(args.output/"run.json", run)
@@ -164,13 +208,30 @@ def main():
     header = processor.tokenizer.encode("<|im_start|>assistant\n", add_special_tokens=False)
 
     def inputs_for(row, teacher=True):
-        # Native video processor handles its internal resize/sampling; no short-window or image substitute.
+        # Preserve native video processing; bounded manifests add separately timestamped history images.
         video, metadata = load_video(row["video"], backend="opencv", fps=config["video_sampling_fps"])
         messages = [{"role": "user", "content": [{"type": "video"}, {"type": "text", "text": row["prompt"]}]}]
+        images = []
+        if row.get("bounded_observation"):
+            from PIL import Image
+            content = [{"type": "text", "text": row["prompt"]}, {"type": "video"}]
+            if len(row["history_items"]) != len(row["history_images"]) or len(row["history_images"]) > 2:
+                raise ValueError("invalid bounded history count")
+            for item, evidence in zip(row["history_items"], row["history_images"]):
+                if item["observed_until"] > row["source_first_frame"]/row["fps"] or evidence["source_last_seconds"] >= item["observed_until"]:
+                    raise ValueError("future history evidence")
+                path = Path(evidence["image_path"])
+                if hashlib.sha256(path.read_bytes()).hexdigest() != evidence["image_sha256"]:
+                    raise ValueError("history evidence changed")
+                content += [{"type": "text", "text": f'历史原始帧，源时间{item["evidence_seconds"]:.3f}s；不是当前画面。'}, {"type": "image"}]
+                im = Image.open(path).convert("RGB")
+                im.thumbnail((448, 280))
+                images.append(im)
+            messages = [{"role": "user", "content": content}]
         if teacher:
             messages.append({"role": "assistant", "content": [{"type": "text", "text": row["answer"]}]})
         text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=not teacher)
-        inputs = processor(text=[text], videos=[video], video_metadata=[metadata], do_sample_frames=False, return_tensors="pt")
+        inputs = processor(text=[text], videos=[video], video_metadata=[metadata], do_sample_frames=False, return_tensors="pt", **({"images": images} if images else {}))
         if inputs["input_ids"].shape[-1] > config["max_sequence_tokens"]:
             raise ValueError("complete video exceeds token budget; no silent truncation")
         k = assistant_start(inputs["input_ids"][0].tolist(), header) if teacher else None
@@ -205,6 +266,7 @@ def main():
         log("checkpoint_saved", path=str(directory.resolve()), global_step=step)
 
     def evaluate(tag, generation_rows):
+        write_json(args.output/"status.json", {"status": "evaluating", "tag": tag, "global_step": step})
         model.eval()
         losses = []
         with torch.inference_mode():
@@ -218,26 +280,30 @@ def main():
                 raw = processor.tokenizer.decode(output[0, inputs["input_ids"].shape[-1]:], skip_special_tokens=True)
                 predictions.append({"source_recording_id": row["source_recording_id"], "raw_output": raw,
                                     "sample_id": row.get("sample_id", row["source_recording_id"]),
+                                    "reference_phase_index": row.get("reference_phase_index"),
                                     "target": row["answer"], "metrics": evaluate_answer(raw, row["answer"]),
                                     "online_metrics": current_phase_metrics(raw, row["answer"])})
         valid = [p["metrics"] for p in predictions if p["metrics"]["valid"]]
         result = {"tag": tag, "global_step": step, "validation_loss": sum(losses)/len(losses),
                   "loss_samples": len(losses), "generation_samples": len(predictions), "valid_outputs": len(valid),
-                  "boundary_mae_s_valid_only": sum(v["boundary_mae_s"] for v in valid)/len(valid) if valid else None,
+                  "boundary_mae_s_valid_only": sum(v["boundary_mae_s"] for v in valid)/len(valid) if valid and not config.get("bounded_observation_task") else None,
                   "current_label_accuracy": sum(p["online_metrics"]["current_label_correct"] for p in predictions)/len(predictions) if predictions else None,
                   "current_phase_index_accuracy": sum(p["online_metrics"]["current_phase_index_correct"] for p in predictions)/len(predictions) if predictions else None,
                   "predictions": predictions}
+        if config.get("bounded_observation_task"):
+            result["observation_report"] = observation_report(predictions)
+            result["nullable_target_index_agreement"] = result.pop("current_phase_index_accuracy")
         write_json(args.output/("eval-"+tag+".json"), result)
         log("evaluation", **{k: v for k, v in result.items() if k != "predictions"})
         return result
 
     # Fixed validation subset across baseline and checkpoints; never inspect sealed tests.
     generation_rows = sorted(val, key=lambda r: r["source_recording_id"])[:config["generation_eval_samples"]]
-    if config.get("prefix_task"):
+    if config.get("prefix_task") or config.get("bounded_observation_task"):
         # Select complete prefix sets from fixed validation recordings, rather than only early phases.
         identities = sorted({r["source_recording_id"] for r in val})[:config.get("generation_eval_recordings", 3)]
         generation_rows = [r for r in val if r["source_recording_id"] in identities]
-    sequence_lengths = {len(json.loads(row["answer"])["segments"]) for row in train}
+    sequence_lengths = set() if config.get("bounded_observation_task") else {len(json.loads(row["answer"])["segments"]) for row in train}
     if len(sequence_lengths) == 1:
         count = next(iter(sequence_lengths))
         fractions = []
@@ -257,7 +323,7 @@ def main():
             order = list(train)
             random.Random(config["seed"]+epoch).shuffle(order)
             if args.smoke:
-                order = [min(train, key=lambda r: r["frames"])]
+                order = [max(train, key=lambda r: len(r.get("history_images", [])))] if config.get("bounded_observation_task") else [min(train, key=lambda r: r["frames"])]
             model.train()
             model.get_base_model().model.visual.eval()
             for offset in range(0, len(order), accumulation):
