@@ -105,3 +105,7 @@ Flash 的 63 次固定输入对照已完成，逐点验证视频 SHA、历史候
 保留按任务与交接标准组织的可读模板，但不依据本轮结果启用自动 Prompt 切换。没有启动新付费批次；下一步需先分析典型错误的视频可见性、服务端视频处理与模型识别表现，不能把原因继续单一归结为提示词复杂。
 
 结果：`docs/cloud_video_simple_flash_20261123_results.json`；逐点配对检查：`docs/cloud_video_simple_paired_20261123.json`。历史固定的对照不能替代新提示词自行积累历史的闭环回放。
+
+## 按用户要求回到基础验证
+
+已启动完整原始视频＋从任务开始逐渐增长的视觉前缀测试，不附旧模型文字历史。当前有效目录 `runs/cloud_full_prefix_baseline_20261123_v2`，Flash/Max 合计最多 28 次。请先读 `docs/cloud_full_prefix_baseline_20261123.md`，避免重复请求；旧八秒窗口结果不能代表这一方案。

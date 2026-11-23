@@ -1,0 +1,1481 @@
+{
+  "qwen3.8-flash": {
+    "prefix_samples": 13,
+    "prefix_valid": 13,
+    "prefix_correct": 11,
+    "prefix_index_correct": 8,
+    "strict_or_fenced_json_count": 13,
+    "extra_prose_with_unique_json_count": 0,
+    "confusion": {
+      "pickup": {
+        "pickup": 1,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 0,
+        "harvest": 9,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 1,
+        "adjust": 0,
+        "return": 1,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 1,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "recall": {
+      "pickup": 1.0,
+      "harvest": 1.0,
+      "adjust": 0.0,
+      "return": 1.0
+    },
+    "prefix_api_median_s": 4.303753423970193,
+    "prefix_api_max_s": 52.2186015911866,
+    "full_video_api_s": 7.537206061184406,
+    "full_video_response": {
+      "id": "chatcmpl-eb193f4e-d975-9f2d-9d0a-fefd92d2ae09",
+      "object": "chat.completion",
+      "created": 1795424715,
+      "model": "qwen3.8-flash",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": "",
+            "content": "| 阶段 | 开始秒数 | 结束秒数 |\n| :--- | :--- | :--- |\n| pickup | 0.0 | 12.0 |\n| harvest | 12.0 | 61.5 |\n| adjust | 61.5 | 64.5 |\n| harvest | 64.5 | 121.0 |\n| return | 121.0 | 125.7 |"
+          },
+          "finish_reason": "stop",
+          "logprobs": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 31715,
+        "total_tokens": 31823,
+        "completion_tokens": 108,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "video_tokens": 31390,
+          "text_tokens": 325
+        },
+        "completion_tokens_details": {
+          "text_tokens": 108
+        }
+      }
+    },
+    "prefix_cases": [
+      {
+        "nominal_seconds": 10,
+        "actual_end_seconds": 9.9,
+        "target_phase": "pickup",
+        "target_index": 1,
+        "answer": {
+          "phase": "pickup",
+          "phase_index": 1,
+          "uncertain": false,
+          "reason": "右手正从右侧盘中拿起番茄串并向上提起，左手尚未开始采摘动作。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 2.150358160957694,
+        "raw_response": {
+          "id": "chatcmpl-c865c421-4fd0-9e22-a8ca-1c44c9008120",
+          "object": "chat.completion",
+          "created": 1795424721,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"pickup\",\"phase_index\":1,\"uncertain\":false,\"reason\":\"右手正从右侧盘中拿起番茄串并向上提起，左手尚未开始采摘动作。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 2878,
+            "total_tokens": 2915,
+            "completion_tokens": 37,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 2480,
+              "text_tokens": 398
+            },
+            "completion_tokens_details": {
+              "text_tokens": 37
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 20,
+        "actual_end_seconds": 19.9,
+        "target_phase": "harvest",
+        "target_index": 2,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 2,
+          "uncertain": false,
+          "reason": "左手正伸向右手持有的番茄串准备采摘，处于第一轮采摘阶段。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 2.851519444026053,
+        "raw_response": {
+          "id": "chatcmpl-25a2869b-7d12-9cd6-94f6-2d4d16b4e6f4",
+          "object": "chat.completion",
+          "created": 1795424724,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"harvest\",\"phase_index\":2,\"uncertain\":false,\"reason\":\"左手正伸向右手持有的番茄串准备采摘，处于第一轮采摘阶段。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 5369,
+            "total_tokens": 5405,
+            "completion_tokens": 36,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 4970,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 36
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 30,
+        "actual_end_seconds": 29.966666666666665,
+        "target_phase": "harvest",
+        "target_index": 2,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整番茄串位置后停稳，左手正离开果盘向番茄串移动以进行第二轮采摘。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": false,
+        "api_seconds": 3.3649185618851334,
+        "raw_response": {
+          "id": "chatcmpl-fd1a7a60-c9be-9a0d-8d6c-8e169dbe3a98",
+          "object": "chat.completion",
+          "created": 1795424726,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整番茄串位置后停稳，左手正离开果盘向番茄串移动以进行第二轮采摘。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 7859,
+            "total_tokens": 7902,
+            "completion_tokens": 43,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 7460,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 43
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 40,
+        "actual_end_seconds": 39.9,
+        "target_phase": "harvest",
+        "target_index": 2,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "视频最后时刻，左手正在从右手持有的番茄串上采摘果实，处于第二轮采摘阶段。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": false,
+        "api_seconds": 3.4700166839174926,
+        "raw_response": {
+          "id": "chatcmpl-f6905bf2-b2e9-927a-87d8-79955384488d",
+          "object": "chat.completion",
+          "created": 1795424730,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "```json\n{\n\"phase\": \"harvest\",\n\"phase_index\": 4,\n\"uncertain\": false,\n\"reason\": \"视频最后时刻，左手正在从右手持有的番茄串上采摘果实，处于第二轮采摘阶段。\"\n}\n```"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 10349,
+            "total_tokens": 10407,
+            "completion_tokens": 58,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 9950,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 58
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 50,
+        "actual_end_seconds": 49.9,
+        "target_phase": "adjust",
+        "target_index": 3,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整番茄串位置后停稳，左手离开果盘朝番茄串移动并开始采摘"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": false,
+        "index_correct": false,
+        "api_seconds": 3.164023631019518,
+        "raw_response": {
+          "id": "chatcmpl-266ce0db-48c8-9940-8f85-0b316f8fc3f4",
+          "object": "chat.completion",
+          "created": 1795424733,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整番茄串位置后停稳，左手离开果盘朝番茄串移动并开始采摘\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 12839,
+            "total_tokens": 12878,
+            "completion_tokens": 39,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 12440,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 39
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 60,
+        "actual_end_seconds": 59.9,
+        "target_phase": "adjust",
+        "target_index": 3,
+        "answer": {
+          "phase": "return",
+          "phase_index": 5,
+          "uncertain": false,
+          "reason": "左手完成最后一次投放并停住后，右手持番茄串开始向右盘返回。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": false,
+        "index_correct": false,
+        "api_seconds": 3.7873215680010617,
+        "raw_response": {
+          "id": "chatcmpl-af208972-147a-9d3f-8db9-f230c038c37f",
+          "object": "chat.completion",
+          "created": 1795424737,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"return\",\"phase_index\":5,\"uncertain\":false,\"reason\":\"左手完成最后一次投放并停住后，右手持番茄串开始向右盘返回。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 15329,
+            "total_tokens": 15366,
+            "completion_tokens": 37,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 14930,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 37
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 70,
+        "actual_end_seconds": 69.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "视频最后时刻，右手在调整番茄串位置后停稳，左手离开左侧方形果盘并向中间的番茄串移动，准备进行第二轮采摘。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 4.303753423970193,
+        "raw_response": {
+          "id": "chatcmpl-f2f5e8a1-759d-97fd-97ac-13ede2287eae",
+          "object": "chat.completion",
+          "created": 1795424740,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "```json\n{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"视频最后时刻，右手在调整番茄串位置后停稳，左手离开左侧方形果盘并向中间的番茄串移动，准备进行第二轮采摘。\"}\n```"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 17819,
+            "total_tokens": 17875,
+            "completion_tokens": 56,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 17420,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 56
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 80,
+        "actual_end_seconds": 79.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手在调整完番茄串位置后停稳，左手随后离开果盘并朝番茄串移动进行第二轮采摘。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 5.27681932086125,
+        "raw_response": {
+          "id": "chatcmpl-e62f0f52-72ec-9d02-8ff5-ed986e3a161d",
+          "object": "chat.completion",
+          "created": 1795424745,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手在调整完番茄串位置后停稳，左手随后离开果盘并朝番茄串移动进行第二轮采摘。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 20309,
+            "total_tokens": 20354,
+            "completion_tokens": 45,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 19910,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 45
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 90,
+        "actual_end_seconds": 89.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整番茄串后停稳，左手离开果盘向番茄串移动并开始采摘。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 52.2186015911866,
+        "raw_response": {
+          "id": "chatcmpl-0c341b65-431f-9df0-b738-bda72327c667",
+          "object": "chat.completion",
+          "created": 1795424750,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "```json\n{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整番茄串后停稳，左手离开果盘向番茄串移动并开始采摘。\"}\n```"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 22799,
+            "total_tokens": 22843,
+            "completion_tokens": 44,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 22400,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 44
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 100,
+        "actual_end_seconds": 99.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整番茄串后停稳，左手正从果盘移向番茄串准备采摘。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 8.49436901602894,
+        "raw_response": {
+          "id": "chatcmpl-8baf1a2e-de8e-9912-809d-6b0b224ab7dc",
+          "object": "chat.completion",
+          "created": 1795424803,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整番茄串后停稳，左手正从果盘移向番茄串准备采摘。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 25289,
+            "total_tokens": 25329,
+            "completion_tokens": 40,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 24890,
+              "text_tokens": 399
+            },
+            "completion_tokens_details": {
+              "text_tokens": 40
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 110,
+        "actual_end_seconds": 109.96666666666667,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 2,
+          "uncertain": false,
+          "reason": "左手正从右手持有的番茄串上采摘果实，并准备将其放入左侧方形果盘中。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": false,
+        "api_seconds": 6.061210454907268,
+        "raw_response": {
+          "id": "chatcmpl-88aa17e6-99e7-92c3-8dd1-c41baa787886",
+          "object": "chat.completion",
+          "created": 1795424811,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\n\"phase\": \"harvest\",\n\"phase_index\": 2,\n\"uncertain\": false,\n\"reason\": \"左手正从右手持有的番茄串上采摘果实，并准备将其放入左侧方形果盘中。\"\n}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 27790,
+            "total_tokens": 27843,
+            "completion_tokens": 53,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 27390,
+              "text_tokens": 400
+            },
+            "completion_tokens_details": {
+              "text_tokens": 53
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 120,
+        "actual_end_seconds": 119.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整番茄串后停稳，左手离开果盘向番茄串移动准备采摘"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 6.575377956032753,
+        "raw_response": {
+          "id": "chatcmpl-a175ba74-9b5b-95c2-b303-7161f698508e",
+          "object": "chat.completion",
+          "created": 1795424817,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整番茄串后停稳，左手离开果盘向番茄串移动准备采摘\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 30290,
+            "total_tokens": 30328,
+            "completion_tokens": 38,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 29890,
+              "text_tokens": 400
+            },
+            "completion_tokens_details": {
+              "text_tokens": 38
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 124,
+        "actual_end_seconds": 123.96666666666667,
+        "target_phase": "return",
+        "target_index": 5,
+        "answer": {
+          "phase": "return",
+          "phase_index": 5,
+          "uncertain": false,
+          "reason": "视频最后时刻，左手已完成最后一次采摘并释放回果盘停住，右手随即持番茄串向右盘返回。"
+        },
+        "interpretation": "strict_or_fenced_json",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 7.011141898110509,
+        "raw_response": {
+          "id": "chatcmpl-1773c887-6ab4-9afb-bbf1-d0b074ac41b6",
+          "object": "chat.completion",
+          "created": 1795424824,
+          "model": "qwen3.8-flash",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "{\"phase\":\"return\",\"phase_index\":5,\"uncertain\":false,\"reason\":\"视频最后时刻，左手已完成最后一次采摘并释放回果盘停住，右手随即持番茄串向右盘返回。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 31290,
+            "total_tokens": 31334,
+            "completion_tokens": 44,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 30890,
+              "text_tokens": 400
+            },
+            "completion_tokens_details": {
+              "text_tokens": 44
+            }
+          }
+        }
+      }
+    ]
+  },
+  "qwen3.8-max": {
+    "prefix_samples": 13,
+    "prefix_valid": 10,
+    "prefix_correct": 10,
+    "prefix_index_correct": 10,
+    "strict_or_fenced_json_count": 0,
+    "extra_prose_with_unique_json_count": 10,
+    "confusion": {
+      "pickup": {
+        "pickup": 1,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 0,
+        "harvest": 6,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 3
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 2,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 0,
+        "adjust": 0,
+        "return": 1,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "recall": {
+      "pickup": 1.0,
+      "harvest": 0.6666666666666666,
+      "adjust": 1.0,
+      "return": 1.0
+    },
+    "prefix_api_median_s": 10.493695927085355,
+    "prefix_api_max_s": 16.763472254155204,
+    "full_video_api_s": 16.303311421070248,
+    "full_video_response": {
+      "id": "chatcmpl-d585d2a9-cc2e-9224-a3df-1c2e9ab4882c",
+      "object": "chat.completion",
+      "created": 1795424831,
+      "model": "qwen3.8-max",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": "",
+            "content": "根据视频内容和任务描述，以下是各阶段的起止时间：\n\n| 阶段 | 开始秒数 | 结束秒数 |\n| :--- | :--- | :--- |\n| 1. 拿起 (pickup) | 0.0 | 11.5 |\n| 2. 第一轮采摘 (harvest) | 11.5 | 47.0 |\n| 3. 调整 (adjust) | 47.0 | 62.0 |\n| 4. 第二轮采摘 (harvest) | 62.0 | 101.5 |\n| 5. 放回 (return) | 101.5 | 125.5 |\n\n**说明：**\n*   **拿起 (0.0s - 11.5s):** 右手从盘中抓起番茄串并移至中间悬停。左手在11.5s左右开始向番茄串移动。\n*   **第一轮采摘 (11.5s - 47.0s):** 左手依次摘下3颗番茄放入左侧果盘。最后一次投放释放并在约47.0s停稳。\n*   **调整 (47.0s - 62.0s):** 右手主动旋转/调整番茄串的角度，以便左手继续采摘。调整动作在62.0s左右结束并停稳。\n*   **第二轮采摘 (62.0s - 101.5s):** 左手再次移动，依次摘下剩余番茄（其中一颗掉落，左手将其捡起放入盘中）。最后一次投放释放并在约101.5s停稳。此时右手持有的是空的番茄梗。\n*   **放回 (101.5s - 125.5s):** 右手将持有的空番茄梗放回右侧盘中。"
+          },
+          "finish_reason": "stop",
+          "logprobs": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 31720,
+        "total_tokens": 32117,
+        "completion_tokens": 397,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "video_tokens": 31390,
+          "text_tokens": 330
+        },
+        "completion_tokens_details": {
+          "text_tokens": 397
+        }
+      }
+    },
+    "prefix_cases": [
+      {
+        "nominal_seconds": 10,
+        "actual_end_seconds": 9.9,
+        "target_phase": "pickup",
+        "target_index": 1,
+        "answer": {
+          "phase": "pickup",
+          "phase_index": 1,
+          "uncertain": false,
+          "reason": "右手从盘中抓起番茄串并提升至空中送往中间，左手尚未动作，处于拿起阶段。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 4.504975964082405,
+        "raw_response": {
+          "id": "chatcmpl-84f01260-8284-987f-869a-3bda2c8acef7",
+          "object": "chat.completion",
+          "created": 1795424847,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频画面分析：\n\n1.  **0.0s - 6.5s**：右侧机械臂（右手）伸向右侧盘子，抓取番茄串。\n2.  **6.5s - 9.9s**：右侧机械臂将番茄串拿起并提升至空中，移向两臂中间位置。左侧机械臂（左手）全程保持静止，未开始移动。\n\n根据阶段定义，右手从右盘拿起番茄串并送到中间的过程属于“拿起（pickup）”阶段。由于左手尚未开始朝番茄串移动，任务尚未进入“第一轮采摘”阶段。\n\n{\"phase\":\"pickup\",\"phase_index\":1,\"uncertain\":false,\"reason\":\"右手从盘中抓起番茄串并提升至空中送往中间，左手尚未动作，处于拿起阶段。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 2883,
+            "total_tokens": 3052,
+            "completion_tokens": 169,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 2480,
+              "text_tokens": 403
+            },
+            "completion_tokens_details": {
+              "text_tokens": 169
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 20,
+        "actual_end_seconds": 19.9,
+        "target_phase": "harvest",
+        "target_index": 2,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 2,
+          "uncertain": false,
+          "reason": "右手已持串停稳在中间，左手正从果盘处向番茄串移动准备采摘，符合第一轮采摘的开始特征。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 7.389032451901585,
+        "raw_response": {
+          "id": "chatcmpl-24ff034b-2d4f-920b-af96-465f584d05ad",
+          "object": "chat.completion",
+          "created": 1795424851,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频内容和任务阶段定义进行分析：\n\n1.  **0.0s - 7.0s**：右侧机械手（右手）从右侧盘子中抓取番茄串并拿起。这对应 **拿起 (pickup)** 阶段。\n2.  **7.0s - 11.0s**：右手将番茄串移至两臂中间位置并停稳。\n3.  **11.0s - 19.9s**：左侧机械手（左手）从左侧果盘上方开始向中间的番茄串移动，伸出手指准备接触果实。根据定义，“右手持串停稳后，左手开始朝番茄串移动”标志着 **第一轮采摘 (harvest)** 的开始。\n4.  **视频结束时刻 (19.9s)**：左手正在靠近并即将接触番茄串，尚未进行摘果、送盘或释放动作，右手保持持有状态。这处于第一轮采摘的初始子阶段（靠近）。\n\n因此，当前正处于第一轮采摘阶段。\n\n{\"phase\":\"harvest\",\"phase_index\":2,\"uncertain\":false,\"reason\":\"右手已持串停稳在中间，左手正从果盘处向番茄串移动准备采摘，符合第一轮采摘的开始特征。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 5374,
+            "total_tokens": 5637,
+            "completion_tokens": 263,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 4970,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 263
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 30,
+        "actual_end_seconds": 29.966666666666665,
+        "target_phase": "harvest",
+        "target_index": 2,
+        "answer": {},
+        "interpretation": "invalid",
+        "valid": false,
+        "error": "incomplete output",
+        "correct": false,
+        "index_correct": false,
+        "api_seconds": 9.040391142014414,
+        "raw_response": {
+          "id": "chatcmpl-f188cb5e-d536-9076-b681-35658ace0578",
+          "object": "chat.completion",
+          "created": 1795424859,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "根据视频内容和任务阶段定义进行分析：\n\n1.  **0.0s - 11.0s**：右手从右侧盘中拿起番茄串并移至中间悬停。这是 **拿起 (pickup)** 阶段。\n2.  **11.0s - 21.0s**：左手伸向番茄串，摘取了一颗番茄。这是 **第一轮采摘 (harvest)** 的开始。\n3.  **21.0s - 26.0s**：左手将摘下的番茄放入左侧方形果盘中并释放。\n4.  **26.0s - 29.967s (视频结束)**：左手在完成投放后，再次离开果盘区域，朝右手持有的番茄串移动，准备进行下一次采摘。此时右手保持持有番茄串的姿态（可能有微小配合动作，但未进行大幅度的位置或朝向调整以进入独立的“调整”阶段，或者即便视为调整，左手现在的动作也标志着新一轮采摘的开始）。\n\n根据切换标准：“右手调整完成并停稳后，左手开始离开果盘，朝番茄串移动”属于 **第二轮采摘 (harvest)**。由于无法明确区分这是否算作独立的“调整”阶段后的第二轮，还是第一轮采摘的连续动作（通常连续采摘归为同一轮，除非有明确的右手大幅调整），但根据题目提示“无法区分两轮采摘时，phase_index 填 null”，且当前动作明确是左手再次去采摘。\n\n然而，仔细观察 26s-29"
+              },
+              "finish_reason": "length",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 7864,
+            "total_tokens": 8184,
+            "completion_tokens": 320,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 7460,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 320
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 40,
+        "actual_end_seconds": 39.9,
+        "target_phase": "harvest",
+        "target_index": 2,
+        "answer": {},
+        "interpretation": "invalid",
+        "valid": false,
+        "error": "incomplete output",
+        "correct": false,
+        "index_correct": false,
+        "api_seconds": 9.410501650068909,
+        "raw_response": {
+          "id": "chatcmpl-1816b4b1-206f-9235-8536-220a44b3ae48",
+          "object": "chat.completion",
+          "created": 1795424868,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频内容和任务阶段定义进行分析：\n\n1.  **0:00 - 0:11**：右手从右侧盘子拿起番茄串并移至中间悬停。这是 **pickup (阶段 1)**。\n2.  **0:12 - 0:26**：左手伸向番茄串，摘取底部的一颗番茄，放入左侧果盘中间格。这是 **harvest (阶段 2)** 的第一次采摘。\n3.  **0:27 - 0:36**：左手再次伸向番茄串，摘取另一颗番茄，放入左侧果盘最下格。此时右手保持相对静止以配合采摘，未进行主动的大幅调整。这属于 **harvest (阶段 2)** 的延续（或视为第二轮采摘的开始，但在无法明确区分调整动作时，且右手未主动改变位置，通常归为连续的采摘过程或难以区分的采摘轮次）。\n4.  **0:37 - 0:39 (视频结束)**：左手完成第二次投放后，再次离开果盘伸向番茄串，准备进行下一次采摘。右手依然持有番茄串悬停在中间，没有向右盘返回的动作，也没有明显的主动调整姿态动作（只是被动配合或保持）。\n\n根据切换标准：\n*   阶段 3 (adjust) 需要右手主动改变位置/朝向，视频中右手主要是被左手触碰或保持静止，未见明显主动调整。\n*   阶段 5 (return) 需要右手向右"
+              },
+              "finish_reason": "length",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 10354,
+            "total_tokens": 10674,
+            "completion_tokens": 320,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 9950,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 320
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 50,
+        "actual_end_seconds": 49.9,
+        "target_phase": "adjust",
+        "target_index": 3,
+        "answer": {
+          "phase": "adjust",
+          "phase_index": 3,
+          "uncertain": false,
+          "reason": "左手完成采摘归位后，右手正在主动旋转调整番茄串的姿态。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 8.422680337913334,
+        "raw_response": {
+          "id": "chatcmpl-75b44ec1-92ca-9bd2-ac9a-581c475cff34",
+          "object": "chat.completion",
+          "created": 1795424877,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频内容和任务阶段定义进行分析：\n\n1.  **0:00 - 0:11**：右手从右侧盘子拿起番茄串并悬停在中间，属于 **pickup (1)**。\n2.  **0:12 - 0:46**：右手保持静止，左手反复从番茄串上摘取果实并放入左侧果盘（共进行了3次采摘动作），属于 **harvest (2)**。\n3.  **0:47 - 0:49**：在左手完成最后一次投放并停住后，右手开始主动转动/调整番茄串的角度和位置，属于 **adjust (3)**。\n4.  视频在右手调整动作进行时结束，尚未进入下一轮采摘或放回阶段。\n\n因此，视频最后一刻处于“调整”阶段。\n\n{\"phase\":\"adjust\",\"phase_index\":3,\"uncertain\":false,\"reason\":\"左手完成采摘归位后，右手正在主动旋转调整番茄串的姿态。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 12844,
+            "total_tokens": 13055,
+            "completion_tokens": 211,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 12440,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 211
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 60,
+        "actual_end_seconds": 59.9,
+        "target_phase": "adjust",
+        "target_index": 3,
+        "answer": {
+          "phase": "adjust",
+          "phase_index": 3,
+          "uncertain": false,
+          "reason": "左手已完成采摘并停稳，右手正在主动旋转调整番茄串的位置和朝向，尚未进入下一轮采摘或放回。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 9.832301148213446,
+        "raw_response": {
+          "id": "chatcmpl-7b3de6ac-1ea4-9488-8ebc-5e3cebe0629b",
+          "object": "chat.completion",
+          "created": 1795424886,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频内容和任务阶段定义进行分析：\n\n1.  **0:00 - 0:11**：右手从右侧盘子拿起番茄串并移至中间，属于 **pickup (1)**。\n2.  **0:12 - 0:46**：右手持串停稳，左手进行了三次采摘动作（摘取果实并放入左侧果盘），属于 **harvest (2)**。在 0:46 左右，左手完成最后一次投放并退回停稳。\n3.  **0:47 - 0:59**：左手停住后，右手开始主动旋转和调整番茄串的角度与位置，且直到视频结束右手仍在进行调整动作，左手未再次启动。这符合 **adjust (3)** 的定义。\n\n因此，视频最后一刻正处于调整阶段。\n\n```json\n{\"phase\":\"adjust\",\"phase_index\":3,\"uncertain\":false,\"reason\":\"左手已完成采摘并停稳，右手正在主动旋转调整番茄串的位置和朝向，尚未进入下一轮采摘或放回。\"}\n```"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 15334,
+            "total_tokens": 15559,
+            "completion_tokens": 225,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 14930,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 225
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 70,
+        "actual_end_seconds": 69.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整番茄串后停稳，左手正离开果盘朝番茄串移动准备继续采摘，视频在此过程中结束。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 10.493695927085355,
+        "raw_response": {
+          "id": "chatcmpl-6f4e639c-cee0-9592-8973-a13502da7b61",
+          "object": "chat.completion",
+          "created": 1795424896,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频内容和任务阶段定义进行分析：\n\n1.  **0:00 - 0:11**：右手从右侧盘中拿起番茄串并移至中间，属于 **pickup (1)**。\n2.  **0:12 - 0:46**：右手持串停稳，左手开始移动，进行了三次摘果并放入左侧果盘的动作（分别在 0:23, 0:33, 0:43 左右完成投放），属于 **第一轮采摘 (2)**。\n3.  **0:47 - 1:01**：左手完成最后一次投放并停住后，右手主动旋转和调整了番茄串的角度和位置，属于 **adjust (3)**。\n4.  **1:02 - 1:09 (视频结束)**：右手调整完毕并停稳，左手离开果盘再次向番茄串移动，准备进行下一轮采摘，动作正在进行中，属于 **第二轮采摘 (4)**。\n\n因此，视频最后一刻正处于第二轮采摘阶段。\n\n```json\n{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整番茄串后停稳，左手正离开果盘朝番茄串移动准备继续采摘，视频在此过程中结束。\"}\n```"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 17824,
+            "total_tokens": 18098,
+            "completion_tokens": 274,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 17420,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 274
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 80,
+        "actual_end_seconds": 79.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {},
+        "interpretation": "invalid",
+        "valid": false,
+        "error": "incomplete output",
+        "correct": false,
+        "index_correct": false,
+        "api_seconds": 14.023067721864209,
+        "raw_response": {
+          "id": "chatcmpl-5ef55ba4-acf3-96b4-8ffe-ee470e287be8",
+          "object": "chat.completion",
+          "created": 1795424908,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "根据视频内容和任务阶段定义进行分析：\n\n1.  **拿起 (pickup)**: 0s - 11s，右手从盘中拿起番茄串。\n2.  **第一轮采摘 (harvest)**: 12s - 46s，左手依次摘下3个番茄放入左侧果盘。\n3.  **调整 (adjust)**: 47s - 61s，右手旋转调整番茄串的角度。\n4.  **第二轮采摘 (harvest)**: 62s - 79s+，左手再次伸出，在68s左右摘下一个番茄，74s左右将其放入左侧果盘最下方的格子中。\n5.  **当前状态**: 在视频的最后一刻（约79.9s），左手刚刚完成投放并释放番茄，正从果盘处收回/停住，准备进行下一次采摘或结束。右手依然持有剩余的番茄串悬停在中间，尚未开始向右盘返回。\n\n因此，视频结束时仍处于**第二轮采摘**阶段（或者刚完成该轮的一次采摘动作，等待下一次指令，但尚未进入放回阶段）。由于无法确定是否还有后续采摘，且处于采摘循环中，归类为 harvest。因为无法区分是第几轮（虽然逻辑上是第二轮，但视觉上与第一轮动作一致，且题目提示无法区分时填null，不过这里明确经历了调整阶段，所以可以确定是第二轮，即phase_index=4）。\n\n等等，题目要求“无法区分两轮采摘时，phase_index 填 null"
+              },
+              "finish_reason": "length",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 20314,
+            "total_tokens": 20634,
+            "completion_tokens": 320,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 19910,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 320
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 90,
+        "actual_end_seconds": 89.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整完番茄串后，左手继续进行采摘动作，视频结束时左手正处于第二轮采摘过程中。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 12.121084956917912,
+        "raw_response": {
+          "id": "chatcmpl-d4cb5079-dc72-9b94-957a-b89a642f9ed6",
+          "object": "chat.completion",
+          "created": 1795424920,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频分析：\n\n1.  **0:00 - 0:12**：右手从右侧盘子拿起番茄串，移至中间。这是**拿起（pickup）**阶段。\n2.  **0:13 - 0:46**：左手开始从番茄串上摘取果实并放入左侧果盘，连续进行了几次采摘动作。这是**第一轮采摘（harvest）**阶段。\n3.  **0:47 - 1:02**：左手完成最后一次投放并停住后，右手主动旋转和调整了番茄串的角度和位置，以便左手继续采摘。这是**调整（adjust）**阶段。\n4.  **1:03 - 1:29（视频结束）**：右手调整完毕并停稳后，左手再次离开果盘，伸向番茄串进行新一轮的采摘动作（可以看到左手在1:05左右接触果实，1:13送盘，1:18又回来摘，直到视频结束左手仍在进行采摘相关的动作）。这是**第二轮采摘（harvest）**阶段。\n\n视频最后一刻，左手正在从右手持有的番茄串上摘取果实或准备送盘，属于第二轮采摘过程中。\n\n{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整完番茄串后，左手继续进行采摘动作，视频结束时左手正处于第二轮采摘过程中。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 22804,
+            "total_tokens": 23099,
+            "completion_tokens": 295,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 22400,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 295
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 100,
+        "actual_end_seconds": 99.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整完番茄串后，左手继续进行采摘动作，直到视频结束右手仍未开始放回。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 12.415665162028745,
+        "raw_response": {
+          "id": "chatcmpl-a76faa44-3225-9e55-9e5a-5e896983c677",
+          "object": "chat.completion",
+          "created": 1795424933,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频分析：\n\n1.  **0:00 - 0:12**：右手从右侧盘子拿起番茄串，移动到中间位置。这是**拿起（pickup）**阶段。\n2.  **0:13 - 0:46**：左手开始从番茄串上摘取果实并放入左侧果盘，连续进行了三次采摘动作。这是**第一轮采摘（harvest）**阶段。\n3.  **0:47 - 1:02**：左手完成最后一次投放并停住后，右手主动旋转和调整了番茄串的角度和位置。这是**调整（adjust）**阶段。\n4.  **1:03 - 1:39**：右手调整完毕停稳后，左手再次离开果盘，继续从番茄串上摘取果实（进行了两次采摘，最后一次似乎掉落或未完全放入，但动作属于采摘流程）。这是**第二轮采摘（harvest）**阶段。\n5.  **视频结束时刻**：左手刚刚完成（或正在进行）第二轮的最后一次采摘动作，右手仍然持有番茄串停在中间，尚未开始向右盘返回。\n\n因此，视频最后一刻处于第二轮采摘阶段。\n\n{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整完番茄串后，左手继续进行采摘动作，直到视频结束右手仍未开始放回。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 25294,
+            "total_tokens": 25583,
+            "completion_tokens": 289,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 24890,
+              "text_tokens": 404
+            },
+            "completion_tokens_details": {
+              "text_tokens": 289
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 110,
+        "actual_end_seconds": 109.96666666666667,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整完番茄串后，左手继续进行采摘和放盘动作，直到视频结束右手仍持串在中间，未开始放回。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 16.763472254155204,
+        "raw_response": {
+          "id": "chatcmpl-8d5acdf9-5a62-9e2c-8c7c-a53b1436ad2e",
+          "object": "chat.completion",
+          "created": 1795424946,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频分析：\n\n1.  **0:00 - 0:11**：右手从右侧盘子拿起番茄串，移至中间。这是**拿起（pickup）**阶段。\n2.  **0:12 - 0:46**：左手开始从番茄串上采摘果实并放入左侧果盘，连续进行了三次采摘动作。这是**第一轮采摘（harvest）**阶段。\n3.  **0:47 - 1:01**：左手完成最后一次投放并停住后，右手主动旋转/调整了番茄串的角度和位置。这是**调整（adjust）**阶段。\n4.  **1:02 - 1:49**：右手调整完毕停稳后，左手再次离开果盘朝番茄串移动，继续进行采摘动作（摘取、送盘、释放）。直到视频结束（1:49），左手刚刚完成一次投放或正在接近番茄串准备下一次采摘，右手依然持有番茄串停在中间，没有向右盘返回的迹象。这属于**第二轮采摘（harvest）**阶段。\n\n因此，视频最后一刻处于第二轮采摘阶段。\n\n{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整完番茄串后，左手继续进行采摘和放盘动作，直到视频结束右手仍持串在中间，未开始放回。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 27795,
+            "total_tokens": 28083,
+            "completion_tokens": 288,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 27390,
+              "text_tokens": 405
+            },
+            "completion_tokens_details": {
+              "text_tokens": 288
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 120,
+        "actual_end_seconds": 119.9,
+        "target_phase": "harvest",
+        "target_index": 4,
+        "answer": {
+          "phase": "harvest",
+          "phase_index": 4,
+          "uncertain": false,
+          "reason": "右手调整完番茄串后，左手继续进行第二轮采摘，直到视频结束左手刚完成最后一次投放，右手尚未开始返回。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 14.090923357056454,
+        "raw_response": {
+          "id": "chatcmpl-b0362c15-6a80-9318-a53c-6d4dabe585d0",
+          "object": "chat.completion",
+          "created": 1795424963,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频分析：\n\n1.  **0:00 - 0:12**：右手从右侧盘子拿起番茄串，移动到中间位置。这是**拿起（pickup）**阶段。\n2.  **0:13 - 0:46**：左手开始从番茄串上摘取果实，并放入左侧果盘。这是**第一轮采摘（harvest）**。\n3.  **0:47 - 1:02**：左手完成最后一次投放并停住后，右手主动旋转/调整了番茄串的角度和位置。这是**调整（adjust）**阶段。\n4.  **1:03 - 1:59 (结束)**：右手调整完毕停稳后，左手再次靠近番茄串，继续摘取剩余的果实并放入左侧果盘。直到视频最后一刻（1:59），左手刚刚完成最后一次投放动作并释放果实，右手仍持有番茄串停留在中间位置，尚未开始向右盘返回。这属于**第二轮采摘（harvest）**阶段。\n\n因此，视频最后一刻处于第二轮采摘阶段。\n\n{\"phase\":\"harvest\",\"phase_index\":4,\"uncertain\":false,\"reason\":\"右手调整完番茄串后，左手继续进行第二轮采摘，直到视频结束左手刚完成最后一次投放，右手尚未开始返回。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 30295,
+            "total_tokens": 30571,
+            "completion_tokens": 276,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 29890,
+              "text_tokens": 405
+            },
+            "completion_tokens_details": {
+              "text_tokens": 276
+            }
+          }
+        }
+      },
+      {
+        "nominal_seconds": 124,
+        "actual_end_seconds": 123.96666666666667,
+        "target_phase": "return",
+        "target_index": 5,
+        "answer": {
+          "phase": "return",
+          "phase_index": 5,
+          "uncertain": false,
+          "reason": "左手已完成最后一次采摘并停住，右手持有番茄串残枝开始向右侧盘子移动返回。"
+        },
+        "interpretation": "single_json_object_with_extra_prose",
+        "valid": true,
+        "error": null,
+        "correct": true,
+        "index_correct": true,
+        "api_seconds": 14.538907964946702,
+        "raw_response": {
+          "id": "chatcmpl-3373076c-3197-9d1f-93fd-d74cf4ddfcde",
+          "object": "chat.completion",
+          "created": 1795424976,
+          "model": "qwen3.8-max",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "reasoning_content": "",
+                "content": "基于视频内容和任务阶段定义进行分析：\n\n1.  **拿起 (pickup)**: 0s - 11s，右手从盘中拿起番茄串。\n2.  **第一轮采摘 (harvest)**: 11s - 47s，左手从静止的番茄串上采摘果实并放入左侧果盘（摘了3个）。\n3.  **调整 (adjust)**: 47s - 62s，右手旋转/调整了番茄串的角度，左手在旁等待。\n4.  **第二轮采摘 (harvest)**: 62s - 121s，左手再次开始采摘（摘了剩余的几个果实），并在约121s完成最后一次投放并停住。\n5.  **放回 (return)**: 122s起，左手已完全停止动作，右手持有剩余的番茄梗/串，开始向下并向右侧盘子移动。\n\n视频最后一刻（约123s），右手正持物向右盘返回，符合“放回”阶段的定义。\n\n{\"phase\":\"return\",\"phase_index\":5,\"uncertain\":false,\"reason\":\"左手已完成最后一次采摘并停住，右手持有番茄串残枝开始向右侧盘子移动返回。\"}"
+              },
+              "finish_reason": "stop",
+              "logprobs": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 31295,
+            "total_tokens": 31557,
+            "completion_tokens": 262,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "video_tokens": 30890,
+              "text_tokens": 405
+            },
+            "completion_tokens_details": {
+              "text_tokens": 262
+            }
+          }
+        }
+      }
+    ]
+  },
+  "reference_boundaries_s": [
+    11.4,
+    46.9,
+    61.266666666666666,
+    121.0
+  ],
+  "limitations": [
+    "one previously inspected train recording",
+    "full-video response is offline segmentation, prefixes are current observation, not equivalent tasks",
+    "native MP4 prefix streamcopy PTS and endpoint pixels verified; server internal sampling unmeasured",
+    "no prior text or agent memory, no counts or robot control",
+    "API timing excludes clip preparation; no live queue simulation"
+  ],
+  "full_video_manual_boundary_readback": {
+    "qwen3.8-flash": {
+      "reported_boundaries_s": [
+        12,
+        61.5,
+        64.5,
+        121
+      ],
+      "signed_error_against_existing_coarse_s": [
+        0.5999999999999996,
+        14.600000000000001,
+        3.2333333333333343,
+        0.0
+      ],
+      "method": "human readback of original model table, no correction of reported values"
+    },
+    "qwen3.8-max": {
+      "reported_boundaries_s": [
+        11.5,
+        47,
+        62,
+        101.5
+      ],
+      "signed_error_against_existing_coarse_s": [
+        0.09999999999999964,
+        0.10000000000000142,
+        0.7333333333333343,
+        -19.5
+      ],
+      "method": "human readback of original model table, no correction of reported values"
+    }
+  },
+  "preflight_audit": {
+    "prefixes": 13,
+    "all_last_frames_pixel_equal_source": true,
+    "streamcopy_only": true,
+    "full_original_sha_unchanged": true,
+    "api_requests": 28
+  }
+}
