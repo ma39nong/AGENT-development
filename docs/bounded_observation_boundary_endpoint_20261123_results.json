@@ -1,0 +1,135 @@
+{
+  "run": "/home/user/AGENT-development/runs/bounded_history_boundary_endpoint_20261123_v1",
+  "samples": 39,
+  "valid": 39,
+  "correct": 34,
+  "accuracy": 0.8717948717948718,
+  "per_class_recall": {
+    "pickup": 0.5,
+    "harvest": 0.9444444444444444,
+    "adjust": 0.8888888888888888,
+    "return": 1.0
+  },
+  "macro_recall": 0.8333333333333333,
+  "confusion": {
+    "pickup": {
+      "pickup": 3,
+      "harvest": 3,
+      "adjust": 0,
+      "return": 0,
+      "unknown": 0,
+      "invalid": 0
+    },
+    "harvest": {
+      "pickup": 0,
+      "harvest": 17,
+      "adjust": 0,
+      "return": 1,
+      "unknown": 0,
+      "invalid": 0
+    },
+    "adjust": {
+      "pickup": 0,
+      "harvest": 1,
+      "adjust": 8,
+      "return": 0,
+      "unknown": 0,
+      "invalid": 0
+    },
+    "return": {
+      "pickup": 0,
+      "harvest": 0,
+      "adjust": 0,
+      "return": 6,
+      "unknown": 0,
+      "invalid": 0
+    }
+  },
+  "false_return_count": 1,
+  "groups": {
+    "midpoint": {
+      "samples": 15,
+      "correct": 15
+    },
+    "B1_before_1s": {
+      "samples": 3,
+      "correct": 0
+    },
+    "B1_after_1s": {
+      "samples": 3,
+      "correct": 3
+    },
+    "B2_before_1s": {
+      "samples": 3,
+      "correct": 3
+    },
+    "B2_after_1s": {
+      "samples": 3,
+      "correct": 2
+    },
+    "B3_before_1s": {
+      "samples": 3,
+      "correct": 3
+    },
+    "B3_after_1s": {
+      "samples": 3,
+      "correct": 3
+    },
+    "B4_before_1s": {
+      "samples": 3,
+      "correct": 2
+    },
+    "B4_after_1s": {
+      "samples": 3,
+      "correct": 3
+    }
+  },
+  "errors": [
+    {
+      "recording": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 202,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 2633,
+      "group": "B4_before_1s",
+      "target": "harvest",
+      "prediction": "return"
+    },
+    {
+      "recording": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 183,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1030,
+      "group": "B2_after_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "31b624bfd7d44443bf08164b7af006d3",
+      "cutoff_frame": 204,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    }
+  ],
+  "median_prepare_generate_s": 0.7978954820428044,
+  "max_prepare_generate_s": 0.8852835050784051,
+  "full_five_stage_index_correct": 17,
+  "scope": "Validation only, self-generated history and annotation-selected probes; not dense online boundary timing",
+  "timing_excludes": [
+    "physical trim",
+    "storage",
+    "queue",
+    "transport",
+    "robot control"
+  ]
+}

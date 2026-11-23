@@ -51,5 +51,19 @@ class BoundaryGrouping(unittest.TestCase):
         self.assertEqual(boundary_group(segments,1254,30),'B2_after_1s')
         self.assertEqual(boundary_group(segments,1253,30),'ambiguous_boundary_probe')
 
+class EndpointSampling(unittest.TestCase):
+    def test_keep_count_include_end_and_stay_causal(self):
+        from scripts.compare_bounded_history import sample_through_end
+        from transformers.video_utils import VideoMetadata, default_sample_indices_fn
+        for n in (31, 116, 240):
+            metadata = VideoMetadata(total_num_frames=n, fps=30, duration=n/30)
+            old = default_sample_indices_fn(metadata, fps=2)
+            new = sample_through_end(metadata, fps=2)
+            self.assertEqual(len(old), len(new))
+            self.assertEqual(new[-1], n-1)
+            self.assertTrue(all(0 <= x < n for x in new))
+            self.assertTrue(all(a < b for a, b in zip(new[:-1], new[1:])))
+
+
 if __name__ == '__main__':
     unittest.main()

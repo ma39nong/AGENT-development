@@ -1,0 +1,24 @@
+{
+  "samples": 39,
+  "original_correct": 32,
+  "endpoint_correct": 34,
+  "all_latest_source_frames_included": true,
+  "changes": [
+    {
+      "recording": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 1269,
+      "target": "adjust",
+      "before": "harvest",
+      "after": "adjust",
+      "improved": true
+    },
+    {
+      "recording": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1119,
+      "target": "harvest",
+      "before": "adjust",
+      "after": "harvest",
+      "improved": true
+    }
+  ]
+}

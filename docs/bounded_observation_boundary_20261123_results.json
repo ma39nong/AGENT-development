@@ -1,0 +1,324 @@
+{
+  "run": "/home/user/AGENT-development/runs/bounded_history_boundary_allval_20261123_v1",
+  "samples": 273,
+  "valid": 273,
+  "correct": 241,
+  "accuracy": 0.8827838827838828,
+  "per_class_recall": {
+    "pickup": 0.6428571428571429,
+    "harvest": 0.9603174603174603,
+    "adjust": 0.8253968253968254,
+    "return": 0.9761904761904762
+  },
+  "macro_recall": 0.8511904761904762,
+  "confusion": {
+    "pickup": {
+      "pickup": 27,
+      "harvest": 15,
+      "adjust": 0,
+      "return": 0,
+      "unknown": 0,
+      "invalid": 0
+    },
+    "harvest": {
+      "pickup": 0,
+      "harvest": 121,
+      "adjust": 2,
+      "return": 3,
+      "unknown": 0,
+      "invalid": 0
+    },
+    "adjust": {
+      "pickup": 0,
+      "harvest": 10,
+      "adjust": 52,
+      "return": 1,
+      "unknown": 0,
+      "invalid": 0
+    },
+    "return": {
+      "pickup": 0,
+      "harvest": 0,
+      "adjust": 1,
+      "return": 41,
+      "unknown": 0,
+      "invalid": 0
+    }
+  },
+  "false_return_count": 4,
+  "groups": {
+    "midpoint": {
+      "samples": 105,
+      "correct": 105
+    },
+    "B1_before_1s": {
+      "samples": 21,
+      "correct": 6
+    },
+    "B1_after_1s": {
+      "samples": 21,
+      "correct": 21
+    },
+    "B2_before_1s": {
+      "samples": 21,
+      "correct": 21
+    },
+    "B2_after_1s": {
+      "samples": 21,
+      "correct": 14
+    },
+    "B3_before_1s": {
+      "samples": 21,
+      "correct": 17
+    },
+    "B3_after_1s": {
+      "samples": 21,
+      "correct": 18
+    },
+    "B4_before_1s": {
+      "samples": 21,
+      "correct": 19
+    },
+    "B4_after_1s": {
+      "samples": 21,
+      "correct": 20
+    }
+  },
+  "errors": [
+    {
+      "recording": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 202,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 1269,
+      "group": "B2_after_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "205d3e6ee77f4221b22c39e6894a1086",
+      "cutoff_frame": 2633,
+      "group": "B4_before_1s",
+      "target": "harvest",
+      "prediction": "return"
+    },
+    {
+      "recording": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 183,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1030,
+      "group": "B2_after_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "3040dfd24ed042dfae8fc61f5af3e6c4",
+      "cutoff_frame": 1119,
+      "group": "B3_after_1s",
+      "target": "harvest",
+      "prediction": "adjust"
+    },
+    {
+      "recording": "31b624bfd7d44443bf08164b7af006d3",
+      "cutoff_frame": 204,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "3568ce04af7b478894d16122d2921352",
+      "cutoff_frame": 243,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "3568ce04af7b478894d16122d2921352",
+      "cutoff_frame": 1098,
+      "group": "B2_after_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "3568ce04af7b478894d16122d2921352",
+      "cutoff_frame": 2593,
+      "group": "B4_after_1s",
+      "target": "return",
+      "prediction": "adjust"
+    },
+    {
+      "recording": "3b392d1148c443fcbc3ef272339394a0",
+      "cutoff_frame": 847,
+      "group": "B3_before_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "52577b70bb5b4876908dadb5f3af4402",
+      "cutoff_frame": 206,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "52577b70bb5b4876908dadb5f3af4402",
+      "cutoff_frame": 1379,
+      "group": "B2_after_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "52577b70bb5b4876908dadb5f3af4402",
+      "cutoff_frame": 1422,
+      "group": "B3_before_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "67777d419ca542ec8aabc8ea1320a524",
+      "cutoff_frame": 2655,
+      "group": "B4_before_1s",
+      "target": "harvest",
+      "prediction": "return"
+    },
+    {
+      "recording": "6fe3b3a543d44c3da8f9622ef6a2a2c3",
+      "cutoff_frame": 275,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "710aa75fc5294d3eab124ebf4fc7c755",
+      "cutoff_frame": 195,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "88a24bb59c29446aae5f99ba0d58eeae",
+      "cutoff_frame": 202,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "a47a06fc5cd646cf9ae26f46f4710c5f",
+      "cutoff_frame": 251,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "a47a06fc5cd646cf9ae26f46f4710c5f",
+      "cutoff_frame": 1765,
+      "group": "B2_after_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "a47a06fc5cd646cf9ae26f46f4710c5f",
+      "cutoff_frame": 1843,
+      "group": "B3_before_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "bc6f593ab74f477a985f8c27a0d375fc",
+      "cutoff_frame": 175,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "bc6f593ab74f477a985f8c27a0d375fc",
+      "cutoff_frame": 1283,
+      "group": "B3_after_1s",
+      "target": "harvest",
+      "prediction": "return"
+    },
+    {
+      "recording": "bd0ca226f3914765a64500e10741014c",
+      "cutoff_frame": 227,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "beeb9011837348a5ac87b94e69516cfa",
+      "cutoff_frame": 248,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "ca2d608c0d0f443b98879c64493f4c02",
+      "cutoff_frame": 285,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "ca2d608c0d0f443b98879c64493f4c02",
+      "cutoff_frame": 1846,
+      "group": "B2_after_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "d0182c0664fb40b78e8fd07e25a8445f",
+      "cutoff_frame": 212,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "d0182c0664fb40b78e8fd07e25a8445f",
+      "cutoff_frame": 1127,
+      "group": "B3_after_1s",
+      "target": "harvest",
+      "prediction": "adjust"
+    },
+    {
+      "recording": "db85f97ba9804974ae224561f95d5874",
+      "cutoff_frame": 210,
+      "group": "B1_before_1s",
+      "target": "pickup",
+      "prediction": "harvest"
+    },
+    {
+      "recording": "db85f97ba9804974ae224561f95d5874",
+      "cutoff_frame": 2527,
+      "group": "B3_before_1s",
+      "target": "adjust",
+      "prediction": "return"
+    },
+    {
+      "recording": "e76988ce48664dceb9a7ebe24beb18f2",
+      "cutoff_frame": 1254,
+      "group": "B2_after_1s",
+      "target": "adjust",
+      "prediction": "harvest"
+    }
+  ],
+  "median_prepare_generate_s": 0.7807539680507034,
+  "max_prepare_generate_s": 0.9265798639971763,
+  "full_five_stage_index_correct": 120,
+  "scope": "Validation only, self-generated history and annotation-selected probes; not dense online boundary timing",
+  "timing_excludes": [
+    "physical trim",
+    "storage",
+    "queue",
+    "transport",
+    "robot control"
+  ]
+}

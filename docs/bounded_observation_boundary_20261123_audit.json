@@ -1,0 +1,14 @@
+{
+  "train_windows": 755,
+  "train_recordings": 151,
+  "one_harvest_window_replaced_per_recording": true,
+  "class_counts_unchanged": true,
+  "validation_byte_identical": true,
+  "initial_adapter_and_config_identical": true,
+  "physical_clip_and_history_sha_checks": "passed",
+  "causal_history_time_checks": "passed",
+  "train_val_manifest_sha256": {
+    "train": "13b022fd60471f85faa4f15f02933970126c795f3f59bd49ad8d7007fd9d72a8",
+    "val": "57c29534bba64ecbcc460e0f7ce8dd976929950067b77e5db38c2d503c4f8a32"
+  }
+}

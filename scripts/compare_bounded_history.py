@@ -66,6 +66,18 @@ def summarize(rows):
             "history_items_total": sum(len(r["history"]) for r in rows)}
 
 
+def sample_through_end(metadata, fps=2, **kwargs):
+    """Keep native sample count but cover the actual last available source frame."""
+    import numpy as np
+    from transformers.video_utils import default_sample_indices_fn
+    original = default_sample_indices_fn(metadata, fps=fps)
+    if len(original) < 1:
+        raise ValueError("no samples at requested FPS")
+    if len(original) == 1:
+        return np.array([metadata.total_num_frames-1], dtype=int)
+    return np.linspace(0, metadata.total_num_frames-1, len(original), dtype=int)
+
+
 def training_cutoffs(segments, fps, recording_id, boundary_focus=False):
     cutoffs = [(s["start_frame"]+s["end_frame"])//2 for s in segments]
     if boundary_focus:
@@ -88,7 +100,10 @@ def main():
     p.add_argument("--current-frame", action="store_true", help="Exploratory explicit newest-frame input after history")
     p.add_argument("--prepare-training", action="store_true", help="Frozen candidate rollout on train/val midpoints; export bounded SFT inputs")
     p.add_argument("--boundary-focus", action="store_true", help="Train-only fixed-budget sampling ablation; copy original validation inputs")
+    p.add_argument("--sample-through-end", action="store_true", help="Evaluation-only ablation: same sample count, include actual latest source frame")
     args = p.parse_args()
+    if args.sample_through_end and args.prepare_training:
+        raise ValueError("endpoint sampling ablation is evaluation only")
     if args.boundary_focus and (not args.prepare_training or args.current_frame):
         raise ValueError("boundary focus requires training preparation without current-frame ablation")
     if args.output.exists():
@@ -123,7 +138,7 @@ def main():
             jobs.append({"row": row, "cutoff_frame": cutoff, "target_phase": segments[phase-1]["label"], "target_index": phase})
     write_json(args.output/"protocol.json", {"adapter": str(adapter), "adapter_sha256": digest(adapter/"adapter_model.safetensors"),
         "recording_ids": [r["source_recording_id"] for r in rows], "split": "train_with_copied_validation" if args.boundary_focus else ("train_and_val" if args.prepare_training else "validation"),
-        "boundary_focus": args.boundary_focus,
+        "boundary_focus": args.boundary_focus, "sample_through_end": args.sample_through_end,
         "modes": modes, "probes_per_mode": len(jobs), "training": False, "robot_control": False,
         "explicit_newest_frame": args.current_frame,
         "history": "previous actual model candidates only, at most 2 distinct label/index candidates and 2 original sampled frames; 384 text-token budget",
@@ -169,7 +184,8 @@ def main():
                 if count != cutoff_frame-first or abs(fps-row["fps"]) > .01:
                     raise ValueError("physical window frame clock mismatch")
                 begin = time.perf_counter()
-                video, metadata = load_video(str(clip), backend="opencv", fps=2)
+                video, metadata = load_video(str(clip), backend="opencv", fps=2,
+                    **({"sample_indices_fn": sample_through_end} if args.sample_through_end else {}))
                 history = select_history(memory.query(task, cutoff=start, available_at=cutoff, limit=100), start,
                     lambda text: len(processor.tokenizer.encode(text))) if use_memory else []
                 context = {"window_start_seconds": round(start, 3), "observation_cutoff_seconds": round(cutoff, 3),
