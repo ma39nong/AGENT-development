@@ -1,0 +1,174 @@
+{
+  "protocol": {
+    "model": "qwen3.8-flash",
+    "source_recording_id": "b0f7213da83547b99aac45f6438b511e",
+    "split": "train",
+    "source_video_sha256": "3c1683af41a9314077fc9c739784a2c9e9ca33a95eff01b3e36921bc4dd25f0a",
+    "camera": "cam0",
+    "fps": 30.0,
+    "window_seconds": 8,
+    "cadence_seconds": 2,
+    "fixed_context_run": "runs/cloud_video_replay_flash_20261123_v1",
+    "prompt_sha256": "d5d7970dbd92003c6c1d607086ce57eb8989d4ff46327fbdaee1a0617bbda30e",
+    "requests_maximum": 63,
+    "enable_thinking": false,
+    "prompt": "请观察双臂机器人采摘番茄的视频，判断视频最后一刻正在进行哪个阶段。\n\n任务是：右手拿起并持有番茄串，左手摘果放进左侧方形果盘；右手调整番茄串后，左手继续采摘，最后右手把持有的番茄串放回右侧盘。\n\n五个阶段及切换标准：\n1. 拿起（pickup）：右手从右盘拿起番茄串，送到中间。\n2. 第一轮采摘（harvest）：右手持串停稳后，左手开始朝番茄串移动。包括靠近、摘果、送盘、释放和等待。\n3. 调整（adjust）：左手完成最后一次投放、释放并停住后，右手开始主动改变番茄串的位置或朝向。\n4. 第二轮采摘（harvest）：右手调整完成并停稳后，左手开始离开果盘，朝番茄串移动。\n5. 放回（return）：左手完成最后一次投放、释放并停住后，右手开始持物向右盘返回；串上有没有剩余果实都属于放回。\n\n注意：左右手按机器人自身定义。边界取下一动作开始移动的时刻，之前的等待仍属上一阶段。采摘时右手的小幅配合不算调整；不要把正在送盘的左手当成已投放完成。\n视频可能只是任务的一小段，不必从第一阶段开始，也不要因为视频结束就判断为放回。看不清当前阶段就填 unknown；无法区分两轮采摘时，phase_index 填 null。\n\n只输出：{\"phase\":\"pickup/harvest/adjust/return/unknown中的一个\",\"phase_index\":1到5或null,\"uncertain\":true或false,\"reason\":\"一句简短的实际动作描述\"}。\n",
+    "memory": "up to two actually returned unverified own candidates",
+    "input": "native video_url MP4; no still-image inputs, no resizing, original frame clock; h264 re-encoding",
+    "server_sampling": "provider controlled, not measured",
+    "no_retries": true,
+    "control": false,
+    "counting": false,
+    "limitations": "Offline fixed-cadence replay. No real-time scheduler/backpressure; source-clock availability estimates assume requests could launch at cadence; no robot commands."
+  },
+  "strict_json": {
+    "samples": 63,
+    "valid": 43,
+    "correct": 33,
+    "accuracy": 0.5238095238095238,
+    "per_class_recall": {
+      "pickup": 0.2,
+      "harvest": 0.6458333333333334,
+      "adjust": 0.0,
+      "return": 0.3333333333333333
+    },
+    "confusion": {
+      "pickup": {
+        "pickup": 1,
+        "harvest": 2,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 2
+      },
+      "harvest": {
+        "pickup": 0,
+        "harvest": 31,
+        "adjust": 0,
+        "return": 1,
+        "unknown": 0,
+        "invalid": 16
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 5,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 2
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 2,
+        "adjust": 0,
+        "return": 1,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "false_return_count": 1,
+    "median_api_s": 2.1252156607806683,
+    "max_request_cycle_s": 19.921206273138523,
+    "median_request_cycle_s": 2.7314166410360485
+  },
+  "phase_after_removing_only_complete_json_fences": {
+    "samples": 63,
+    "valid": 59,
+    "correct": 46,
+    "accuracy": 0.7301587301587301,
+    "per_class_recall": {
+      "pickup": 0.2,
+      "harvest": 0.9166666666666666,
+      "adjust": 0.0,
+      "return": 0.3333333333333333
+    },
+    "confusion": {
+      "pickup": {
+        "pickup": 1,
+        "harvest": 4,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 0
+      },
+      "harvest": {
+        "pickup": 0,
+        "harvest": 44,
+        "adjust": 0,
+        "return": 1,
+        "unknown": 0,
+        "invalid": 3
+      },
+      "adjust": {
+        "pickup": 0,
+        "harvest": 6,
+        "adjust": 0,
+        "return": 0,
+        "unknown": 0,
+        "invalid": 1
+      },
+      "return": {
+        "pickup": 0,
+        "harvest": 2,
+        "adjust": 0,
+        "return": 1,
+        "unknown": 0,
+        "invalid": 0
+      }
+    },
+    "false_return_count": 1,
+    "median_api_s": 2.1252156607806683,
+    "max_request_cycle_s": 19.921206273138523,
+    "median_request_cycle_s": 2.7314166410360485
+  },
+  "fenced_json_recovered": 16,
+  "transitions": [
+    {
+      "from": "pickup",
+      "to": "harvest",
+      "reference_boundary_seconds": 11.4,
+      "first_correct_observation_cutoff": 12.0,
+      "estimated_result_source_seconds": 14.048629947938025,
+      "estimated_observed_to_result_after_boundary_s": 2.6486299479380246,
+      "premature_new_phase_probes_in_previous_4s": 1
+    },
+    {
+      "from": "harvest",
+      "to": "adjust",
+      "reference_boundary_seconds": 46.9,
+      "first_correct_observation_cutoff": null,
+      "estimated_result_source_seconds": null,
+      "estimated_observed_to_result_after_boundary_s": null,
+      "premature_new_phase_probes_in_previous_4s": 0
+    },
+    {
+      "from": "adjust",
+      "to": "harvest",
+      "reference_boundary_seconds": 61.266666666666666,
+      "first_correct_observation_cutoff": 62.0,
+      "estimated_result_source_seconds": 64.06592894392088,
+      "estimated_observed_to_result_after_boundary_s": 2.799262277254215,
+      "premature_new_phase_probes_in_previous_4s": 2
+    },
+    {
+      "from": "harvest",
+      "to": "return",
+      "reference_boundary_seconds": 121.0,
+      "first_correct_observation_cutoff": 125.96666666666667,
+      "estimated_result_source_seconds": 128.60660353057708,
+      "estimated_observed_to_result_after_boundary_s": 7.606603530577075,
+      "premature_new_phase_probes_in_previous_4s": 0
+    }
+  ],
+  "api_exceed_2s_count": 38,
+  "cycle_exceed_2s_count": 58,
+  "video_tokens_reported_count": 63,
+  "max_api_s": 19.35270796297118,
+  "limitations": [
+    "one previously inspected train recording, no general accuracy estimate",
+    "fixed-cadence offline source probes, actual HTTP calls sequential; not a live streaming scheduler",
+    "normalization is posthoc scoring only, original strict failures remained excluded from replay memory",
+    "result source times estimate independent launches; queueing/backpressure/robot execution not measured",
+    "counts not tested; no automatic control"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "samples": 63,
+  "exact_clip_and_history_match": true,
+  "before_correct": 45,
+  "after_correct": 46,
+  "improved": 5,
+  "regressed": 4,
+  "changes": [
+    {
+      "cutoff_seconds": 10.0,
+      "target": "pickup",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "cutoff_seconds": 12.0,
+      "target": "harvest",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "cutoff_seconds": 76.0,
+      "target": "harvest",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "cutoff_seconds": 78.0,
+      "target": "harvest",
+      "before_correct": true,
+      "after_correct": false
+    },
+    {
+      "cutoff_seconds": 80.0,
+      "target": "harvest",
+      "before_correct": true,
+      "after_correct": false
+    },
+    {
+      "cutoff_seconds": 96.0,
+      "target": "harvest",
+      "before_correct": true,
+      "after_correct": false
+    },
+    {
+      "cutoff_seconds": 110.0,
+      "target": "harvest",
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "cutoff_seconds": 116.0,
+      "target": "harvest",
+      "before_correct": true,
+      "after_correct": false
+    },
+    {
+      "cutoff_seconds": 125.96666666666667,
+      "target": "return",
+      "before_correct": false,
+      "after_correct": true
+    }
+  ],
+  "scope": "frozen candidate history prompt-only diagnostic; posthoc fence removal, no new API calls"
+}

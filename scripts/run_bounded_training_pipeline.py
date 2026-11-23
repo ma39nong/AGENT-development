@@ -16,10 +16,19 @@ STATE = ROOT/'runs/bounded_training_pipeline_20261123_v1'
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--boundary-focus", action="store_true")
+    parser.add_argument("--paired-boundary", action="store_true")
     args = parser.parse_args()
+    if args.paired_boundary:
+        args.boundary_focus = True
     data = ROOT/'data/derived/bounded_observation_boundary_sft_20261123_v1' if args.boundary_focus else DATA
     run = ROOT/'runs/bounded_observation_boundary_20261123_v1' if args.boundary_focus else RUN
     state = ROOT/'runs/bounded_boundary_pipeline_20261123_v1' if args.boundary_focus else STATE
+    replay_output = "runs/bounded_history_boundary_allval_20261123_v1"
+    if args.paired_boundary:
+        data = ROOT/"data/derived/bounded_observation_paired_sft_20261123_v1"
+        run = ROOT/"runs/bounded_observation_paired_20261123_v1"
+        state = ROOT/"runs/bounded_paired_pipeline_20261123_v1"
+        replay_output = "runs/bounded_history_paired_allval_20261123_v1"
     state.mkdir(parents=True, exist_ok=False)
     write_json(state/'launch.json', {'pid': os.getpid(), 'started_unix': time.time(), 'data': str(data), 'run': str(run)})
     stages = [
@@ -28,8 +37,8 @@ def main():
         ('training', ['scripts/train_coarse_lora.py', '--config', 'configs/bounded_observation_lora_v1.json', '--data', str(data), '--output', str(run)]),
     ]
     if args.boundary_focus:
-        stages[0][1].append("--boundary-focus")
-        stages.append(("causal_validation", ["scripts/compare_bounded_history.py", "--output", "runs/bounded_history_boundary_allval_20261123_v1",
+        stages[0][1].append("--paired-boundary" if args.paired_boundary else "--boundary-focus")
+        stages.append(("causal_validation", ["scripts/compare_bounded_history.py", "--output", replay_output,
                        "--recordings", "21", "--only-mode", "memory8", "--adapter", str(run/"best")]))
     try:
         for stage, arguments in stages:

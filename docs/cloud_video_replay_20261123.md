@@ -71,3 +71,13 @@ Flash 详细结果：`docs/cloud_video_replay_flash_20261123_results.json`。Max
 日志：`runs/cloud_video_simple_flash_20261123_v1.log`。完成后用 `scripts/report_cloud_video_replay.py` 输出 `docs/cloud_video_simple_flash_20261123_results.json`，与旧 Flash 63 点逐个比较，特别检查非 harvest 类，不按总准确率掩盖类别偏置。若有改善，还需单独做新提示词自身历史的回放，不能直接宣称端到端已修好。
 
 此前 Max 的 63 次原提示词对照也已完成，详细结果见 `docs/cloud_video_replay_max_20261123_results.json`。只移除完整围栏后有效 54/63、正确 49/63；有结构/截断失败，不等于所有错误都属于视觉。Max 拿起 3/5、采摘 40/48、调整 5/7、放回 1/3，API 中位数约 2.933 秒。两模型各自候选不同，不能解释为严格相同历史条件下的纯模型差异。
+
+## 简化提示词的固定输入对照已完成
+
+本次跟进仅汇总已完成的 63 条原始响应，没有新增 API 调用或扩展付费批次。逐点核对视频 cutoff、原帧范围、片段 SHA、目标与输入候选历史均与旧 Flash 完全一致。
+
+严格 JSON：有效 43/63、正确 33/63；仅移除完整 JSON 围栏后，有效 59/63、正确 46/63（73.02%）。旧模板同口径正确 45/63；逐点修正 5 个、退化 4 个，净增加 1 个。pickup 1/5、harvest 44/48、adjust 0/7、return 1/3，错误放回 1 次。始终猜 harvest 的类频率基线仍为 48/63，不能把简化模板认定为已解决阶段识别。
+
+API 响应中位数 2.125 秒、最大 19.353 秒；包含裁剪编码准备的请求周期中位数 2.731 秒、最大 19.921 秒，58/63 次周期超过 2 秒。这不是持续视频连接或真实实时调度实验。识别第二轮 harvest 前的 adjust 仍一直漏检，不能将后续 harvest 命中当作已检测到可靠交接。上述只对一条已检查过的训练录像成立，不估计总体准确率。
+
+报告：`docs/cloud_video_simple_flash_20261123_results.json`；相同输入的逐点比较：`docs/cloud_video_simple_flash_20261123_paired.json`。未改写已发生的候选历史，未发起新模板自身历史回放；本批既定 API 作业均已结束。后续不自动扩展付费请求。

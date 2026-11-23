@@ -65,5 +65,22 @@ class EndpointSampling(unittest.TestCase):
             self.assertTrue(all(a < b for a, b in zip(new[:-1], new[1:])))
 
 
+class PairedBoundarySampling(unittest.TestCase):
+    def test_only_predecessor_changes_relative_to_onset_only(self):
+        from scripts.compare_bounded_history import training_cutoffs
+        segments=[dict(label=label,start_frame=i*300,end_frame=(i+1)*300) for i,label in enumerate(['pickup','harvest','adjust','harvest','return'])]
+        for identity in ('a','b','c','d'):
+            onset=training_cutoffs(segments,30,identity,True)
+            paired=training_cutoffs(segments,30,identity,True,True)
+            self.assertEqual(len(paired),5)
+            self.assertEqual(len(onset-paired),1)
+            self.assertEqual(len(paired-onset),1)
+            self.assertTrue(paired-onset <= {270,870})
+            self.assertTrue(({270,330} <= paired) or ({870,930} <= paired))
+            self.assertIn(1350,paired)
+        with self.assertRaises(ValueError):
+            training_cutoffs(segments,30,'a',False,True)
+
+
 if __name__ == '__main__':
     unittest.main()

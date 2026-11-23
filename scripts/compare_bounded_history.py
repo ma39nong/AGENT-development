@@ -78,14 +78,19 @@ def sample_through_end(metadata, fps=2, **kwargs):
     return np.linspace(0, metadata.total_num_frames-1, len(original), dtype=int)
 
 
-def training_cutoffs(segments, fps, recording_id, boundary_focus=False):
+def training_cutoffs(segments, fps, recording_id, boundary_focus=False, paired_boundary=False):
     cutoffs = [(s["start_frame"]+s["end_frame"])//2 for s in segments]
+    if paired_boundary and not boundary_focus:
+        raise ValueError("paired boundary requires boundary focus")
     if boundary_focus:
         if [s["label"] for s in segments] != ["pickup", "harvest", "adjust", "harvest", "return"]:
             raise ValueError("boundary-focus experiment requires reviewed five-phase sequence")
         index = (1, 3)[int(hashlib.sha256(recording_id.encode()).hexdigest()[:8], 16) % 2]
         stage = segments[index]
         cutoffs[index] = min(stage["end_frame"], stage["start_frame"]+max(1, round(fps)))
+        if paired_boundary:
+            previous = segments[index-1]
+            cutoffs[index-1] = max(previous["start_frame"]+1, stage["start_frame"]-max(1, round(fps)))
     if len(set(cutoffs)) != len(segments):
         raise ValueError("duplicate training probes")
     return set(cutoffs)
@@ -101,7 +106,10 @@ def main():
     p.add_argument("--prepare-training", action="store_true", help="Frozen candidate rollout on train/val midpoints; export bounded SFT inputs")
     p.add_argument("--boundary-focus", action="store_true", help="Train-only fixed-budget sampling ablation; copy original validation inputs")
     p.add_argument("--sample-through-end", action="store_true", help="Evaluation-only ablation: same sample count, include actual latest source frame")
+    p.add_argument("--paired-boundary", action="store_true", help="Pair each selected harvest onset with predecessor endpoint; fixed training budget")
     args = p.parse_args()
+    if args.paired_boundary:
+        args.boundary_focus = True
     if args.sample_through_end and args.prepare_training:
         raise ValueError("endpoint sampling ablation is evaluation only")
     if args.boundary_focus and (not args.prepare_training or args.current_frame):
@@ -129,7 +137,7 @@ def main():
         if row["split"] not in ({"train", "val"} if args.prepare_training else {"val"}) or digest(Path(row["video"])) != row["video_sha256"] or digest(Path(row["annotation"])) != row["annotation_sha256"]:
             raise ValueError("validation identity changed")
         segments = json.loads(Path(row["annotation"]).read_text())["segments"]
-        cutoffs = training_cutoffs(segments, row["fps"], row["source_recording_id"], args.boundary_focus)
+        cutoffs = training_cutoffs(segments, row["fps"], row["source_recording_id"], args.boundary_focus, args.paired_boundary)
         for s in ([] if args.prepare_training else segments[:-1]):
             cutoffs.update([s["end_frame"]-round(row["fps"]), s["end_frame"]+round(row["fps"])])
         for cutoff in sorted(c for c in cutoffs if 0 < c < row["frames"]):
@@ -138,12 +146,12 @@ def main():
             jobs.append({"row": row, "cutoff_frame": cutoff, "target_phase": segments[phase-1]["label"], "target_index": phase})
     write_json(args.output/"protocol.json", {"adapter": str(adapter), "adapter_sha256": digest(adapter/"adapter_model.safetensors"),
         "recording_ids": [r["source_recording_id"] for r in rows], "split": "train_with_copied_validation" if args.boundary_focus else ("train_and_val" if args.prepare_training else "validation"),
-        "boundary_focus": args.boundary_focus, "sample_through_end": args.sample_through_end,
+        "boundary_focus": args.boundary_focus, "paired_boundary": args.paired_boundary, "sample_through_end": args.sample_through_end,
         "modes": modes, "probes_per_mode": len(jobs), "training": False, "robot_control": False,
         "explicit_newest_frame": args.current_frame,
         "history": "previous actual model candidates only, at most 2 distinct label/index candidates and 2 original sampled frames; 384 text-token budget",
         "memory_availability": "observation cutoff and estimated result receipt must be <= current cutoff",
-        "sampling": "one harvest midpoint per training recording replaced by start+1s; other midpoints retained; original validation copied" if args.boundary_focus else "annotation-stratified phase midpoints and +/-1s boundary probes; labels used only for coverage/scoring",
+        "sampling": "paired before/after one harvest onset per training recording; three other midpoints; original validation copied" if args.paired_boundary else "one harvest midpoint per training recording replaced by start+1s; other midpoints retained; original validation copied" if args.boundary_focus else "annotation-stratified phase midpoints and +/-1s boundary probes; labels used only for coverage/scoring",
         "limitations": "Frozen whole-video adapter, new short-output prompt. Offline causal probes, not continuous live execution; receipt estimate excludes queue/transport; no persistent KV reuse."})
     import cv2
     from PIL import Image
@@ -283,7 +291,7 @@ def main():
             if args.boundary_focus:
                 shutil.copyfile(root/"data/derived/bounded_observation_sft_20261123_v1/val.jsonl", args.output/"val.jsonl")
             write_json(args.output/"summary.json", {"counts": {split: len((args.output/(split+".jsonl")).read_text().splitlines()) for split in ("train", "val")},
-                "boundary_focus": args.boundary_focus,
+                "boundary_focus": args.boundary_focus, "paired_boundary": args.paired_boundary,
                 "validation_inputs": "byte-identical copy of v1 fixed validation" if args.boundary_focus else "midpoint rollouts",
                 "manifests_sha256": {split: digest(args.output/(split+".jsonl")) for split in ("train", "val")},
                 "history": "own frozen-model candidates, never ground truth; <=2 images and 384 text tokens",
