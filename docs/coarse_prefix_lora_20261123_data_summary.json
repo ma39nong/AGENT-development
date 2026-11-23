@@ -1,0 +1,23 @@
+{
+  "counts": {
+    "train": 755,
+    "val": 105
+  },
+  "source_recordings": {
+    "train": 151,
+    "val": 21
+  },
+  "source_lock_sha256": "c6e60835121e9f4cd1f6480eb018647359c4e34f01c5d1e2b42f2c0092ead332",
+  "camera": "cam0",
+  "prompt_sha256": "7cc21a1b97ad49604e467ff0a0d9025386465e61b0aaa4131b0a251744bd2781",
+  "manifests_sha256": {
+    "train": "1de18ebced9262514496a1ad41616f7084cf13480a5b87da1afeb7c6eea5ab36",
+    "val": "6b6f07a48c7a49c1f53e536604946bdef8105c3207a1fb3a10fefb932a6d975f"
+  },
+  "physical_prefix_video": true,
+  "source_last_frame_strictly_before_cutoff": true,
+  "sampling": "one midpoint per annotated phase; pilot only, boundary density not covered",
+  "test_or_new_recordings_used": false,
+  "label_scope": "last stage right censored at cutoff; no future phases",
+  "encoding": "h264 crf18 ultrafast; same frame clock, not byte-identical pixels"
+}

@@ -65,6 +65,17 @@ def evaluate_answer(raw, truth):
         return {"valid": False, "error": str(exc)}
 
 
+def current_phase_metrics(raw, truth):
+    """Current label/index accuracy is separate from complete-history correctness."""
+    try:
+        actual = json.loads(raw)["segments"][-1]
+        expected = json.loads(truth)["segments"][-1]
+        return {"current_label_correct": actual["label"] == expected["label"],
+                "current_phase_index_correct": actual["phase_index"] == expected["phase_index"]}
+    except (ValueError, KeyError, TypeError, IndexError):
+        return {"current_label_correct": False, "current_phase_index_correct": False}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, required=True)
@@ -78,7 +89,7 @@ def main():
     import torch
     import peft
     import transformers
-    from peft import LoraConfig, TaskType, get_peft_model
+    from peft import LoraConfig, PeftModel, TaskType, get_peft_model
     from transformers import AutoProcessor, Qwen3VLForConditionalGeneration, get_cosine_schedule_with_warmup
     from transformers.video_utils import load_video
 
@@ -118,7 +129,13 @@ def main():
         raise ValueError("no language-side LoRA targets found")
     lora_config = LoraConfig(task_type=TaskType.CAUSAL_LM, r=config["lora_rank"], lora_alpha=config["lora_alpha"],
                              lora_dropout=config["lora_dropout"], target_modules=targets, bias="none")
-    model = get_peft_model(model, lora_config)
+    if config.get("initial_adapter"):
+        model = PeftModel.from_pretrained(model, config["initial_adapter"], is_trainable=True)
+        loaded = model.peft_config["default"]
+        if loaded.r != config["lora_rank"] or loaded.lora_alpha != config["lora_alpha"]:
+            raise ValueError("initial adapter configuration differs")
+    else:
+        model = get_peft_model(model, lora_config)
     if config["gradient_checkpointing"]:
         model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
         model.enable_input_require_grads()
@@ -129,6 +146,8 @@ def main():
     parameters = [(n, p) for n, p in model.named_parameters() if p.requires_grad]
     if not parameters or any("lora_" not in name or ".visual." in name for name, _ in parameters):
         raise ValueError("unexpected trainable base or visual weights")
+    smoke_parameter = next(p for name, p in parameters if "lora_B" in name) if args.smoke else None
+    smoke_before = smoke_parameter.detach().cpu().clone() if args.smoke else None
     run = {"config": config, "smoke": args.smoke, "train_count": len(train), "val_count": len(val),
            "torch": torch.__version__, "transformers": transformers.__version__, "peft": peft.__version__,
            "gpu": torch.cuda.get_device_name(0), "trainable_parameters": sum(p.numel() for _, p in parameters),
@@ -136,7 +155,10 @@ def main():
            "target_modules": targets, "manifest_summary": manifest_summary,
            "trainer_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
            "video_processor_size": dict(processor.video_processor.size), "sealed_test_used": False,
-           "robot_control": False, "counting_supervision": False, "input_type": "full_original_head_video_native_video_tokens"}
+           "robot_control": False, "counting_supervision": False,
+           "input_type": "physical_causal_head_video_prefix" if config.get("prefix_task") else "full_original_head_video_native_video_tokens"}
+    if config.get("initial_adapter"):
+        run["initial_adapter_sha256"] = hashlib.sha256((Path(config["initial_adapter"])/"adapter_model.safetensors").read_bytes()).hexdigest()
     write_json(args.output/"run.json", run)
     log("model_ready", trainable_parameters=run["trainable_parameters"], lora_target_count=len(targets))
     header = processor.tokenizer.encode("<|im_start|>assistant\n", add_special_tokens=False)
@@ -195,11 +217,15 @@ def main():
                 output = model.generate(**inputs, max_new_tokens=config["generation_max_new_tokens"], do_sample=False, use_cache=True)
                 raw = processor.tokenizer.decode(output[0, inputs["input_ids"].shape[-1]:], skip_special_tokens=True)
                 predictions.append({"source_recording_id": row["source_recording_id"], "raw_output": raw,
-                                    "target": row["answer"], "metrics": evaluate_answer(raw, row["answer"])})
+                                    "sample_id": row.get("sample_id", row["source_recording_id"]),
+                                    "target": row["answer"], "metrics": evaluate_answer(raw, row["answer"]),
+                                    "online_metrics": current_phase_metrics(raw, row["answer"])})
         valid = [p["metrics"] for p in predictions if p["metrics"]["valid"]]
         result = {"tag": tag, "global_step": step, "validation_loss": sum(losses)/len(losses),
                   "loss_samples": len(losses), "generation_samples": len(predictions), "valid_outputs": len(valid),
                   "boundary_mae_s_valid_only": sum(v["boundary_mae_s"] for v in valid)/len(valid) if valid else None,
+                  "current_label_accuracy": sum(p["online_metrics"]["current_label_correct"] for p in predictions)/len(predictions) if predictions else None,
+                  "current_phase_index_accuracy": sum(p["online_metrics"]["current_phase_index_correct"] for p in predictions)/len(predictions) if predictions else None,
                   "predictions": predictions}
         write_json(args.output/("eval-"+tag+".json"), result)
         log("evaluation", **{k: v for k, v in result.items() if k != "predictions"})
@@ -207,6 +233,10 @@ def main():
 
     # Fixed validation subset across baseline and checkpoints; never inspect sealed tests.
     generation_rows = sorted(val, key=lambda r: r["source_recording_id"])[:config["generation_eval_samples"]]
+    if config.get("prefix_task"):
+        # Select complete prefix sets from fixed validation recordings, rather than only early phases.
+        identities = sorted({r["source_recording_id"] for r in val})[:config.get("generation_eval_recordings", 3)]
+        generation_rows = [r for r in val if r["source_recording_id"] in identities]
     sequence_lengths = {len(json.loads(row["answer"])["segments"]) for row in train}
     if len(sequence_lengths) == 1:
         count = next(iter(sequence_lengths))
@@ -217,9 +247,11 @@ def main():
         write_json(args.output/"duration_only_prior.json", {"normalized_training_median_boundaries": fractions,
                    "note": "Nonvisual baseline, train-only statistics; compare boundary errors rather than fixed five-label accuracy."})
     best_loss = float("inf")
-    if not args.smoke:
+    if not args.smoke and config.get("evaluate_base_model", True):
         with model.disable_adapter():
             evaluate("baseline", generation_rows)
+    if not args.smoke and config.get("initial_adapter"):
+        evaluate("initial-adapter", generation_rows)
     try:
         for epoch in range(epochs):
             order = list(train)
@@ -258,7 +290,8 @@ def main():
                     checkpoint(f"checkpoint-{step:04d}", epoch, offset+len(group))
             if args.smoke:
                 nonzero = any(bool(torch.count_nonzero(p)) for name, p in parameters if "lora_B" in name)
-                if not nonzero:
+                changed = not torch.equal(smoke_before, smoke_parameter.detach().cpu())
+                if not nonzero or not changed:
                     raise ValueError("LoRA B weights did not update")
                 write_json(args.output/"smoke_result.json", {"passed": True, "loss_finite": True,
                            "gradients_finite": True, "lora_weights_updated": True,
