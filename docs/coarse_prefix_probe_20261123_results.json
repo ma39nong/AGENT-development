@@ -1,0 +1,270 @@
+{
+  "protocol": {
+    "source": {
+      "source_recording_id": "67f911991c9140389621e7c9db6f05e2",
+      "package": "B/1120_1269_1273_normal",
+      "episode_index": 1,
+      "video": "/home/user/datasets/tomato_new_1120_20261123/B/1120_1269_1273_normal/videos/chunk-000/observation.images.cam0/episode_000001.mp4",
+      "video_sha256": "817f8b30cf912cae3da9f488a1299796dde8ad1f5f184d29e145e0912ac7ec43",
+      "frames": 2438,
+      "fps": 30,
+      "new_relative_to_204": true
+    },
+    "cutoffs_seconds": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      81.26666666666667
+    ],
+    "adapter": "coarse_lora_20261123_v1/best",
+    "online_prompt_append": "输入是进行中的视频前缀，只标已经观察到的阶段，末段可以未完成，不补齐未来阶段。",
+    "no_future_frames": true,
+    "robot_control": false,
+    "training": false,
+    "note": "Prefix-only transfer diagnostic; model was trained on complete videos, not online prefixes. No reference labels or full-video predictions supplied. Five-second fixed sampling. Serial timing simulation uses measured preparation+generation, excludes model load and prefix encoding."
+  },
+  "results": [
+    {
+      "cutoff_seconds": 5,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":3.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":3.00,\"end_seconds\":4.00},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":4.00,\"end_seconds\":4.60},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":4.60,\"end_seconds\":4.97},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":4.97,\"end_seconds\":5.00}]}",
+      "generation_seconds": 2.804680465022102,
+      "preparation_and_generation_seconds": 2.856155143119395,
+      "simulated_result_available_seconds": 7.856155143119395,
+      "source_last_frame": 149,
+      "source_last_frame_seconds": 4.966666666666667
+    },
+    {
+      "cutoff_seconds": 10,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "harvest",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":8.90},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":8.90,\"end_seconds\":10.00}]}",
+      "generation_seconds": 1.2648855759762228,
+      "preparation_and_generation_seconds": 1.3443590770475566,
+      "simulated_result_available_seconds": 11.344359077047557,
+      "source_last_frame": 299,
+      "source_last_frame_seconds": 9.966666666666667
+    },
+    {
+      "cutoff_seconds": 15,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "adjust",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":11.87},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":11.87,\"end_seconds\":14.00},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":14.00,\"end_seconds\":15.00}]}",
+      "generation_seconds": 1.977194458944723,
+      "preparation_and_generation_seconds": 2.102752004051581,
+      "simulated_result_available_seconds": 17.10275200405158,
+      "source_last_frame": 449,
+      "source_last_frame_seconds": 14.966666666666667
+    },
+    {
+      "cutoff_seconds": 20,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "harvest",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":11.97},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":11.97,\"end_seconds\":18.30},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":18.30,\"end_seconds\":19.30},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":19.30,\"end_seconds\":20.00}]}",
+      "generation_seconds": 2.7629431339446455,
+      "preparation_and_generation_seconds": 2.9218243730720133,
+      "simulated_result_available_seconds": 22.921824373072013,
+      "source_last_frame": 599,
+      "source_last_frame_seconds": 19.966666666666665
+    },
+    {
+      "cutoff_seconds": 25,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "adjust",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":11.97},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":11.97,\"end_seconds\":23.60},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":23.60,\"end_seconds\":25.00}]}",
+      "generation_seconds": 2.460836675018072,
+      "preparation_and_generation_seconds": 2.656848340993747,
+      "simulated_result_available_seconds": 27.656848340993747,
+      "source_last_frame": 749,
+      "source_last_frame_seconds": 24.966666666666665
+    },
+    {
+      "cutoff_seconds": 30,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "adjust",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":28.00},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":28.00,\"end_seconds\":30.00}]}",
+      "generation_seconds": 2.3525785570964217,
+      "preparation_and_generation_seconds": 2.5696637930814177,
+      "simulated_result_available_seconds": 32.56966379308142,
+      "source_last_frame": 899,
+      "source_last_frame_seconds": 29.966666666666665
+    },
+    {
+      "cutoff_seconds": 35,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":24.60},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":24.60,\"end_seconds\":28.00},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":28.00,\"end_seconds\":33.60},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":33.60,\"end_seconds\":35.00}]}",
+      "generation_seconds": 3.4926250190474093,
+      "preparation_and_generation_seconds": 3.7349034801591188,
+      "simulated_result_available_seconds": 38.73490348015912,
+      "source_last_frame": 1049,
+      "source_last_frame_seconds": 34.96666666666667
+    },
+    {
+      "cutoff_seconds": 40,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":11.87},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":11.87,\"end_seconds\":24.67},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":24.67,\"end_seconds\":28.00},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":28.00,\"end_seconds\":38.67},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":38.67,\"end_seconds\":40.00}]}",
+      "generation_seconds": 3.6595546291209757,
+      "preparation_and_generation_seconds": 3.9704472641460598,
+      "simulated_result_available_seconds": 43.97044726414606,
+      "source_last_frame": 1199,
+      "source_last_frame_seconds": 39.96666666666667
+    },
+    {
+      "cutoff_seconds": 45,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":24.60},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":24.60,\"end_seconds\":28.00},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":28.00,\"end_seconds\":43.60},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":43.60,\"end_seconds\":45.00}]}",
+      "generation_seconds": 4.030338167911395,
+      "preparation_and_generation_seconds": 4.399084182921797,
+      "simulated_result_available_seconds": 49.3990841829218,
+      "source_last_frame": 1349,
+      "source_last_frame_seconds": 44.96666666666667
+    },
+    {
+      "cutoff_seconds": 50,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "adjust",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":48.00},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":48.00,\"end_seconds\":50.00}]}",
+      "generation_seconds": 3.0877410541288555,
+      "preparation_and_generation_seconds": 3.5194278489798307,
+      "simulated_result_available_seconds": 53.51942784897983,
+      "source_last_frame": 1499,
+      "source_last_frame_seconds": 49.96666666666667
+    },
+    {
+      "cutoff_seconds": 55,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "harvest",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":48.33},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":48.33,\"end_seconds\":50.00},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":50.00,\"end_seconds\":55.00}]}",
+      "generation_seconds": 3.4121644562110305,
+      "preparation_and_generation_seconds": 3.8150898420717567,
+      "simulated_result_available_seconds": 58.81508984207176,
+      "source_last_frame": 1649,
+      "source_last_frame_seconds": 54.96666666666667
+    },
+    {
+      "cutoff_seconds": 60,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":48.60},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":48.60,\"end_seconds\":50.00},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":50.00,\"end_seconds\":58.60},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":58.60,\"end_seconds\":60.00}]}",
+      "generation_seconds": 4.095316163962707,
+      "preparation_and_generation_seconds": 4.524364436976612,
+      "simulated_result_available_seconds": 64.52436443697661,
+      "source_last_frame": 1799,
+      "source_last_frame_seconds": 59.96666666666667
+    },
+    {
+      "cutoff_seconds": 65,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":48.33},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":48.33,\"end_seconds\":50.67},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":50.67,\"end_seconds\":63.33},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":63.33,\"end_seconds\":65.00}]}",
+      "generation_seconds": 3.9289734580088407,
+      "preparation_and_generation_seconds": 4.362629492999986,
+      "simulated_result_available_seconds": 69.36262949299999,
+      "source_last_frame": 1949,
+      "source_last_frame_seconds": 64.96666666666667
+    },
+    {
+      "cutoff_seconds": 70,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":48.33},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":48.33,\"end_seconds\":50.00},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":50.00,\"end_seconds\":68.67},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":68.67,\"end_seconds\":70.00}]}",
+      "generation_seconds": 3.991735484916717,
+      "preparation_and_generation_seconds": 4.451607302064076,
+      "simulated_result_available_seconds": 74.45160730206408,
+      "source_last_frame": 2099,
+      "source_last_frame_seconds": 69.96666666666667
+    },
+    {
+      "cutoff_seconds": 75,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":48.33},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":48.33,\"end_seconds\":50.00},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":50.00,\"end_seconds\":71.33},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":71.33,\"end_seconds\":75.00}]}",
+      "generation_seconds": 4.139781070873141,
+      "preparation_and_generation_seconds": 4.627397662959993,
+      "simulated_result_available_seconds": 79.62739766295999,
+      "source_last_frame": 2249,
+      "source_last_frame_seconds": 74.96666666666667
+    },
+    {
+      "cutoff_seconds": 80,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":48.60},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":48.60,\"end_seconds\":50.00},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":50.00,\"end_seconds\":77.60},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":77.60,\"end_seconds\":80.00}]}",
+      "generation_seconds": 3.8974500119220465,
+      "preparation_and_generation_seconds": 4.4664636119268835,
+      "simulated_result_available_seconds": 84.46646361192688,
+      "source_last_frame": 2399,
+      "source_last_frame_seconds": 79.96666666666667
+    },
+    {
+      "cutoff_seconds": 81.26666666666667,
+      "schema_check": {
+        "valid": true
+      },
+      "current_phase": "return",
+      "raw_output": "{\"segments\":[{\"phase_index\":1,\"label\":\"pickup\",\"start_seconds\":0.00,\"end_seconds\":12.00},{\"phase_index\":2,\"label\":\"harvest\",\"start_seconds\":12.00,\"end_seconds\":48.60},{\"phase_index\":3,\"label\":\"adjust\",\"start_seconds\":48.60,\"end_seconds\":50.60},{\"phase_index\":4,\"label\":\"harvest\",\"start_seconds\":50.60,\"end_seconds\":77.60},{\"phase_index\":5,\"label\":\"return\",\"start_seconds\":77.60,\"end_seconds\":81.27}]}",
+      "generation_seconds": 3.902471449924633,
+      "preparation_and_generation_seconds": 4.425795402145013,
+      "simulated_result_available_seconds": 88.8922590140719,
+      "source_last_frame": 2437,
+      "source_last_frame_seconds": 81.23333333333333
+    }
+  ],
+  "independent_reference_annotations": false,
+  "accuracy": null,
+  "visual_spotchecks": {
+    "5_seconds": "右手在右盘接触持有对象，之后才拿起；模型将前缀判为return。",
+    "15_seconds": "持串手在中间，摘果手向番茄靠近；模型报告adjust。",
+    "35_seconds": "持串手仍在中间，摘果手处于采摘作业区域；模型报告return。"
+  },
+  "note": "Single-video causal prefix transfer probe. Prefix sampling every 5s, not continuous online inference; captions simulate result availability using measured preparation+generation and serial queue. No robot decisions."
+}
