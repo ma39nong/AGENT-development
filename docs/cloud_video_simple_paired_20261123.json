@@ -1,0 +1,72 @@
+{
+  "samples": 63,
+  "identical_video_sha_and_history": true,
+  "normalized_helped": 5,
+  "normalized_harmed": 4,
+  "changes": [
+    {
+      "cutoff_seconds": 10.0,
+      "target": "pickup",
+      "before": "harvest",
+      "after": "pickup",
+      "helped": true
+    },
+    {
+      "cutoff_seconds": 12.0,
+      "target": "harvest",
+      "before": "pickup",
+      "after": "harvest",
+      "helped": true
+    },
+    {
+      "cutoff_seconds": 76.0,
+      "target": "harvest",
+      "before": null,
+      "after": "harvest",
+      "helped": true
+    },
+    {
+      "cutoff_seconds": 78.0,
+      "target": "harvest",
+      "before": "harvest",
+      "after": "return",
+      "helped": false
+    },
+    {
+      "cutoff_seconds": 80.0,
+      "target": "harvest",
+      "before": "harvest",
+      "after": null,
+      "helped": false
+    },
+    {
+      "cutoff_seconds": 96.0,
+      "target": "harvest",
+      "before": "harvest",
+      "after": null,
+      "helped": false
+    },
+    {
+      "cutoff_seconds": 110.0,
+      "target": "harvest",
+      "before": null,
+      "after": "harvest",
+      "helped": true
+    },
+    {
+      "cutoff_seconds": 116.0,
+      "target": "harvest",
+      "before": "harvest",
+      "after": null,
+      "helped": false
+    },
+    {
+      "cutoff_seconds": 125.96666666666667,
+      "target": "return",
+      "before": "harvest",
+      "after": "return",
+      "helped": true
+    }
+  ],
+  "limitations": "one recording and one call per condition; no repeat-based prompt superiority estimate; frozen original history, not new-policy closed-loop"
+}
