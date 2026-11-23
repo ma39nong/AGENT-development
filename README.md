@@ -48,6 +48,7 @@ python3 scripts/check_model.py --model-dir /absolute/path/to/Qwen3-VL-4B-Instruc
 - [用户粗阶段原提示词复测](docs/user_coarse_prompt_retest_20261121.md)
 - [本地baseline、流式历史与Prompt切换筛查](docs/baseline_capability_20261121.md)
 - [完整视频粗阶段LoRA首轮训练](docs/coarse_lora_20261123.md)
+- [28号机器5条新增原始录像的首次划分与画面复核](docs/new_raw_20261123.md)
 
 当前任务：按用户收窄范围，仅训练完整视频粗阶段分段；计数与在线Prompt切换留待后续。训练已完成，21条验证的边界平均绝对误差0.24秒；32条独立测试完成，边界平均绝对误差0.35秒（20条盲测0.29秒）；[详细测试结果](docs/coarse_lora_20261123_test.md)，不能把loss下降或标签顺序正确当作边界完全准确。
 
